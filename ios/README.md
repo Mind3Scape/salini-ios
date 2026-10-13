@@ -1,5 +1,7 @@
 # Salini Experience
 
+> Историческое подробное описание развития приложения. Актуальная точка входа после выделения репозитория — [основной README](../README.md); статус материалов, AR и Insight — [PRODUCT.md](../docs/PRODUCT.md). Для build 12 приоритет имеет [релизная запись](release/README.md).
+
 Нативное приложение для iOS 27: UIKit, системный Liquid Glass, SceneKit, MapKit, QuickLook, PDFKit. Без WebView и внешних зависимостей во время выполнения. Все данные лежат в bundle; проекты и настройки хранятся только на устройстве.
 
 ## Три режима
@@ -46,7 +48,7 @@
 
 ## Коллекции
 
-Галерея Ninfea, Aria, Opera и Greca на главной не менялась в этой итерации. Контракт фильмов: **вступление проигрывается один раз, затем живой фоновый цикл** (`AVPlayerLooper`); без play/pause и шкалы; страницы вне экрана освобождают декодеры; Reduce Motion показывает финальную композицию. Ninfea — `ninfea-film-v3.mp4` + `ninfea-loop-v1.mp4`; Aria, Opera, Greca — `*-film-v1` + `*-loop-v1`. V2 исключена из сборки. Фильмы — авторские визуальные истории, созданные с ИИ по фотографиям изделий; не съёмка интерьеров и не цветопроба. [Происхождение Ninfea V3](../research/ninfea-cinema-2026-10-06/v3/README.md).
+Галерея Ninfea, Aria, Opera и Greca на главной не менялась в этой итерации. Контракт фильмов: **вступление проигрывается один раз, затем живой фоновый цикл** (`AVPlayerLooper`); без play/pause и шкалы; страницы вне экрана освобождают декодеры; Reduce Motion показывает финальную композицию. Ninfea — `ninfea-film-v3.mp4` + `ninfea-loop-v1.mp4`; Aria, Opera, Greca — `*-film-v1` + `*-loop-v1`. V2 исключена из сборки. Фильмы — авторские визуальные истории, созданные с ИИ по фотографиям изделий; не съёмка интерьеров и не цветопроба. [Происхождение Ninfea V3](https://github.com/Mind3Scape/solini-render-studio/blob/ee56a2267adba72999ce03bac8351c21bd89184d/research/ninfea-cinema-2026-10-06/v3/README.md).
 
 ## Salini Inside
 
@@ -61,9 +63,9 @@
 - **Камера следует выбранному заказу:** Marea проходит ОТК → упаковку → погрузчик → док 02 → машину. Выпуск рейса из панели переводит к его машине; за воротами фокус остаётся у выезда. Другой заказ автоматически не подставляется.
 - **Ручной обзор:** перемещение и масштабирование сохраняют фиксированную изометрию; обновления модели не возвращают камеру. «К событию» ведёт к текущему положению выбранного процесса. Сценарии F-04 (Aria), пауза, Reduce Motion, крыши, слои и тур сохранены.
 
-[Дизайн и проверка Insight](../research/native-evolution-2026-10-07/INSIGHT-UX.md).
+[Дизайн и проверка Insight](https://github.com/Mind3Scape/solini-render-studio/blob/ee56a2267adba72999ce03bac8351c21bd89184d/research/native-evolution-2026-10-07/INSIGHT-UX.md).
 
-Планировка, люди, заказы, показатели и циклы — демонстрационные; оборудование нарисовано по фотографиям производства. 12 000+ м², два комплекса и роботизированный комплекс — заявления Salini, не измерение макета. [Решения](../research/owner-campus-2026-10-06/DECISIONS.md).
+Планировка, люди, заказы, показатели и циклы — демонстрационные; оборудование нарисовано по фотографиям производства. 12 000+ м², два комплекса и роботизированный комплекс — заявления Salini, не измерение макета. [Решения](https://github.com/Mind3Scape/solini-render-studio/blob/ee56a2267adba72999ce03bac8351c21bd89184d/research/owner-campus-2026-10-06/DECISIONS.md).
 
 ## Ограничения
 
@@ -88,8 +90,8 @@ xcodebuild -project Salini.xcodeproj -scheme Salini \
   -derivedDataPath .build -parallel-testing-enabled NO test
 ```
 
-Результаты проверок — [QA.md](QA.md). Ход работы — [IMPLEMENTATION-STATUS](../research/native-evolution-2026-10-07/IMPLEMENTATION-STATUS.md).
+Результаты проверок — [QA.md](QA.md). Ход работы — [IMPLEMENTATION-STATUS](https://github.com/Mind3Scape/solini-render-studio/blob/ee56a2267adba72999ce03bac8351c21bd89184d/research/native-evolution-2026-10-07/IMPLEMENTATION-STATUS.md).
 
 ## Изображения и достоверность
 
-Логотип, фотографии изделий, USDZ, тексты преимуществ и FAQ — материалы Salini с публичного сайта и презентации «Новинки 2026»; права принадлежат владельцам, лицензия кода на них не распространяется. Источники кураторских ассетов главной — [ASSET_SOURCES.json](ASSET_SOURCES.json). Архив сайта хранится локально и исключён из Git; [исследование](../research/site-audit-2026-10-06/report/index.html) и инвентаризация — в репозитории.
+Логотип, фотографии изделий, USDZ, тексты преимуществ и FAQ — материалы Salini с публичного сайта и презентации «Новинки 2026»; права принадлежат владельцам, лицензия кода на них не распространяется. Источники кураторских ассетов главной — [ASSET_SOURCES.json](ASSET_SOURCES.json). Архив сайта хранится локально и исключён из Git; [исследование](https://github.com/Mind3Scape/solini-render-studio/blob/ee56a2267adba72999ce03bac8351c21bd89184d/research/site-audit-2026-10-06/report/index.html) и инвентаризация — в репозитории.

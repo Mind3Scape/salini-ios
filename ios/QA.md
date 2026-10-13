@@ -44,7 +44,7 @@ Opus 5.5 реализовал checkpoints 6.0–6.6 через Claude Code. Code
 
 ## Предыдущая итерация · каталог и материалы · 7 октября 2026
 
-Xcode 27.0 · iOS 27.0 Simulator «Salini — iOS 27» (iPhone 18 Pro). Реализация — Opus 5.5 через Claude Code; направление, код-ревью, сборка, тесты и визуальная проверка — Codex. [Ход итераций](../research/native-evolution-2026-10-07/IMPLEMENTATION-STATUS.md).
+Xcode 27.0 · iOS 27.0 Simulator «Salini — iOS 27» (iPhone 18 Pro). Реализация — Opus 5.5 через Claude Code; направление, код-ревью, сборка, тесты и визуальная проверка — Codex. [Ход итераций](https://github.com/Mind3Scape/solini-render-studio/blob/ee56a2267adba72999ce03bac8351c21bd89184d/research/native-evolution-2026-10-07/IMPLEMENTATION-STATUS.md).
 
 ### Автоматические проверки
 

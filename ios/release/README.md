@@ -9,10 +9,10 @@ The signed archive includes native room AR for 13 official models, the new anima
 
 - Final focused integration tests: **13 passed, 0 failed**, normal command exit0. Earlier AR+Insight full suite: **141 passed**, with a separately recorded post-test runner finalization interruption.
 - Signed archive verified; all195 audited assets verified. Six PNGs were losslessly re-encoded by Xcode; decoded pixels and alpha are identical.
-- [Home reveal in the running app](../../research/room-ar-2026-10-09/evidence/essence/home-reveal.mp4) · [Material selection](../../research/room-ar-2026-10-09/evidence/essence/home-selection.mp4).
+- [Home reveal in the running app](https://github.com/Mind3Scape/solini-render-studio/blob/ee56a2267adba72999ce03bac8351c21bd89184d/research/room-ar-2026-10-09/evidence/essence/home-reveal.mp4) · [Material selection](https://github.com/Mind3Scape/solini-render-studio/blob/ee56a2267adba72999ce03bac8351c21bd89184d/research/room-ar-2026-10-09/evidence/essence/home-selection.mp4).
 - [Validation and limits](build-12-validation.txt). Real room AR still requires physical-iPhone verification; simulator fallback is not a camera AR test.
 
-Build12 distribution is complete; do not upload or submit it again. Build-specific What to Test was saved. Prepared app-wide description/review-note replacements were not saved; the existing metadata remains. The obsolete `opus-salini-insight` monitor was deleted on 10 October 2026. The new [2.5D graphics lab](../../research/insight-layered-poc-2026-10-10/README.md) is a separate simulator experiment for user evaluation and is not part of build12.
+Build12 distribution is complete; do not upload or submit it again. Build-specific What to Test was saved. Prepared app-wide description/review-note replacements were not saved; the existing metadata remains. The obsolete `opus-salini-insight` monitor was deleted on 10 October 2026. The new [2.5D graphics lab](https://github.com/Mind3Scape/solini-render-studio/blob/ee56a2267adba72999ce03bac8351c21bd89184d/research/insight-layered-poc-2026-10-10/README.md) is a separate simulator experiment for user evaluation and is not part of build12.
 
 ---
 
@@ -41,7 +41,7 @@ assets, reviewed the code, built and checked the running app.
 
 - **133 tests passed, 0 failed**, 225.296 seconds on iPhone 18 Pro / iOS 27 simulator.
 - Visual checks cover ordinary entry, day/night QC lighting, follow/manual controls, cutaway and truck framing.
-- [60-second loading/departure recording](../../research/insight-poc-2026-10-08/qa-build11/ios-loading-motion.mp4).
+- [60-second loading/departure recording](https://github.com/Mind3Scape/solini-render-studio/blob/ee56a2267adba72999ce03bac8351c21bd89184d/research/insight-poc-2026-10-08/qa-build11/ios-loading-motion.mp4).
 - Release archive is signed and all **177 resource files** match their source SHA-256 hashes.
 - [Validation and limits](build-11-validation.txt). Direct touch gestures and physical-device performance remain device QA.
 
@@ -73,7 +73,7 @@ Blender pipeline; Codex researched and downloaded source assets, directed multip
 
 - Full suite: **119 passed, 0 failed, 0 skipped**, 236.913 seconds.
 - iPhone 18 Pro / iOS 27 simulator: normal entry, day/night, zoom, pause, accessible object selection and cards checked.
-- A 279.77-second recording shows the live loading/departure cycle. [42-second excerpt](../../research/insight-poc-2026-10-08/qa/ios-departure.mp4).
+- A 279.77-second recording shows the live loading/departure cycle. [42-second excerpt](https://github.com/Mind3Scape/solini-render-studio/blob/ee56a2267adba72999ce03bac8351c21bd89184d/research/insight-poc-2026-10-08/qa/ios-departure.mp4).
 - Release archive signed with the existing Salini TestFlight profile; signature verified.
 - All 71 files of the new 3D resource kit match their accepted source SHA-256 hashes in the archive.
 - [Validation and limitations](build-10-validation.txt): direct pinch/drag still require device QA, no physical-device frame-rate or thermal measurement.
@@ -83,7 +83,7 @@ Blender pipeline; Codex researched and downloaded source assets, directed multip
 
 [Public invitation](https://testflight.apple.com/join/mUb5H7bZ).
 Build 10 has cleared external Beta App Review and was added to Salini Public Beta with automatic
-tester notification enabled. [App Store Connect proof](../../research/insight-poc-2026-10-08/qa/testflight-build10-approved.png).
+tester notification enabled. [App Store Connect proof](https://github.com/Mind3Scape/solini-render-studio/blob/ee56a2267adba72999ce03bac8351c21bd89184d/research/insight-poc-2026-10-08/qa/testflight-build10-approved.png).
 
 Prior release evidence: [build 9](build-9-upload-receipt.txt), [build 8](build-8-upload-receipt.txt), [build 7](build-7-upload-receipt.txt).
 Publishing to the App Store is separate from TestFlight.
