@@ -1,0 +1,28 @@
+{
+  "verified_on": "2026-10-13",
+  "source_commit": "ee56a2267adba72999ce03bac8351c21bd89184d",
+  "release_archive_source": "def568a65e8246093a6093ff9f07c2fdcd312bf7",
+  "import": {
+    "files_verified": 729,
+    "changed_documents_only": [
+      "ios/QA.md",
+      "ios/README.md",
+      "ios/release/README.md"
+    ],
+    "missing_files": [],
+    "credential_pattern_findings": [],
+    "new_documentation_broken_links": []
+  },
+  "app_code_tests_project_and_resources_identical_to_release_source": true,
+  "build": {
+    "toolchain": "Xcode 27.0 (27A266a)",
+    "destination": "generic/platform=iOS Simulator",
+    "configuration": "Debug",
+    "code_signing_allowed": false,
+    "result": "BUILD SUCCEEDED",
+    "exit_code": 0,
+    "warnings_count": 8,
+    "command": "xcodebuild -project ios/Salini.xcodeproj -scheme Salini -configuration Debug -sdk iphonesimulator -destination \"generic/platform=iOS Simulator\" -derivedDataPath .build CODE_SIGNING_ALLOWED=NO build"
+  },
+  "scope": "Repository extraction and documentation only; no app behavior changed. No simulator launched or modified. Tests and visual acceptance were not repeated; original release evidence is preserved. No new TestFlight upload."
+}

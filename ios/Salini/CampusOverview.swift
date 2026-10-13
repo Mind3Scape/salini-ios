@@ -1,0 +1,112 @@
+import UIKit
+
+/// A quiet orientation aid. It shares the same immutable isometric basis as the scene.
+final class CampusOverview: UIControl {
+  var camera = CampusCamera() { didSet { setNeedsDisplay() } }
+  var selectedZone: FactoryZone? { didSet { setNeedsDisplay() } }
+  var onSelect: ((FactoryZone) -> Void)?
+  /// The whole territory (both complexes); zones stay one tap away on the map itself.
+  var onOverview: (() -> Void)?
+  private let overviewButton = UIButton(type: .system)
+  override init(frame: CGRect) {
+    super.init(frame: frame)
+    backgroundColor = InsideStyle.canvas.withAlphaComponent(0.96)
+    layer.cornerRadius = 16
+    clipsToBounds = true
+    layer.borderColor = InsideStyle.ink.withAlphaComponent(0.12).cgColor
+    layer.borderWidth = 0.5
+    accessibilityLabel = "Мини-карта территории"
+    accessibilityHint = "Нажмите на корпус, чтобы перейти к нему; кнопка в углу — вся территория"
+    addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(choose(_:))))
+    var c = UIButton.Configuration.plain()
+    c.image = UIImage(systemName: "arrow.up.left.and.arrow.down.right")
+    c.preferredSymbolConfigurationForImage = UIImage.SymbolConfiguration(pointSize: 11, weight: .semibold)
+    c.baseForegroundColor = InsideStyle.ink
+    c.contentInsets = .init(top: 6, leading: 6, bottom: 6, trailing: 6)
+    overviewButton.configuration = c
+    overviewButton.accessibilityLabel = "Вся территория"
+    overviewButton.accessibilityIdentifier = "insight.minimap.overview"
+    overviewButton.addAction(UIAction { [weak self] _ in self?.onOverview?() }, for: .touchUpInside)
+    overviewButton.translatesAutoresizingMaskIntoConstraints = false
+    addSubview(overviewButton)
+    NSLayoutConstraint.activate([
+      overviewButton.topAnchor.constraint(equalTo: topAnchor),
+      overviewButton.trailingAnchor.constraint(equalTo: trailingAnchor),
+      overviewButton.widthAnchor.constraint(equalToConstant: 32),
+      overviewButton.heightAnchor.constraint(equalToConstant: 32),
+    ])
+    accessibilityIdentifier = "insight.minimap"
+  }
+  required init?(coder: NSCoder) { fatalError() }
+  private var modelScale: CGFloat { min((bounds.width - 14) / CampusSite.projectedSize.width,
+        (bounds.height - 12) / CampusSite.projectedSize.height) }
+  private static let uMid = (CampusSite.projectedRange.u.lowerBound + CampusSite.projectedRange.u.upperBound) / 2
+  private static let vMid = (CampusSite.projectedRange.v.lowerBound + CampusSite.projectedRange.v.upperBound) / 2
+  private func point(_ x: CGFloat, _ z: CGFloat) -> CGPoint {
+    CGPoint(
+      x: bounds.midX + (x - z - Self.uMid) / sqrt(2) * modelScale,
+      y: bounds.midY + (x + z - Self.vMid) / sqrt(6) * modelScale)
+  }
+  /// Path booleans are costly; the minimap redraws on every camera move.
+  private static let roads = CampusSite.roadSurfaces()
+  /// The same (x, z) → screen mapping as `point`, as an affine transform for whole paths.
+  private var isometric: CGAffineTransform {
+    let s = modelScale
+    return CGAffineTransform(
+      a: s / sqrt(2), b: s / sqrt(6), c: -s / sqrt(2), d: s / sqrt(6),
+      tx: bounds.midX - Self.uMid * s / sqrt(2), ty: bounds.midY - Self.vMid * s / sqrt(6))
+  }
+  override func draw(_ rect: CGRect) {
+    guard let context = UIGraphicsGetCurrentContext() else { return }
+    // The site and its road hierarchy give the zones their real context.
+    var transform = isometric
+    for plinth in CampusSite.complexes {
+      context.addPath(CGPath(rect: plinth, transform: &transform))
+    }
+    context.setFillColor(InsideStyle.paving.cgColor)
+    context.fillPath()
+    for (path, color) in [(Self.roads.primary, InsideStyle.asphalt),
+                          (Self.roads.service, InsideStyle.serviceRoad)] {
+      if let projected = path.copy(using: &transform) {
+        context.addPath(projected)
+        context.setFillColor(color.withAlphaComponent(0.55).cgColor)
+        context.fillPath()
+      }
+    }
+    for zone in FactoryZone.allCases {
+      let x = CGFloat(zone.position.x)
+      let z = CGFloat(zone.position.z)
+      let w = zone.footprint.width / 2
+      let h = zone.footprint.height / 2
+      let points = [
+        point(x - w, z - h), point(x + w, z - h), point(x + w, z + h), point(x - w, z + h),
+      ]
+      context.addLines(between: points)
+      context.closePath()
+      context.setFillColor(
+        (selectedZone == zone ? InsideStyle.blue : UIColor(hex: 0xF6F4EF)).cgColor)
+      context.fillPath()
+    }
+    if camera.scale < camera.overviewScale * 0.85 {
+      let center = point(CGFloat(camera.focus.x), CGFloat(camera.focus.z))
+      let width =
+        CGFloat(camera.scale * 2) / max(0.1, camera.viewport.height / camera.viewport.width)
+        * modelScale
+      let height = CGFloat(camera.scale * 2) * modelScale
+      let rect = CGRect(
+        x: center.x - width / 2, y: center.y - height / 2, width: width, height: height)
+      context.setStrokeColor(UIColor(hex: 0x527E92).cgColor)
+      context.setLineWidth(1)
+      context.stroke(rect)
+    }
+  }
+  @objc private func choose(_ gesture: UITapGestureRecognizer) {
+    let p = gesture.location(in: self)
+    let nearest = FactoryZone.allCases.min {
+      let a = point(CGFloat($0.position.x), CGFloat($0.position.z))
+      let b = point(CGFloat($1.position.x), CGFloat($1.position.z))
+      return hypot(a.x - p.x, a.y - p.y) < hypot(b.x - p.x, b.y - p.y)
+    }
+    if let nearest { onSelect?(nearest) }
+  }
+}

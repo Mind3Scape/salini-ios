@@ -1,0 +1,92 @@
+name: Salini
+options:
+  bundleIdPrefix: design.salini
+  deploymentTarget:
+    iOS: '27.0'
+settings:
+  base:
+    SWIFT_VERSION: '5.0'
+    TARGETED_DEVICE_FAMILY: '1,2'
+    CODE_SIGNING_ALLOWED[sdk=iphonesimulator*]: NO
+targets:
+  Salini:
+    type: application
+    platform: iOS
+    sources:
+      - path: Salini
+        excludes:
+          - Resources/greca-start-v1.png
+          - Resources/greca-loop-v1.mp4
+          - Resources/greca-final-v1.png
+          - Resources/greca-film-v1.mp4
+          - Resources/opera-start-v1.png
+          - Resources/opera-loop-v1.mp4
+          - Resources/opera-final-v1.png
+          - Resources/opera-film-v1.mp4
+          - Resources/aria-start-v1.png
+          - Resources/aria-loop-v1.mp4
+          - Resources/aria-final-v1.png
+          - Resources/aria-film-v1.mp4
+          - Resources/ninfea-loop-v1.mp4
+          - Resources/ninfea-interior.png
+          - Resources/ninfea-film-v3.mp4
+          - Resources/ninfea-poster-v3.png
+          - CatalogMedia
+          - CatalogMedia/**
+          - InsightAssets
+          - InsightAssets/**
+          - Resources/ninfea-film-v2.mp4
+          - Resources/ninfea-poster-v2.png
+          - Resources/ninfea-water.png
+          - Resources/ninfea-garden.png
+      # Offline catalogue (ios/tools/build_catalog.py): one folder resource, not 300 file references.
+      - path: Salini/CatalogMedia
+        type: folder
+        buildPhase: resources
+      # «Участок отгрузки» proof kit (ios/tools/insight_poc/build_atelier_kit.py) with ASSETS.json.
+      - path: Salini/InsightAssets
+        type: folder
+        buildPhase: resources
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: design.salini.experience
+        DEVELOPMENT_TEAM: TQ5SCF3KQZ
+        CODE_SIGN_STYLE: Automatic
+        MARKETING_VERSION: '1.0'
+        CURRENT_PROJECT_VERSION: '12'
+        INFOPLIST_KEY_CFBundleDisplayName: Salini
+        GENERATE_INFOPLIST_FILE: YES
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+        INFOPLIST_KEY_UILaunchScreen_Generation: YES
+        INFOPLIST_KEY_UIApplicationSceneManifest_Generation: NO
+        INFOPLIST_KEY_UIStatusBarStyle: UIStatusBarStyleDefault
+        INFOPLIST_KEY_ITSAppUsesNonExemptEncryption: NO
+    info:
+      path: Salini/Info.plist
+      properties:
+        NSCameraUsageDescription: "Камера нужна, чтобы поставить выбранное изделие Salini в вашей комнате в натуральную величину. Кадры не сохраняются и не отправляются."
+        CFBundleShortVersionString: $(MARKETING_VERSION)
+        CFBundleVersion: $(CURRENT_PROJECT_VERSION)
+        UIApplicationSceneManifest:
+          UIApplicationSupportsMultipleScenes: false
+          UISceneConfigurations:
+            UIWindowSceneSessionRoleApplication:
+              - UISceneConfigurationName: Default
+                UISceneDelegateClassName: $(PRODUCT_MODULE_NAME).SceneDelegate
+        UISupportedInterfaceOrientations: [UIInterfaceOrientationPortrait]
+        UISupportedInterfaceOrientations~ipad: [UIInterfaceOrientationPortrait, UIInterfaceOrientationPortraitUpsideDown, UIInterfaceOrientationLandscapeLeft, UIInterfaceOrientationLandscapeRight]
+  SaliniTests:
+    type: bundle.unit-test
+    platform: iOS
+    sources: [SaliniTests]
+    dependencies: [{target: Salini}]
+    settings:
+      base:
+        GENERATE_INFOPLIST_FILE: YES
+schemes:
+  Salini:
+    build:
+      targets:
+        Salini: all
+    test:
+      targets: [SaliniTests]

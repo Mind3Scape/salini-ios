@@ -1,0 +1,231 @@
+[
+  {
+    "asset": "opera.jpg",
+    "source_url": "https://cdn-salini.storage.yandexcloud.net/iblock/473/473e0b500570e5bc27f8a8dc8aa3e37c/4_3840kh2160 _1_ _1_.jpg",
+    "source_page": "https://salini-srl.com/collection/opera/",
+    "usage": "Salini concept prototype; original brand image, resized without generative changes"
+  },
+  {
+    "asset": "opera-detail.jpg",
+    "source_url": "https://cdn-salini.storage.yandexcloud.net/iblock/b0e/b0e5978e4f7b8187156f733899c17c94/1_3840kh2160 _1_.jpg",
+    "source_page": "https://salini-srl.com/collection/opera/",
+    "usage": "Salini concept prototype; original brand image, resized without generative changes"
+  },
+  {
+    "asset": "opera-top.jpg",
+    "source_url": "https://cdn-salini.storage.yandexcloud.net/iblock/831/831b2158914dd610a9e5252fa3378cd9/3840na2160 _4_ _2_ _1_.jpg",
+    "source_page": "https://salini-srl.com/collection/opera/",
+    "usage": "Salini concept prototype; original brand image, resized without generative changes"
+  },
+  {
+    "asset": "greca.jpg",
+    "source_url": "https://cdn-salini.storage.yandexcloud.net/iblock/b77/ryi308cf93udj25g1u8ajlhfz73b40l5/грека3.jpg",
+    "source_page": "https://salini-srl.com/vanny/otdelnostoyashchie/greca/180/",
+    "usage": "Official white Greca product image, copied without changes"
+  },
+  {
+    "asset": "aria.jpg",
+    "source_url": "https://cdn-salini.storage.yandexcloud.net/iblock/7b6/7b60235210300ed384d6612ab8dbafad/1920.webp",
+    "source_page": "https://salini-srl.com/vanny/otdelnostoyashchie/aria/",
+    "usage": "Salini concept prototype; original brand image, resized without generative changes"
+  },
+  {
+    "asset": "aria-red.jpg",
+    "source_url": "https://cdn-salini.storage.yandexcloud.net/iblock/471/4713eed50c438c9af418f5956b2ab5fe/0002_3840 _2_.jpg",
+    "source_page": "https://salini-srl.com/vanny/otdelnostoyashchie/aria/",
+    "usage": "Salini concept prototype; original brand image, resized without generative changes"
+  },
+  {
+    "asset": "interior.jpg",
+    "source_url": "https://cdn-salini.storage.yandexcloud.net/iblock/74b/74b73245173c09d826ccec1b982a67ab/0001_2000kh2500_3.jpg",
+    "source_page": "https://salini-srl.com/gallery/klassika-v-detalyakh/",
+    "usage": "Salini concept prototype; original brand image, resized without generative changes"
+  },
+  {
+    "asset": "stone.jpg",
+    "source_url": "https://salini-srl.com/local/templates/main/assets/images/about-5.jpeg",
+    "source_page": "https://salini-srl.com/about-company/",
+    "usage": "Salini concept prototype; original brand image, resized without generative changes"
+  },
+  {
+    "asset": "production.jpg",
+    "source_url": "https://salini-srl.com/local/templates/main/assets/images/webp/production-modal-6.webp",
+    "source_page": "https://salini-srl.com/about-company/",
+    "usage": "Salini concept prototype; original brand image, resized without generative changes"
+  },
+  {
+    "asset": "luce.jpg",
+    "source_url": "https://cdn-salini.storage.yandexcloud.net/iblock/100/1007e0d4ca0dde026c0b70d6a889186e/luce-1.jpg",
+    "source_page": "https://salini-srl.com",
+    "usage": "Salini concept prototype; original brand image, resized without generative changes"
+  },
+  {
+    "asset": "oriente.jpg",
+    "source_url": "https://cdn-salini.storage.yandexcloud.net/iblock/480/480132f64457ab976501df3309d89e77/oriente-1.jpg",
+    "source_page": "https://salini-srl.com",
+    "usage": "Salini concept prototype; original brand image, resized without generative changes"
+  },
+  {
+    "asset": "salini-logo.png / salini-logo.svg / AppIcon.png",
+    "source_url": "https://salini-srl.com/local/templates/main/assets/images/svg/logo.svg",
+    "usage": "Original Salini wordmark. PNG rasterization and monochrome template tint; original paths preserved."
+  },
+  {
+    "asset": "Aria-drawing.pdf",
+    "source_page": "https://salini-srl.com/vanny/otdelnostoyashchie/aria/",
+    "usage": "Original public technical drawing."
+  },
+  {
+    "asset": "Greca.usdz",
+    "source_url": "https://cdn-salini.storage.yandexcloud.net/iblock/a52/a52d862ff28f502e981fa3450bae168c/Greca.usdz",
+    "usage": "Unmodified official Salini 3D geometry; native SceneKit preview with presentation materials and designer USDZ export"
+  },
+  {
+    "asset": "greca-editorial.jpg",
+    "source_url": "https://cdn-salini.storage.yandexcloud.net/iblock/636/636f240358f77c7d74c49c503eced8a4/Greca_1.jpg",
+    "source_page": "https://salini-srl.com/",
+    "usage": "Original Salini interior image; editorial collection cover with responsive focal crop"
+  },
+  {
+    "asset": "ninfea-official.webp",
+    "source_url": "https://cdn-salini.storage.yandexcloud.net/iblock/dc6/dc630657433170a717b992cf780c316a/3840 _01_.webp",
+    "source_page": "https://salini-srl.com/collection/ninfea/",
+    "usage": "Unmodified official emerald Ninfea photograph in collection information; geometry reference for the concept campaign."
+  },
+  {
+    "asset": "research/ninfea-cinema-2026-10-06/v3/assets/interior.png",
+    "source_page": "https://salini-srl.com/collection/ninfea/",
+    "reference_images": [
+      "https://cdn-salini.storage.yandexcloud.net/iblock/dc6/dc630657433170a717b992cf780c316a/3840 _01_.webp",
+      "https://cdn-salini.storage.yandexcloud.net/iblock/116/116145e9556abbe73a8eb7f96820573c/3840 _02_.webp"
+    ],
+    "generation_mode": "built-in imagegen",
+    "generated_on": "2026-10-06",
+    "prompts": "research/ninfea-cinema-2026-10-06/PROMPTS.md",
+    "usage": "Original generated interior anchor preserved in research. The app entrance image is now extracted from the selected generative film."
+  },
+  {
+    "asset": "ninfea-water.png",
+    "source_page": "https://salini-srl.com/collection/ninfea/",
+    "reference_images": [
+      "https://cdn-salini.storage.yandexcloud.net/iblock/dc6/dc630657433170a717b992cf780c316a/3840 _01_.webp",
+      "https://cdn-salini.storage.yandexcloud.net/iblock/116/116145e9556abbe73a8eb7f96820573c/3840 _02_.webp"
+    ],
+    "generation_mode": "built-in imagegen",
+    "generated_on": "2026-10-06",
+    "prompts": "research/ninfea-cinema-2026-10-06/PROMPTS.md",
+    "usage": "Historical V1 generated keyframe/reference. Replaced in the live experience by the V2 rendered film."
+  },
+  {
+    "asset": "ninfea-garden.png",
+    "source_page": "https://salini-srl.com/collection/ninfea/",
+    "reference_images": [
+      "https://cdn-salini.storage.yandexcloud.net/iblock/dc6/dc630657433170a717b992cf780c316a/3840 _01_.webp",
+      "https://cdn-salini.storage.yandexcloud.net/iblock/116/116145e9556abbe73a8eb7f96820573c/3840 _02_.webp"
+    ],
+    "generation_mode": "built-in imagegen",
+    "generated_on": "2026-10-06",
+    "prompts": "research/ninfea-cinema-2026-10-06/PROMPTS.md",
+    "usage": "Historical V1 generated keyframe/reference. Replaced in the live experience by the V2 rendered film."
+  },
+  {
+    "asset": "research/ninfea-cinema-2026-10-06/v2/assets/water-20.png",
+    "source_page": "https://salini-srl.com/collection/ninfea/",
+    "generation_mode": "built-in imagegen",
+    "generated_on": "2026-10-06",
+    "prompts": "research/ninfea-cinema-2026-10-06/v2/PROMPTS.md",
+    "usage": "Offline film source: low water level, locked camera"
+  },
+  {
+    "asset": "research/ninfea-cinema-2026-10-06/v2/assets/water-50.png",
+    "source_page": "https://salini-srl.com/collection/ninfea/",
+    "generation_mode": "built-in imagegen",
+    "generated_on": "2026-10-06",
+    "prompts": "research/ninfea-cinema-2026-10-06/v2/PROMPTS.md",
+    "usage": "Offline film source: middle water level, locked camera"
+  },
+  {
+    "asset": "research/ninfea-cinema-2026-10-06/v2/assets/water-75.png",
+    "source_page": "https://salini-srl.com/collection/ninfea/",
+    "generation_mode": "built-in imagegen",
+    "generated_on": "2026-10-06",
+    "prompts": "research/ninfea-cinema-2026-10-06/v2/PROMPTS.md",
+    "usage": "Offline film source: high water level, locked camera"
+  },
+  {
+    "asset": "research/ninfea-cinema-2026-10-06/v2/assets/water-pool.png",
+    "source_page": "https://salini-srl.com/collection/ninfea/",
+    "generation_mode": "built-in imagegen",
+    "generated_on": "2026-10-06",
+    "prompts": "research/ninfea-cinema-2026-10-06/v2/PROMPTS.md",
+    "usage": "Offline film source: full bath and shallow reflective floor, no vegetation"
+  },
+  {
+    "asset": "research/ninfea-cinema-2026-10-06/v2/assets/foliage-rear.png",
+    "source_page": "https://salini-srl.com/collection/ninfea/",
+    "generation_mode": "built-in imagegen",
+    "generated_on": "2026-10-06",
+    "prompts": "research/ninfea-cinema-2026-10-06/v2/PROMPTS.md",
+    "usage": "Offline film source: transparent rear canopy pass"
+  },
+  {
+    "asset": "research/ninfea-cinema-2026-10-06/v2/assets/foliage-front.png",
+    "source_page": "https://salini-srl.com/collection/ninfea/",
+    "generation_mode": "built-in imagegen",
+    "generated_on": "2026-10-06",
+    "prompts": "research/ninfea-cinema-2026-10-06/v2/PROMPTS.md",
+    "usage": "Offline film source: transparent foreground leaves and lilies pass"
+  },
+  {
+    "asset": "research/ninfea-cinema-2026-10-06/v2/assets/climbing-vine.png",
+    "source_page": "https://salini-srl.com/collection/ninfea/",
+    "generation_mode": "built-in imagegen",
+    "generated_on": "2026-10-06",
+    "prompts": "research/ninfea-cinema-2026-10-06/v2/PROMPTS.md",
+    "usage": "Offline film source: transparent vine pass, registered to the tub surface in the compositor"
+  },
+  {
+    "asset": "ninfea-film-v2.mp4 / ninfea-poster-v2.png",
+    "generated_on": "2026-10-06",
+    "generation_mode": "Local Swift + Metal composition and RifeMetal / Practical-RIFE 4.26 HQ interpolation",
+    "source": "scripts/ninfea-render",
+    "manifest": "research/ninfea-cinema-2026-10-06/v2/render.json",
+    "usage": "Rejected V2 iteration, retained in repository history/research and excluded from the iOS build. Layer deformation and RIFE are not the current production approach."
+  },
+  {
+    "asset": "research/ninfea-cinema-2026-10-06/v3/assets/garden.png",
+    "generation_mode": "built-in imagegen",
+    "generated_on": "2026-10-06",
+    "reference_images": [
+      "research/ninfea-cinema-2026-10-06/v3/assets/interior.png",
+      "ninfea-official.webp"
+    ],
+    "source_page": "https://salini-srl.com/collection/ninfea/",
+    "prompts": "research/ninfea-cinema-2026-10-06/v3/PROMPTS.md",
+    "usage": "Coherent final image anchor for the generative film. Not an official photograph or exact CAD reconstruction."
+  },
+  {
+    "asset": "ninfea-film-v3.mp4 / ninfea-interior.png / ninfea-poster-v3.png",
+    "generated_on": "2026-10-06",
+    "generation_mode": "Kling 3.0 Pro via the user-connected Higgsfield plugin",
+    "job_id": "63c05989-926e-4d1d-be8f-eea4a36c9b73",
+    "manifest": "research/ninfea-cinema-2026-10-06/v3/higgsfield-take-2.json",
+    "source_page": "https://salini-srl.com/collection/ninfea/",
+    "reference_images": [
+      "research/ninfea-cinema-2026-10-06/v3/assets/interior.png",
+      "research/ninfea-cinema-2026-10-06/v3/assets/garden.png"
+    ],
+    "format": "H.264, 1176 × 1764, 24 fps, 12.041667 seconds, silent",
+    "processing": "Lossless container remux with faststart; first frame and final frame extracted as PNG. No layer warping, retiming, frame interpolation or added transitions.",
+    "usage": "Automatic Ninfea collection artwork, final-frame hold and Reduce Motion still. AI visual concept guided by Salini photography, not official footage or a color proof."
+  },
+  {
+    "asset": "studio_small_09_2k.hdr",
+    "source_url": "https://dl.polyhaven.org/file/ph-assets/HDRIs/hdr/2k/studio_small_09_2k.hdr",
+    "source_page": "https://polyhaven.com/a/studio_small_09",
+    "author": "Sergej Majboroda",
+    "license": "CC0 1.0 (https://polyhaven.com/license)",
+    "md5": "b056fea247bc84b81d2e0987d44c87d8",
+    "usage": "Material studio image-based light; file unchanged in the bundle. At load the app turns it -48 degrees, dims walls (flags) and the floor below the horizon, and adds procedural strip softboxes (StudioLighting.swift)"
+  }
+]
