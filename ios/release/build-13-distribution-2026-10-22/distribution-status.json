@@ -1,0 +1,26 @@
+{
+  "appId": "6819688748",
+  "bundleId": "design.salini.experience",
+  "version": "1.0",
+  "build": "13",
+  "sourceCommit": "027472bb34b62a6091a68f73033622bcae9d14f7",
+  "website": "https://mind3scape.github.io/salini/",
+  "testFlightInvitation": "https://testflight.apple.com/join/mUb5H7bZ",
+  "archive": "succeeded",
+  "codesignVerification": "passed",
+  "canonicalCatalogueSHA256": "7f74c9db73467daaea02c6c5c4063fcb44e91066fc724021463b622dc19b49be",
+  "focusedTests": {
+    "executed": 8,
+    "failures": 0
+  },
+  "upload": {
+    "status": "succeeded",
+    "completedAt": "2026-10-22T23:25:37+07:00",
+    "exportExitCode": 0,
+    "receipt": "Upload succeeded; Uploaded Salini; EXPORT SUCCEEDED"
+  },
+  "processing": "Processing — verified in App Store Connect UI",
+  "internalTesting": "pending",
+  "externalTesting": "pending",
+  "verifiedAt": "2026-10-22T16:28:03.303036+00:00"
+}
