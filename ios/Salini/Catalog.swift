@@ -73,7 +73,7 @@ final class CatalogController: UIViewController, UISearchResultsUpdating, UIColl
       share.accessibilityIdentifier = "catalog.shareSelection"
       navigationItem.rightBarButtonItems?.insert(share, at: 0)
     }
-    if navigationItem.leftBarButtonItem == nil {
+    if navigationItem.leftBarButtonItem == nil && !showsFavoritesOnly {
       let choose = UIBarButtonItem(
         title: "Подбор", image: UIImage(systemName: "checklist"),
         primaryAction: UIAction { [weak self] _ in self?.navigationController?.pushViewController(ChooseController(), animated: true) })
