@@ -6,6 +6,7 @@ import UIKit
 enum SaliniLink: Equatable {
   case product(String)
   case selection([String])
+  static let websiteHome = URL(string: "https://mind3scape.github.io/salini/")!
 
   static func parse(_ url: URL, knownIDs: Set<String>) -> SaliniLink? {
     guard url.absoluteString.utf8.count <= 8192,
@@ -46,9 +47,9 @@ enum SaliniLink: Equatable {
     return c.url!
   }
 
-  /// A preview URL, not a Universal Link registration and not cloud synchronisation.
+  /// Public web counterpart; opening an app link remains an explicit website action.
   var websiteURL: URL {
-    var c = URLComponents(string: "https://salini-acqua-studio.sappy-robin-3438.chatgpt.site")!
+    var c = URLComponents(url: Self.websiteHome, resolvingAgainstBaseURL: false)!
     switch self {
     case .product(let id): c.fragment = "/product/" + id
     case .selection(let ids): c.fragment = "/selection?ids=" + ids.joined(separator: ",")

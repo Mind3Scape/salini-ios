@@ -22,6 +22,9 @@ final class ProfileController: ScrollController {
       stack(
         [
           eyebrow("СЕРВИС"),
+          ActionButton("Сайт Salini", icon: "safari") {
+            UIApplication.shared.open(SaliniLink.websiteHome)
+          },
           ActionButton("Салоны и шоурумы", icon: "mappin.and.ellipse") { [weak self] in
             self?.navigationController?.pushViewController(ShowroomsController(), animated: true)
           },

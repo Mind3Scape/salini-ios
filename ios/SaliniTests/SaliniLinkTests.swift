@@ -19,11 +19,15 @@ final class SaliniLinkTests: XCTestCase {
     let link = SaliniLink.product("20645")
     XCTAssertEqual(SaliniLink.parse(link.appURL, knownIDs: known), link)
     XCTAssertEqual(link.websiteURL.fragment, "/product/20645")
+    XCTAssertEqual(link.websiteURL.scheme, "https")
+    XCTAssertEqual(link.websiteURL.host, "mind3scape.github.io")
+    XCTAssertEqual(link.websiteURL.absoluteString, "https://mind3scape.github.io/salini/#/product/20645")
   }
   func testSelectionRoundTripPreservesOrderAndDeduplicates() {
     XCTAssertEqual(parse("salini://selection?v=1&ids=20645,1120,20645"), .selection(["20645", "1120"]))
     let link = SaliniLink.selection(["20645", "30897"])
     XCTAssertEqual(SaliniLink.parse(link.appURL, knownIDs: known), link)
+    XCTAssertEqual(link.websiteURL.absoluteString, "https://mind3scape.github.io/salini/#/selection?ids=20645,30897")
   }
   func testRejectsUnknownProductAndUnknownSelectionAtomically() {
     XCTAssertNil(parse("salini://product/unknown?v=1"))

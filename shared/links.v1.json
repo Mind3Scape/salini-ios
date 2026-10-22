@@ -5,9 +5,20 @@
   "selection": "salini://selection?v=1&ids={commaSeparatedCanonicalProductIds}",
   "selectionMeaning": "Union into local favourites. Never chooses a variant or changes project lines.",
   "maxSelectionIds": 100,
-  "validation": ["exact scheme and host", "version 1", "known product IDs", "no duplicate query fields", "no credentials or ports", "no extra paths", "bounded URL and selection size"],
+  "validation": [
+    "exact scheme and host",
+    "version 1",
+    "known product IDs",
+    "no duplicate query fields",
+    "no credentials or ports",
+    "no extra paths",
+    "bounded URL and selection size"
+  ],
   "webProduct": "#/product/{canonicalProductId}",
   "webSelection": "#/selection?ids={commaSeparatedCanonicalProductIds}",
   "universalLinksConfigured": false,
-  "cloudSyncConfigured": false
+  "cloudSyncConfigured": false,
+  "publicWebsite": "https://mind3scape.github.io/salini/",
+  "testFlight": "https://testflight.apple.com/join/mUb5H7bZ",
+  "handoff": "Explicit user action only. iPhone and iPad offer the installed app or TestFlight; desktop offers the public web link. No install detection or automatic redirect."
 }
