@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "brand": "Salini",
+  "colors": {
+    "paper": "#F7F7F8",
+    "surface": "#FFFFFF",
+    "ink": "#17191D",
+    "muted": "#626975",
+    "line": "#E2E3E7",
+    "soft": "#ECEEF0",
+    "accent": "#596653"
+  },
+  "radius": {
+    "control": 16,
+    "card": 26,
+    "feature": 32,
+    "sheet": 30
+  },
+  "spacing": [
+    4,
+    8,
+    12,
+    16,
+    24,
+    32,
+    48,
+    64
+  ],
+  "motion": {
+    "controlMs": 180,
+    "transitionMs": 320,
+    "reduceMotion": true
+  },
+  "typography": {
+    "interface": "system sans",
+    "editorial": "serif",
+    "dynamicType": true
+  }
+}

@@ -64,6 +64,9 @@ targets:
     info:
       path: Salini/Info.plist
       properties:
+        CFBundleURLTypes:
+          - CFBundleURLName: design.salini.experience
+            CFBundleURLSchemes: [salini]
         NSCameraUsageDescription: "Камера нужна, чтобы поставить выбранное изделие Salini в вашей комнате в натуральную величину. Кадры не сохраняются и не отправляются."
         CFBundleShortVersionString: $(MARKETING_VERSION)
         CFBundleVersion: $(CURRENT_PROJECT_VERSION)

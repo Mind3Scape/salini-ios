@@ -56,6 +56,23 @@ final class CatalogController: UIViewController, UISearchResultsUpdating, UIColl
     filterButton.accessibilityLabel = "Фильтры"
     filterButton.accessibilityIdentifier = "catalog.filters"
     navigationItem.rightBarButtonItems = [filterButton, sortButton()]
+    if showsFavoritesOnly {
+      let share = UIBarButtonItem(image: UIImage(systemName: "square.and.arrow.up"), primaryAction: UIAction { [weak self] _ in
+        guard let self else { return }
+        let ids = Catalog.shared.products.filter { DemoStore.shared.favorites.contains($0.id) }.map(\.id)
+        guard !ids.isEmpty else { return }
+        guard ids.count <= 100 else {
+          let alert = UIAlertController(title: "Большая подборка", message: "Ссылка поддерживает до 100 изделий. Для полной спецификации используйте экспорт проекта.", preferredStyle: .alert)
+          alert.addAction(UIAlertAction(title: "Понятно", style: .default))
+          self.present(alert, animated: true)
+          return
+        }
+        self.shareSaliniLink(.selection(ids), anchor: self.navigationItem.rightBarButtonItems?.first)
+      })
+      share.accessibilityLabel = "Поделиться подборкой на сайте"
+      share.accessibilityIdentifier = "catalog.shareSelection"
+      navigationItem.rightBarButtonItems?.insert(share, at: 0)
+    }
     if navigationItem.leftBarButtonItem == nil {
       let choose = UIBarButtonItem(
         title: "Подбор", image: UIImage(systemName: "checklist"),
@@ -273,7 +290,7 @@ final class CatalogCell: UICollectionViewCell {
     super.init(frame: frame)
     picture.contentMode = .scaleAspectFill
     picture.backgroundColor = UIColor(hex: 0xECEDEF)
-    picture.rounded(20)
+    picture.rounded(SaliniBrand.cardRadius)
     picture.translatesAutoresizingMaskIntoConstraints = false
     name.font = UIFontMetrics(forTextStyle: .headline).scaledFont(for: .systemFont(ofSize: 17, weight: .semibold))
     name.numberOfLines = 2
@@ -524,11 +541,18 @@ final class CatalogProductController: ScrollController {
         self.updateHeart()
       })
     heart.accessibilityIdentifier = "product.favorite"
-    navigationItem.rightBarButtonItem = heart
+    let share = UIBarButtonItem(image: UIImage(systemName: "square.and.arrow.up"), primaryAction: UIAction { [weak self] _ in
+      guard let self else { return }
+      self.shareSaliniLink(.product(self.product.id), anchor: self.navigationItem.rightBarButtonItems?.last)
+    })
+    share.accessibilityLabel = "Поделиться изделием на сайте"
+    share.accessibilityIdentifier = "product.shareWebsite"
+    navigationItem.rightBarButtonItems = [heart, share]
     // The official photograph is shown whole: the frame takes the image's own proportions
     // (within 240–520 pt), so a wide photo does not float in a tall grey field.
     let frame = UIView()
     frame.backgroundColor = UIColor(hex: 0xEDEEF0)
+    frame.rounded(SaliniBrand.cardRadius)
     picture.contentMode = .scaleAspectFit
     picture.isAccessibilityElement = true
     picture.accessibilityLabel = "Фотография \(product.name), сайт Salini"
@@ -539,7 +563,7 @@ final class CatalogProductController: ScrollController {
       ratio, frame.heightAnchor.constraint(greaterThanOrEqualToConstant: 240),
       frame.heightAnchor.constraint(lessThanOrEqualToConstant: 520),
     ])
-    add(frame, inset: 0)
+    add(frame, inset: 20)
     CatalogImages.shared.image(for: product, maxPixel: 1400) { [weak self, weak frame] image in
       guard let self, let frame else { return }
       self.picture.image = image

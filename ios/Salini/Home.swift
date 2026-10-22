@@ -138,19 +138,14 @@ final class HomeController: ScrollController, UIScrollViewDelegate {
     updateMaterialPlayback()
   }
   private func buyer() {
-    let selected = gallery?.selectedIndex ?? 0
-    let covers = CollectionGallery { [weak self] id in
-      if id == "ninfea", let self {
-        let info = UINavigationController(rootViewController: NinfeaInformationController())
-        info.modalPresentationStyle = .fullScreen
-        self.present(info, animated: true)
-        return
-      }
-      if let product = Product.all.first(where: { $0.id == id }) { self?.showProduct(product) }
+    gallery?.active = false
+    gallery = nil
+    let official = OfficialCollectionHero { [weak self] id in
+      guard let product = Catalog.shared.product(id) else { return }
+      self?.navigationController?.pushViewController(CatalogProductController(product), animated: true)
     }
-    gallery = covers
-    section(covers, top: 0, bottom: 0, inset: 16)
-    covers.select(selected, animated: false)
+    section(official, top: 0, bottom: 26, inset: 16)
+    section(officialCatalogueEntry(), top: 0, bottom: 16, inset: 20)
     materialFeature()
     let actions = stack(
       [
@@ -177,7 +172,11 @@ final class HomeController: ScrollController, UIScrollViewDelegate {
     add(title)
     add(
       horizontal(
-        Product.all.map { p in ProductTile(product: p) { [weak self] in self?.showProduct(p) } },
+        ["20645", "30897", "1120", "1361"].compactMap { Catalog.shared.product($0) }.map { p in
+          OfficialProductTile(product: p) { [weak self] in
+            self?.navigationController?.pushViewController(CatalogProductController(p), animated: true)
+          }
+        },
         width: 260, height: 345), inset: 0)
     add(
       hero(

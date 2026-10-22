@@ -1,11 +1,11 @@
 import UIKit
 
 enum Palette {
-  static let paper = UIColor(hex: 0xF7F7F8)
-  static let ink = UIColor(hex: 0x17191D)
-  static let muted = UIColor(hex: 0x7A7D85)
+  static let paper = SaliniBrand.paper
+  static let ink = SaliniBrand.ink
+  static let muted = SaliniBrand.muted
   static let lime = UIColor(hex: 0xE3E5EA)
-  static let line = UIColor(hex: 0xE2E3E7)
+  static let line = SaliniBrand.line
   static let clay = UIColor(hex: 0xBD7E60)
 }
 extension UIColor {
@@ -23,7 +23,8 @@ func label(
   l.text = text
   l.numberOfLines = 0
   l.textColor = color
-  let base = UIFont.systemFont(ofSize: size, weight: serif ? .regular : weight)
+  let system = UIFont.systemFont(ofSize: size, weight: serif ? .regular : weight)
+  let base = serif ? UIFont(descriptor: system.fontDescriptor.withDesign(.serif) ?? system.fontDescriptor, size: size) : system
   l.font = UIFontMetrics(forTextStyle: size >= 28 ? .title1 : .body).scaledFont(
     for: base, maximumPointSize: size * 1.35)
   l.adjustsFontForContentSizeCategory = true
@@ -82,7 +83,7 @@ extension UIView {
     ])
     return wrapper
   }
-  func rounded(_ radius: CGFloat = 24) {
+  func rounded(_ radius: CGFloat = SaliniBrand.cardRadius) {
     layer.cornerRadius = radius
     layer.cornerCurve = .continuous
     clipsToBounds = true
@@ -93,7 +94,7 @@ func photo(_ name: String, height: CGFloat? = nil) -> UIImageView {
   // Catalogue photographs are JPEG by name; a full file name (a film's PNG poster) is used as is.
   let v = UIImageView(image: UIImage(named: name + ".jpg") ?? UIImage(named: name))
   v.contentMode = .scaleAspectFill
-  v.clipsToBounds = true
+  v.rounded(SaliniBrand.cardRadius)
   v.isAccessibilityElement = false
   if let height { v.height(height) }
   return v

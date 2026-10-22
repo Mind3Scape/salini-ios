@@ -48,6 +48,7 @@
 		6BA100206BD88C0C97502BDE /* MaterialStudioScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE7AB302AA433C80A3F4A14 /* MaterialStudioScene.swift */; };
 		6BC074B032EB288957F741A9 /* StudioLighting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BC98A5F99D057EA8E7B64E9 /* StudioLighting.swift */; };
 		6EC6836266FA7B8BAFDD4FF2 /* Workspaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA83A08C7BD246CAD8B10652 /* Workspaces.swift */; };
+		6F510EA8ADC8EFCA0FF9398A /* SaliniLinkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA34A1393A57F3751D38106D /* SaliniLinkTests.swift */; };
 		70405BBE76779F4C563F7B32 /* Owner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9455A5104B42AB58A498F29C /* Owner.swift */; };
 		7328FB5F704F0862758A8C60 /* aria-start-v2.png in Resources */ = {isa = PBXBuildFile; fileRef = 86060A8E4C8C1CE7787D5D95 /* aria-start-v2.png */; };
 		74EC55457697AA14155F9A3A /* CampusModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B26B8F45807277463ABB395 /* CampusModel.swift */; };
@@ -57,6 +58,7 @@
 		81634AAE6E395D21A11163B0 /* opera-start-v2.png in Resources */ = {isa = PBXBuildFile; fileRef = AAF170DB4D3D010ACD2B57ED /* opera-start-v2.png */; };
 		821FA71B237BBCDDCF147CA7 /* CampusOverview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632403708ED41F88A65A300E /* CampusOverview.swift */; };
 		865AFC3CCA56E15332577F41 /* salini-logo.svg in Resources */ = {isa = PBXBuildFile; fileRef = 71A0945E0526B6B9D34EAD27 /* salini-logo.svg */; };
+		86CC55F35C0187BA08BEE0C4 /* official-paola-hero.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DBD2C7A4E34F4DD3891D5C79 /* official-paola-hero.jpg */; };
 		8BC38A8738DEDBFFA383B4AF /* RoomPlacement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165524023E4E1A1C0554C962 /* RoomPlacement.swift */; };
 		8CC5A6E694E7E63798777106 /* aria-red.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FF8CC4938E4FEB8C56D0CF20 /* aria-red.jpg */; };
 		8FC069A099ADB312115687EE /* RealityAtelier.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0B10B0199550F2DC9B839A2 /* RealityAtelier.swift */; };
@@ -64,12 +66,14 @@
 		91E66E3CEF0191412D36DC43 /* ChooseHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A13434667EE01D075E390AA /* ChooseHelper.swift */; };
 		9331D02F97215CADCBFC3871 /* RALPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293C35086983E07FB5BECC98 /* RALPalette.swift */; };
 		949A4DFF154A134C3E367315 /* RoomPlacementTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B3995E14D30E24FDDFB60D /* RoomPlacementTests.swift */; };
+		97C46CC68B9CAB2DD9496D8E /* SaliniBrand.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A24E557F849810C8791230 /* SaliniBrand.swift */; };
 		9DFECD395E16A807C5F7F7D6 /* opera-final-v2.png in Resources */ = {isa = PBXBuildFile; fileRef = F7D8C5E7B7199DC9F26EE9D0 /* opera-final-v2.png */; };
 		9F12BE1700174BE037319AFC /* DesignerHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BAC5A124656A35A461B387B /* DesignerHome.swift */; };
 		A6F6AD4F5F554684091311E1 /* CinemaReleaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B441EB9417092B4E01FDB9C /* CinemaReleaseTests.swift */; };
 		A7D8C823650DD7790B0917A3 /* InsidePanels.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD95755374BE98F79C16C503 /* InsidePanels.swift */; };
 		A81D85D526685B827BFD87FA /* DesignerPassTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1378F961C27F7E433530BB7C /* DesignerPassTests.swift */; };
 		A8A3AAA247C5A742B2F740B7 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B24C2D0832EF8D141B750A /* Profile.swift */; };
+		A8D3DA7E0B00F5B24BB2FE90 /* SaliniLinks.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98A77E8C97B285267EB05E3 /* SaliniLinks.swift */; };
 		AC62A6C1BE86B01047A8D432 /* CollectionGallery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97971B66DFC9B7D96D9C8FFB /* CollectionGallery.swift */; };
 		ADACB609C5431007F2257197 /* greca.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4942620F24A4D8F0728613FA /* greca.jpg */; };
 		AE06F84BFCEFDF435DB48C5A /* AtelierMotion.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95F3E9480AE77DF068F0814 /* AtelierMotion.swift */; };
@@ -97,6 +101,7 @@
 		ED57E656CAA402EE7A42A859 /* ProposalPDF.swift in Sources */ = {isa = PBXBuildFile; fileRef = 306929DD07FBFF39A6397AD6 /* ProposalPDF.swift */; };
 		F0FB799DEC9C13A7C3DBAA4F /* opera-detail.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 672B74F0BCED01A47E534CD1 /* opera-detail.jpg */; };
 		F3AC1E02D92CBCC6DA9B30B5 /* studio_small_09_2k.hdr in Resources */ = {isa = PBXBuildFile; fileRef = D80E2E88706C9C8634614E62 /* studio_small_09_2k.hdr */; };
+		F54781AFF1AEF4A852826940 /* OfficialHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F4193EA9D6A10CB465B2CA1 /* OfficialHome.swift */; };
 		F8C623113C63A0FB6739DD71 /* SaliniTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0151CE5C734FB58E9B195E9D /* SaliniTests.swift */; };
 		FAFE2D75CA1CAF51A39387B1 /* OwnerOperations.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97669814B3D762675C197A2 /* OwnerOperations.swift */; };
 		FF91B5E079F8E96BE30A4741 /* ninfea-final-v4.png in Resources */ = {isa = PBXBuildFile; fileRef = 70BE19ED88C0DFCA8C864D5A /* ninfea-final-v4.png */; };
@@ -118,6 +123,7 @@
 		06B24C2D0832EF8D141B750A /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		0B441EB9417092B4E01FDB9C /* CinemaReleaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CinemaReleaseTests.swift; sourceTree = "<group>"; };
 		0CDD0D02A2C9CFBA7229F19A /* ninfea-film-v4.mp4 */ = {isa = PBXFileReference; path = "ninfea-film-v4.mp4"; sourceTree = "<group>"; };
+		0F4193EA9D6A10CB465B2CA1 /* OfficialHome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfficialHome.swift; sourceTree = "<group>"; };
 		115177084A87D881A3F70994 /* MaterialStudio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaterialStudio.swift; sourceTree = "<group>"; };
 		1378F961C27F7E433530BB7C /* DesignerPassTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignerPassTests.swift; sourceTree = "<group>"; };
 		143757887A660060C31EEA9F /* InsightBoard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsightBoard.swift; sourceTree = "<group>"; };
@@ -176,12 +182,15 @@
 		A57996FF6A4B9A58C4F8C45E /* InsideVisuals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsideVisuals.swift; sourceTree = "<group>"; };
 		A6A75AF1C04E69E9DDAC5B69 /* ProjectStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectStore.swift; sourceTree = "<group>"; };
 		A82AFE5054B9A5561CDAD645 /* salini-logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "salini-logo.png"; sourceTree = "<group>"; };
+		A98A77E8C97B285267EB05E3 /* SaliniLinks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaliniLinks.swift; sourceTree = "<group>"; };
 		AAF170DB4D3D010ACD2B57ED /* opera-start-v2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "opera-start-v2.png"; sourceTree = "<group>"; };
 		B002A96E28C44197F2418A95 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		B038AC0766FACBDF3D6D1F32 /* essence-sense-cap-gloss.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "essence-sense-cap-gloss.png"; sourceTree = "<group>"; };
 		B84ADB80CC317232BF921570 /* catalog.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = catalog.json; sourceTree = "<group>"; };
 		C2B3995E14D30E24FDDFB60D /* RoomPlacementTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomPlacementTests.swift; sourceTree = "<group>"; };
+		C6A24E557F849810C8791230 /* SaliniBrand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaliniBrand.swift; sourceTree = "<group>"; };
 		C95F3E9480AE77DF068F0814 /* AtelierMotion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AtelierMotion.swift; sourceTree = "<group>"; };
+		CA34A1393A57F3751D38106D /* SaliniLinkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaliniLinkTests.swift; sourceTree = "<group>"; };
 		CBE7AB302AA433C80A3F4A14 /* MaterialStudioScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaterialStudioScene.swift; sourceTree = "<group>"; };
 		CC1EBD781C5BE290AC553C42 /* RealityAtelierTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealityAtelierTests.swift; sourceTree = "<group>"; };
 		CE36A7414A56B3C7827CC603 /* RealityAtelierScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealityAtelierScene.swift; sourceTree = "<group>"; };
@@ -194,6 +203,7 @@
 		D855C3BB253AC297C2A5282C /* CatalogMedia */ = {isa = PBXFileReference; lastKnownFileType = folder; name = CatalogMedia; path = Salini/CatalogMedia; sourceTree = SOURCE_ROOT; };
 		D857B43F6F8433444EA53ADE /* production.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = production.jpg; sourceTree = "<group>"; };
 		D91143AF411A90AC2958AC84 /* luce.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = luce.jpg; sourceTree = "<group>"; };
+		DBD2C7A4E34F4DD3891D5C79 /* official-paola-hero.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "official-paola-hero.jpg"; sourceTree = "<group>"; };
 		DC46B7DC8500987396D0C75D /* ObjectViewer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectViewer.swift; sourceTree = "<group>"; };
 		DC871ECC2E122440AD324512 /* essence-sense-cap-matte.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "essence-sense-cap-matte.png"; sourceTree = "<group>"; };
 		E2905E231303FD10F6D8A870 /* ninfea-start-v4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ninfea-start-v4.png"; sourceTree = "<group>"; };
@@ -245,6 +255,7 @@
 				E4FAF20A36EDC10E0096E5FE /* InsideOperationsTests.swift */,
 				CC1EBD781C5BE290AC553C42 /* RealityAtelierTests.swift */,
 				C2B3995E14D30E24FDDFB60D /* RoomPlacementTests.swift */,
+				CA34A1393A57F3751D38106D /* SaliniLinkTests.swift */,
 				0151CE5C734FB58E9B195E9D /* SaliniTests.swift */,
 				3250D2DC9188A757B21D78F4 /* ShippingAtelierTests.swift */,
 			);
@@ -285,6 +296,7 @@
 				6F6B7A5907C06DA5AB8A11EA /* ninfea-loop-v4.mp4 */,
 				89B8733108E93D1F89BA90FA /* ninfea-official.webp */,
 				E2905E231303FD10F6D8A870 /* ninfea-start-v4.png */,
+				DBD2C7A4E34F4DD3891D5C79 /* official-paola-hero.jpg */,
 				672B74F0BCED01A47E534CD1 /* opera-detail.jpg */,
 				5D878A25861675F23D4E46E4 /* opera-film-v2.mp4 */,
 				F7D8C5E7B7199DC9F26EE9D0 /* opera-final-v2.png */,
@@ -331,6 +343,7 @@
 				205C91FAD53CEC3928277F81 /* NinfeaCinema.swift */,
 				D4BD1EE31F7C199D6DAD475C /* NinfeaStory.swift */,
 				DC46B7DC8500987396D0C75D /* ObjectViewer.swift */,
+				0F4193EA9D6A10CB465B2CA1 /* OfficialHome.swift */,
 				9455A5104B42AB58A498F29C /* Owner.swift */,
 				E97669814B3D762675C197A2 /* OwnerOperations.swift */,
 				B002A96E28C44197F2418A95 /* PrivacyInfo.xcprivacy */,
@@ -343,6 +356,8 @@
 				CE36A7414A56B3C7827CC603 /* RealityAtelierScene.swift */,
 				165524023E4E1A1C0554C962 /* RoomPlacement.swift */,
 				D219A42F0F11722004A9ED1B /* RoomPlacementModel.swift */,
+				C6A24E557F849810C8791230 /* SaliniBrand.swift */,
+				A98A77E8C97B285267EB05E3 /* SaliniLinks.swift */,
 				055566B28CC5912E72E0A949 /* ShippingAtelier.swift */,
 				80A7C41726D2086E623F4A8A /* ShippingAtelierScene.swift */,
 				1BC98A5F99D057EA8E7B64E9 /* StudioLighting.swift */,
@@ -465,6 +480,7 @@
 				76E6ED526183219048F0C37B /* ninfea-loop-v4.mp4 in Resources */,
 				CA65FB0F5DD7B7B32972987F /* ninfea-official.webp in Resources */,
 				7D17699D63DFED89A183F7A0 /* ninfea-start-v4.png in Resources */,
+				86CC55F35C0187BA08BEE0C4 /* official-paola-hero.jpg in Resources */,
 				F0FB799DEC9C13A7C3DBAA4F /* opera-detail.jpg in Resources */,
 				7766A9590CE8F89D59882203 /* opera-film-v2.mp4 in Resources */,
 				9DFECD395E16A807C5F7F7D6 /* opera-final-v2.png in Resources */,
@@ -495,6 +511,7 @@
 				6A5FFEFDCD82D51ECE33C0B1 /* InsideOperationsTests.swift in Sources */,
 				3CB03EA0EBD37421E707494E /* RealityAtelierTests.swift in Sources */,
 				949A4DFF154A134C3E367315 /* RoomPlacementTests.swift in Sources */,
+				6F510EA8ADC8EFCA0FF9398A /* SaliniLinkTests.swift in Sources */,
 				F8C623113C63A0FB6739DD71 /* SaliniTests.swift in Sources */,
 				E52C6B57271B598998C369C3 /* ShippingAtelierTests.swift in Sources */,
 			);
@@ -527,6 +544,7 @@
 				01C959B14340E03E7D4D41B2 /* NinfeaCinema.swift in Sources */,
 				1A25BEA4CEBD7F396CEDDA60 /* NinfeaStory.swift in Sources */,
 				073AB33A6033AC73D703E608 /* ObjectViewer.swift in Sources */,
+				F54781AFF1AEF4A852826940 /* OfficialHome.swift in Sources */,
 				70405BBE76779F4C563F7B32 /* Owner.swift in Sources */,
 				FAFE2D75CA1CAF51A39387B1 /* OwnerOperations.swift in Sources */,
 				A8A3AAA247C5A742B2F740B7 /* Profile.swift in Sources */,
@@ -538,6 +556,8 @@
 				B5FD9ADCFDAAC468914F9F92 /* RealityAtelierScene.swift in Sources */,
 				8BC38A8738DEDBFFA383B4AF /* RoomPlacement.swift in Sources */,
 				117E058D6341136DAB82EF6D /* RoomPlacementModel.swift in Sources */,
+				97C46CC68B9CAB2DD9496D8E /* SaliniBrand.swift in Sources */,
+				A8D3DA7E0B00F5B24BB2FE90 /* SaliniLinks.swift in Sources */,
 				DDE9235998F60E78C7E81591 /* ShippingAtelier.swift in Sources */,
 				3A923864B299F30FCCB37D58 /* ShippingAtelierScene.swift in Sources */,
 				6BC074B032EB288957F741A9 /* StudioLighting.swift in Sources */,

@@ -22,6 +22,9 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     self.window = window
     setRoot(MainTabs(), animated: false)
     window.makeKeyAndVisible()
+    if let url = options.urlContexts.first?.url {
+      DispatchQueue.main.async { (window.rootViewController as? MainTabs)?.openSaliniLink(url) }
+    }
     #if DEBUG
     if ProcessInfo.processInfo.arguments.contains("-room-placement"), let form = StudioForm.noemi,
       let product = RoomProduct(form: form) {
@@ -36,6 +39,10 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     } else if ProcessInfo.processInfo.arguments.contains("-shipping-atelier") {
       (window.rootViewController as? MainTabs)?.openShippingAtelier(sceneKit: true)
     }
+  }
+  func scene(_ scene: UIScene, openURLContexts contexts: Set<UIOpenURLContext>) {
+    guard let url = contexts.first?.url else { return }
+    (window?.rootViewController as? MainTabs)?.openSaliniLink(url)
   }
   func showWelcome(animated: Bool = true) { setRoot(MainTabs(), animated: animated) }
   func enter(_ role: Audience) {
