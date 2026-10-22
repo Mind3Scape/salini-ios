@@ -11,13 +11,13 @@
   "signInRequired": false,
   "collectsData": false,
   "tracking": false,
-  "submissionStatus": "Build 1.0 (13): upload succeeded 2026-10-22T23:25:37+07:00 (EXPORT SUCCEEDED, exit0). Processing confirmed in ASC; group distribution pending.",
+  "submissionStatus": "Build 1.0 (13): upload succeeded 2026-10-22T23:25:37+07:00 (EXPORT SUCCEEDED, exit0). Processing complete, Salini Internal attached, Salini Public Beta Testing; public invitation unchanged. Verified in App Store Connect UI 2026-10-22.",
   "build": "13",
   "betaReviewNotes": "Build 1.0 (13) unifies the visual design with the public companion website https://mind3scape.github.io/salini/. It adds explicit salini://product and salini://selection links for known catalogue IDs; selections merge into local favorites only and never modify project rows, variants, prices or account data. Native sharing produces public HTTPS web links; Profile opens the companion site. No account, payment, analytics or new permissions. Product catalogue and photos originate from the official Salini site snapshot. Existing projects, material studio and optional camera AR are unchanged. Requires iOS/iPadOS 27 or later.",
   "metadataPublication": {
-    "whatToTest": "saved for build12",
+    "whatToTest": "saved for build13 and public beta submission",
     "betaDescription": "prepared replacement, not saved to app-wide metadata",
     "betaReviewNotes": "prepared replacement, not saved to app-wide metadata",
-    "evidence": "build-12-distribution-2026-10-10/distribution-status.json"
+    "evidence": "build-13-distribution-2026-10-22/distribution-status.json"
   }
 }

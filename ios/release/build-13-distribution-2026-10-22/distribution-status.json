@@ -19,8 +19,27 @@
     "exportExitCode": 0,
     "receipt": "Upload succeeded; Uploaded Salini; EXPORT SUCCEEDED"
   },
-  "processing": "Processing — verified in App Store Connect UI",
-  "internalTesting": "pending",
-  "externalTesting": "pending",
-  "verifiedAt": "2026-10-22T16:28:03.303036+00:00"
+  "processing": "complete",
+  "internalTesting": {
+    "group": "Salini Internal",
+    "attached": true
+  },
+  "externalTesting": {
+    "group": "Salini Public Beta",
+    "status": "Testing",
+    "expiresInDays": 90,
+    "submission": "Submit for Review completed; Testing observed in public-group builds table",
+    "automaticallyNotifyTesters": true
+  },
+  "verifiedAt": "2026-10-22T16:33:27.319184+00:00",
+  "buildId": "d2f0da35-1a83-443f-8569-c582ec375346",
+  "metadata": {
+    "whatToTest": "saved for build13 and external-group submission",
+    "appWideMetadataChanged": false
+  },
+  "evidenceScreenshot": "public-beta-testing.png",
+  "limitations": [
+    "No physical-device installation or camera AR verification.",
+    "Simulator web-to-app button tap and share-sheet interaction limited by coordinate-control failure; URL parsing/routing and product/selection import verified separately."
+  ]
 }
