@@ -10,6 +10,7 @@
     "status": "succeeded",
     "acceptedAt": "2026-10-23T12:07:21+07:00",
     "exitCode": 0,
-    "processing": "seen Processing in Safari; completion pending"
-  }
+    "processing": "complete; Salini Public Beta build 1.0 (16) Testing verified in Safari"
+  },
+  "distributionEvidence": "build-16-distribution-2026-10-23/distribution-status.json"
 }

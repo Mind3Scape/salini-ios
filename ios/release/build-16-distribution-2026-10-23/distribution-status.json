@@ -1,0 +1,48 @@
+{
+  "appId": "6819688748",
+  "bundleId": "design.salini.experience",
+  "version": "1.0",
+  "build": "16",
+  "sourceCommit": "1abb842fdd3cfc6c67062ddc9e999673052ea1f0",
+  "website": "https://mind3scape.github.io/salini/",
+  "testFlightInvitation": "https://testflight.apple.com/join/mUb5H7bZ",
+  "archive": "succeeded",
+  "codesignVerification": "passed",
+  "canonicalCatalogueSHA256": "7f74c9db73467daaea02c6c5c4063fcb44e91066fc724021463b622dc19b49be",
+  "eightAcceptedMoviesUnchangedFromBuild15": true,
+  "upload": {
+    "status": "succeeded",
+    "completedAt": "2026-10-23T12:07:21+07:00",
+    "exportExitCode": 0,
+    "attempts": 1
+  },
+  "processing": "complete",
+  "internalTesting": {
+    "group": "Salini Internal",
+    "verification": "not separately verified in this distribution pass"
+  },
+  "externalTesting": {
+    "group": "Salini Public Beta",
+    "groupId": "07b546aa-e790-426c-a158-1425ed2a808f",
+    "status": "Testing",
+    "expiresInDays": 90,
+    "groupBuildCount": 8,
+    "testerCount": 3,
+    "submission": "Submit for Review completed; Testing observed in public-group builds table",
+    "automaticallyNotifyTesters": true
+  },
+  "verifiedAtApproximate": "2026-10-23 12:31 UTC+7",
+  "verificationTimePrecision": "approximate minute; no exact UI event timestamp recorded",
+  "buildId": null,
+  "buildIdNote": "UUID not retrieved; version and build number verified in public-group table",
+  "metadata": {
+    "whatToTest": "build-16-what-to-test.txt saved verbatim during external-group submission",
+    "appWideMetadataChanged": false
+  },
+  "evidenceScreenshot": "public-beta-testing.png",
+  "evidenceScreenshotSHA256": "43001f4d4d9ca909a7fc4a3a0d41838f3689bb87c9f1a1fdbff2458fc7da9db0",
+  "limitations": [
+    "No physical-device installation or camera AR verification.",
+    "Reduce Motion code path preserved; system setting not toggled in this runtime pass."
+  ]
+}
