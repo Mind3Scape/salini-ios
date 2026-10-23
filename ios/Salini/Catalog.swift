@@ -10,9 +10,11 @@ final class CatalogController: UIViewController, UISearchResultsUpdating, UIColl
   /// Non-optional chip model: an Optional cell model crashes the ObjC-bridged registration.
   enum CategoryChip: Hashable {
     case all
+    case new
     case named(String)
     var title: String {
       if case .named(let n) = self { return n }
+      if case .new = self { return "Новинки" }
       return "Все"
     }
     var category: String? {
@@ -148,7 +150,7 @@ final class CatalogController: UIViewController, UISearchResultsUpdating, UIColl
 
   private func configureSource() {
     let chip = UICollectionView.CellRegistration<ChipCell, CategoryChip> { [weak self] cell, _, chip in
-      cell.configure(title: chip.title, selected: self?.filter.category == chip.category)
+      cell.configure(title: chip.title, selected: chip == .new ? self?.filter.newOnly == true : self?.filter.newOnly == false && self?.filter.category == chip.category)
     }
     let product = UICollectionView.CellRegistration<CatalogCell, Catalog.Hit> { cell, _, hit in
       cell.configure(hit)
@@ -190,7 +192,7 @@ final class CatalogController: UIViewController, UISearchResultsUpdating, UIColl
     var snap = NSDiffableDataSourceSnapshot<Section, Item>()
     snap.appendSections([.categories, .products])
     snap.appendItems(
-      ([CategoryChip.all] + Catalog.shared.categories.map(CategoryChip.named)).map(Item.category), toSection: .categories)
+      ([CategoryChip.all, .new] + Catalog.shared.categories.map(CategoryChip.named)).map(Item.category), toSection: .categories)
     snap.appendItems(hits.map(Item.product), toSection: .products)
     snap.reconfigureItems(snap.itemIdentifiers(inSection: .categories))
     source?.apply(snap, animatingDifferences: false)
@@ -220,6 +222,7 @@ final class CatalogController: UIViewController, UISearchResultsUpdating, UIColl
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
     switch source.itemIdentifier(for: indexPath) {
     case .category(let chip):
+      filter.newOnly = chip == .new
       filter.category = chip.category
       filter.subcategories = []
       reload()
@@ -272,8 +275,8 @@ final class ChipCell: UICollectionViewCell {
   func configure(title text: String, selected: Bool) {
     title.text = text
     title.textColor = selected ? .white : Palette.ink
-    contentView.backgroundColor = selected ? Palette.ink : .white
-    contentView.layer.borderColor = (selected ? Palette.ink : Palette.line).cgColor
+    contentView.backgroundColor = selected ? SaliniBrand.accent : .white
+    contentView.layer.borderColor = (selected ? SaliniBrand.accent : Palette.line).cgColor
     accessibilityLabel = text
     accessibilityTraits = selected ? [.button, .selected] : .button
   }
@@ -288,11 +291,11 @@ final class CatalogCell: UICollectionViewCell {
   private var productId: String?
   override init(frame: CGRect) {
     super.init(frame: frame)
-    picture.contentMode = .scaleAspectFill
-    picture.backgroundColor = UIColor(hex: 0xECEDEF)
+    picture.contentMode = .scaleAspectFit
+    picture.backgroundColor = SaliniBrand.soft
     picture.rounded(SaliniBrand.cardRadius)
     picture.translatesAutoresizingMaskIntoConstraints = false
-    name.font = UIFontMetrics(forTextStyle: .headline).scaledFont(for: .systemFont(ofSize: 17, weight: .semibold))
+    name.font = label("", 25, .regular, serif: true).font
     name.numberOfLines = 2
     detail.font = UIFontMetrics(forTextStyle: .footnote).scaledFont(for: .systemFont(ofSize: 13))
     detail.textColor = Palette.muted
@@ -316,7 +319,7 @@ final class CatalogCell: UICollectionViewCell {
       picture.topAnchor.constraint(equalTo: contentView.topAnchor),
       picture.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
       picture.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-      picture.heightAnchor.constraint(equalTo: picture.widthAnchor, multiplier: 1.12),
+      picture.heightAnchor.constraint(equalTo: picture.widthAnchor, multiplier: 0.74),
       texts.topAnchor.constraint(equalTo: picture.bottomAnchor, constant: 12),
       texts.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 2),
       texts.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -2),
@@ -337,8 +340,8 @@ final class CatalogCell: UICollectionViewCell {
     let variant = hit.variantKey.flatMap { p.variant(key: $0) }
     detail.text = [variant?.sku.map { "Арт. \($0)" } ?? p.subtitle, p.dimensions.text].compactMap { $0 }.joined(separator: " · ")
     price.text = variant.map { $0.price.map(rubles) ?? "Цена по запросу" } ?? p.priceText
-    badge.text = p.model != nil ? "  3D  " : nil
-    badge.isHidden = p.model == nil
+    badge.text = CatalogAtelier.launchedIDs.contains(p.id) ? "  Новинка  " : p.model != nil ? "  3D  " : nil
+    badge.isHidden = badge.text == nil
     picture.image = nil
     CatalogImages.shared.image(for: p, maxPixel: 700) { [weak self] image in
       guard self?.productId == p.id else { return }
@@ -515,6 +518,11 @@ final class CatalogProductController: ScrollController {
   private var quantity = 1
   private var colour: LineColour = .standard
   private let colourButton = UIButton(configuration: .plain())
+  private lazy var colourOrbs = ProductColourOrbs { [weak self] colour in
+    self?.colour = colour
+    self?.updateColour()
+    self?.render()
+  }
   private var heart: UIBarButtonItem!
   private let picture = UIImageView()
   private let summary = UIStackView()
@@ -543,7 +551,8 @@ final class CatalogProductController: ScrollController {
     heart.accessibilityIdentifier = "product.favorite"
     let share = UIBarButtonItem(image: UIImage(systemName: "square.and.arrow.up"), primaryAction: UIAction { [weak self] _ in
       guard let self else { return }
-      self.shareSaliniLink(.product(self.product.id), anchor: self.navigationItem.rightBarButtonItems?.last)
+      let link: SaliniLink = self.variantKey.map { .configuredProduct(self.product.id,$0,self.colour.ral?.code) } ?? .product(self.product.id)
+      self.shareSaliniLink(link, anchor: self.navigationItem.rightBarButtonItems?.last)
     })
     share.accessibilityLabel = "Поделиться изделием на сайте"
     share.accessibilityIdentifier = "product.shareWebsite"
@@ -551,7 +560,7 @@ final class CatalogProductController: ScrollController {
     // The official photograph is shown whole: the frame takes the image's own proportions
     // (within 240–520 pt), so a wide photo does not float in a tall grey field.
     let frame = UIView()
-    frame.backgroundColor = UIColor(hex: 0xEDEEF0)
+    frame.backgroundColor = SaliniBrand.soft
     frame.rounded(SaliniBrand.cardRadius)
     picture.contentMode = .scaleAspectFit
     picture.isAccessibilityElement = true
@@ -579,6 +588,23 @@ final class CatalogProductController: ScrollController {
           eyebrow([product.category, product.subcategory].compactMap { $0 }.joined(separator: " · ").uppercased()),
           label(product.name, 40, .regular, serif: true),
         ], spacing: 10))
+    if let copy = CatalogAtelier.descriptions[product.id] {
+      let text = label(copy.text, 15, .regular, Palette.muted)
+      text.numberOfLines = 4
+      text.accessibilityIdentifier = "product.description"
+      var expanded = false
+      let toggle = UIButton(type: .system)
+      toggle.setTitle("Об изделии · читать полностью ↓", for: .normal)
+      toggle.contentHorizontalAlignment = .leading
+      toggle.tintColor = SaliniBrand.accent
+      toggle.heightAnchor.constraint(greaterThanOrEqualToConstant: 44).isActive = true
+      toggle.accessibilityIdentifier = "product.description.toggle"
+      toggle.addAction(UIAction { _ in
+        expanded.toggle();text.numberOfLines = expanded ? 0 : 4
+        toggle.setTitle(expanded ? "Свернуть описание ↑" : "Об изделии · читать полностью ↓", for: .normal)
+      }, for: .touchUpInside)
+      add(stack([text,toggle],spacing:8))
+    }
     summary.axis = .vertical
     summary.spacing = 0
     variantsStack.axis = .vertical
@@ -586,8 +612,8 @@ final class CatalogProductController: ScrollController {
     if product.variants.count > 1 {
       add(stack([eyebrow("ИСПОЛНЕНИЕ"), variantsStack], spacing: 12))
     }
-    add(summary)
     add(quantityRow())
+    add(summary)
     if StudioForm.all.contains(where: { $0.product.id == product.id }) {
       let room = ActionButton("Примерить в комнате", icon: "viewfinder", prominent: false) { [weak self] in
         guard let self, let selected = RoomProduct.selection(self.product, variant: self.variant, colour: self.colour) else { return }
@@ -717,7 +743,7 @@ final class CatalogProductController: ScrollController {
     b.contentHorizontalAlignment = .fill
     b.layer.borderColor = Palette.line.cgColor
     b.layer.borderWidth = selected ? 0 : 1
-    b.layer.cornerRadius = 14
+    b.layer.cornerRadius = 28
     b.accessibilityTraits = selected ? [.button, .selected] : .button
     b.accessibilityIdentifier = "product.variant.\(v.key)"
     return b
@@ -740,14 +766,17 @@ final class CatalogProductController: ScrollController {
     colourButton.configuration?.baseForegroundColor = Palette.ink
     colourButton.configuration?.contentInsets = .init(top: 10, leading: 0, bottom: 10, trailing: 0)
     colourButton.accessibilityIdentifier = "product.colour"
-    let colourRow = stack([label("Цвет", 15, .regular, Palette.muted), UIView(), colourButton], axis: .horizontal, spacing: 12)
-    colourRow.alignment = .center
+    colourButton.contentHorizontalAlignment = .leading
+    let colourRow = stack([label("Цвет", 15, .regular, Palette.muted), colourButton], spacing: 4)
+    colourRow.alignment = .fill
     updateColour()
-    return stack([colourRow, row], spacing: 4)
+    return stack([colourRow, colourOrbs,
+      label("Экранное приближение RAL. Оттенок и стоимость окраски подтверждают по образцу; фотография показывает исходное изделие.", 11, .regular, Palette.muted), row], spacing: 12)
   }
   private func updateColour() {
     let allowed = variant?.allowsRAL ?? false
     if !allowed { colour = .standard }
+    colourOrbs.update(selected: colour, allowsRAL: allowed)
     colourButton.isEnabled = allowed
     colourButton.configuration?.title = allowed ? colour.longTitle : "Стандартный"
     colourButton.configuration?.image = allowed ? UIImage(systemName: "chevron.up.chevron.down") : nil

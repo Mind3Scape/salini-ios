@@ -155,6 +155,18 @@ final class HomeController: ScrollController, UIScrollViewDelegate {
     section(covers, top: 0, bottom: 16, inset: 16)
     covers.select(selected, animated: false)
     section(officialCatalogueEntry(), top: 0, bottom: 16, inset: 20)
+    let noveltyTitle = stack([label("Новые формы", 32, .regular, serif: true),UIView(),
+      ActionButton("Все", icon: "arrow.up.right") { [weak self] in
+        let list=CatalogController();var filter=CatalogFilter();filter.newOnly=true;list.preset=filter
+        self?.navigationController?.pushViewController(list, animated:true)
+      }],axis:.horizontal,spacing:12)
+    noveltyTitle.alignment = .center
+    section(stack([eyebrow("НОВИНКИ SALINI"),noveltyTitle],spacing:8),top:14,bottom:10,inset:20)
+    section(horizontal(CatalogAtelier.launchedIDs.compactMap { Catalog.shared.product($0) }.map { product in
+      OfficialProductTile(product:product) { [weak self] in
+        self?.navigationController?.pushViewController(CatalogProductController(product),animated:true)
+      }
+    },width:260,height:345),top:0,bottom:20,inset:0)
     materialFeature()
     let actions = stack(
       [
@@ -174,7 +186,7 @@ final class HomeController: ScrollController, UIScrollViewDelegate {
       ) { [weak self] in self?.present(ObjectViewerController(), animated: true) }, inset: 20)
     let title = stack(
       [
-        label("Избранные формы", 27, .semibold), UIView(),
+        label("Избранные формы", 32, .regular, serif: true), UIView(),
         label("01 — 04", 10, .medium, Palette.muted),
       ], axis: .horizontal)
     title.alignment = .center

@@ -1,0 +1,40 @@
+{
+  "build": "1.0 (16)",
+  "date": "2026-10-23",
+  "nativeTests": "15 passed including HomeCinemaTests (four films, three loops, offscreen release); final 12 focused catalogue/link tests passed after cosmetic corrections",
+  "nativeUI": "Simulator: novelty catalogue, product colour/variant and v2 deep link verified. Paola 172 + S-Stone + RAL6034 yields 1015204MF. Physical iPhone and AR tracking not checked. New profile library entry compiled; browser destinations audited.",
+  "assets": [
+    {
+      "name": "ninfea-film-v4.mp4",
+      "sha256": "e3dc368179806bda4ef173172f0b0a86d594b642c51ec137af3552fb642477dc"
+    },
+    {
+      "name": "ninfea-loop-v4.mp4",
+      "sha256": "ce9a40586337cb058bd9268de78839ce65d64c29ee0e773d5832c6d7d935b8ea"
+    },
+    {
+      "name": "aria-film-v2.mp4",
+      "sha256": "9d3be17ce54e28750da21b9f9939a7df8745352f665881ae428381ba6ee30655"
+    },
+    {
+      "name": "aria-loop-v2.mp4",
+      "sha256": "9310ceab1675f0919c4d93c6c3672b5c54cc3fcba318c6f6047d33b4248aa62e"
+    },
+    {
+      "name": "opera-film-v2.mp4",
+      "sha256": "805e432c063dc2b8f8053cd37dab7f68e47f35db1da91ffe7af7e8b0263fdda5"
+    },
+    {
+      "name": "opera-loop-v2.mp4",
+      "sha256": "954e1d2d64ecefca441df1786b201586aca643f63549af20f678f6446b67e32c"
+    },
+    {
+      "name": "greca-film-v2.mp4",
+      "sha256": "c44242c1c735872fc826bd14408ec9fd7b4a0c60a96084ce5e79a620207d5ba8"
+    },
+    {
+      "name": "greca-loop-v2.mp4",
+      "sha256": "499909f49366e4fdd874d16855c86a653367ef8f8a86f46e259a4a34d6c49cf9"
+    }
+  ]
+}

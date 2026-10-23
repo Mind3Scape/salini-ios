@@ -412,6 +412,7 @@ struct CatalogFilter: Equatable {
   var lengthRange: ClosedRange<Double>?
   var maxPrice: Int?
   var inStockOnly = false
+  var newOnly = false
   var withModelOnly = false
   var includeOptions = false
   var favoritesOnly: Set<String>?
@@ -419,7 +420,7 @@ struct CatalogFilter: Equatable {
 
   var activeCount: Int {
     [!subcategories.isEmpty, !finishes.isEmpty, lengthRange != nil, maxPrice != nil, inStockOnly,
-     withModelOnly, includeOptions].filter { $0 }.count
+     withModelOnly, includeOptions, newOnly].filter { $0 }.count
   }
   /// Filters that apply to an execution (material/finish, price) must hold for the SAME variant.
   var constrainsVariant: Bool { !finishes.isEmpty || maxPrice != nil }
@@ -439,6 +440,7 @@ struct CatalogFilter: Equatable {
       guard let l = p.dimensions.length?.exact, r.contains(l) else { return false }
     }
     if inStockOnly && (p.availability.stockQuantity ?? 0) == 0 { return false }
+    if newOnly && !CatalogAtelier.launchedIDs.contains(p.id) { return false }
     if withModelOnly && p.model == nil { return false }
     if let favoritesOnly, !favoritesOnly.contains(p.id) { return false }
     return true

@@ -1,4 +1,5 @@
 import UIKit
+import SafariServices
 
 final class ProfileController: ScrollController {
   override func viewDidLoad() {
@@ -32,6 +33,21 @@ final class ProfileController: ScrollController {
             self?.navigationController?.pushViewController(HelpController(), animated: true)
           },
         ], spacing: 10))
+    let stories: [(String,String,String)] = [
+      ("О компании", "sparkles", "about"),
+      ("Журнал Salini", "text.book.closed", "journal"),
+      ("Галерея интерьеров", "photo.on.rectangle.angled", "projects"),
+      ("Академия Salini", "play.circle", "academy"),
+      ("Новинки и будущие коллекции", "leaf", "new"),
+      ("Сотрудничество", "person.2", "cooperation"),
+    ]
+    add(stack([eyebrow("МИР SALINI"),label("Истории продолжаются.",30,.regular,serif:true),label("Коллекции, люди и знания — в общей с сайтом библиотеке Salini.",14,.regular,Palette.muted)] + stories.map { item in
+      ActionButton(item.0, icon:item.1) { [weak self] in
+        let page = SFSafariViewController(url:SaliniLink.websiteHome.appendingPathComponent(item.2))
+        page.preferredControlTintColor = SaliniBrand.accent
+        self?.present(page,animated:true)
+      }
+    },spacing:12))
     let owner = UIView()
     owner.backgroundColor = Palette.ink
     owner.rounded(28)
