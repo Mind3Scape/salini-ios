@@ -11,13 +11,13 @@
   "signInRequired": false,
   "collectsData": false,
   "tracking": false,
-  "submissionStatus": "Build 1.0 (15): Upload succeeded and EXPORT SUCCEEDED, exit 0, at 2026-10-23T11:06:41+07:00. Apple processing started; completion and internal/external group states unverified. Last verified public build remains 13. Build 14 has not been added to Salini Public Beta.",
+  "submissionStatus": "Build 1.0 (15): upload succeeded at 2026-10-23T11:06:41+07:00; processing complete. Around 11:12 UTC+7, App Store Connect showed Testing with Salini Internal and Salini Public Beta attached. Public group: 90 days remaining, 3 testers; automatic notification enabled. Build 14 remains internal only and Ready to Submit for external testing.",
   "build": "15",
   "betaReviewNotes": "Build 1.0 (15) restores the previously accepted native collection films on the buyer Home screen: Ninfea v4, Aria v2, Opera v2 and Greca v2. These silent films were still bundled but had become unreachable after the build 13 home redesign. The existing player, introduction-to-loop behavior, offscreen release policy and Reduce Motion still-poster fallback are retained. Only the selected collection plays. The existing canonical catalogue and the new material illustrations remain below the gallery, with the shared warm palette and dark green actions. Collection actions open an existing collection story or canonical product. No new media generation, catalogue IDs, account requirements, payments, analytics, permissions or data collection. Existing projects and product/selection links are unchanged. Prices and availability remain a dated official-site snapshot. Requires iOS/iPadOS 27 or later.",
   "metadataPublication": {
-    "whatToTest": "Prepared for build 15; not yet saved in App Store Connect",
+    "whatToTest": "Saved verbatim for build 15 and Salini Public Beta submission",
     "betaDescription": "prepared replacement; not saved to app-wide metadata",
     "betaReviewNotes": "Prepared replacement for build 15; not yet saved",
-    "evidence": "build-15-upload-receipt.txt"
+    "evidence": "build-15-distribution-2026-10-23/distribution-status.json"
   }
 }

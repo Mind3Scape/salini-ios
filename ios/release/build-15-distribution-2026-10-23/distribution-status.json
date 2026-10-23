@@ -1,0 +1,59 @@
+{
+  "appId": "6819688748",
+  "bundleId": "design.salini.experience",
+  "version": "1.0",
+  "build": "15",
+  "sourceCommit": "a267e75b1d88b65b9e2cb0f14665eca6f6af3b1e",
+  "website": "https://mind3scape.github.io/salini/",
+  "testFlightInvitation": "https://testflight.apple.com/join/mUb5H7bZ",
+  "archive": "succeeded",
+  "codesignVerification": "passed",
+  "canonicalCatalogueSHA256": "7f74c9db73467daaea02c6c5c4063fcb44e91066fc724021463b622dc19b49be",
+  "focusedTests": {
+    "executed": 21,
+    "failures": 0
+  },
+  "upload": {
+    "status": "succeeded",
+    "completedAt": "2026-10-23T11:06:41+07:00",
+    "exportExitCode": 0,
+    "receipt": "Upload succeeded; EXPORT SUCCEEDED"
+  },
+  "processing": "complete",
+  "internalTesting": {
+    "group": "Salini Internal",
+    "attached": true,
+    "evidence": "Release coordinator observed iOS Builds row 15 with both groups attached and status Testing"
+  },
+  "externalTesting": {
+    "group": "Salini Public Beta",
+    "status": "Testing",
+    "expiresInDays": 90,
+    "groupBuildCount": 7,
+    "testerCount": 3,
+    "invites": 3,
+    "submission": "Submit for Review completed; Testing observed in public-group builds table",
+    "automaticallyNotifyTesters": true
+  },
+  "verifiedAtApproximate": "2026-10-23 11:12 UTC+7",
+  "verificationTimePrecision": "approximate minute; no exact UI event timestamp recorded",
+  "buildId": null,
+  "buildIdNote": "UUID was not retrieved; build number, version and both group states were verified in App Store Connect",
+  "metadata": {
+    "whatToTest": "build-15-what-to-test.txt saved verbatim during external-group submission",
+    "appWideMetadataChanged": false,
+    "betaReviewNotes": "prepared replacement only; saving not confirmed"
+  },
+  "evidenceScreenshot": "public-beta-testing.png",
+  "evidenceScreenshotSHA256": "e4a97a90072b15922c264143bb38e2eeb1daab8908a20d0d317bc6fd6d876237",
+  "previousBuild14": {
+    "processing": "complete",
+    "internalGroup": "Salini Internal",
+    "externalStatus": "Ready to Submit",
+    "publicBetaAttached": false
+  },
+  "limitations": [
+    "No physical-device installation, thermal/performance measurement or camera AR verification.",
+    "Reduce Motion code path is preserved; system setting was not toggled in this runtime pass."
+  ]
+}

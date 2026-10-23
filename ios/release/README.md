@@ -2,7 +2,9 @@
 
 ## Build 15 — 23 October 2026
 
-**Upload succeeded at 11:06:41 UTC+7**, `EXPORT SUCCEEDED`, exit 0. Apple processing started; completion and group distribution remain unverified. The last verified public build is 13. [Upload receipt](build-15-upload-receipt.txt).
+**Salini Public Beta → 1.0 (15) → Testing**, 90 days remaining. [Install or update](https://testflight.apple.com/join/mUb5H7bZ).
+
+Upload succeeded at 11:06:41 UTC+7, `EXPORT SUCCEEDED`, exit 0. Around 11:12 UTC+7, App Store Connect confirmed processing complete and both Salini Internal and Salini Public Beta attached. What to Test 15 was saved verbatim; automatic tester notifications were enabled. [Distribution evidence](build-15-distribution-2026-10-23/distribution-status.json), [public-group screenshot](build-15-distribution-2026-10-23/public-beta-testing.png), [upload receipt](build-15-upload-receipt.txt).
 
 Restores the accepted native collection films on buyer Home: Ninfea v4 and Aria/Opera/Greca v2, followed by the canonical catalogue and updated material section. Shared warm colors, dark green actions and material illustrations remain. Existing intro/loop playback, one active film, offscreen release and Reduce Motion still-poster fallback are preserved.
 
@@ -10,7 +12,7 @@ Source `a267e75b1d88b65b9e2cb0f14665eca6f6af3b1e`, committed and pushed before a
 
 ## Build 14 — 23 October 2026
 
-Source `304a6ee7eb7ffea4769e093012c24f4d27231f59`, branch `codex/unified-salini-experience`, committed and pushed. Signed archive succeeded; codesign, catalogue/mask identity and all eight PNG pixel comparisons passed. All 17 focused tests passed. **Upload succeeded at 10:43:08 UTC+7 on 23 October 2026**, `EXPORT SUCCEEDED`, exit0. Apple processing started; completion and TestFlight groups remain unverified. Build 13 remains the latest verified public build. [Upload receipt](build-14-upload-receipt.txt).
+Source `304a6ee7eb7ffea4769e093012c24f4d27231f59`, branch `codex/unified-salini-experience`, committed and pushed. Signed archive succeeded; codesign, catalogue/mask identity and all eight PNG pixel comparisons passed. All 17 focused tests passed. **Upload succeeded at 10:43:08 UTC+7 on 23 October 2026**, `EXPORT SUCCEEDED`, exit0. Processing completed; Salini Internal is attached. External status remains Ready to Submit, and build 14 was not added to Salini Public Beta. Public build 15 supersedes it. [Upload receipt](build-14-upload-receipt.txt).
 
 Changes: shared warm brand palette, single-wall material cover illustrations, explicit access to the existing animated layer study, readable callouts and material controls. No catalogue identity, project storage or link-contract changes. [Validation](build-14-validation.json), [asset provenance](build-14-assets.json), [What to Test](build-14-what-to-test.txt).
 

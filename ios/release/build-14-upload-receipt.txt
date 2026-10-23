@@ -16,12 +16,11 @@ Confirmed final output:
 Exit code: 0.
 
 Upload accepted. No retry/re-upload was performed.
-Processing completion: not yet verified.
-Internal group: not yet verified for build14.
-External/public group: not yet verified for build14.
-Latest independently verified public build remains1.0(13).
-The browser App Store Connect session expired during the fresh build-list check;
-Xcode upload authorization remained valid. Browser verification is being handled separately.
+Processing completion: confirmed by the release coordinator in App Store Connect on 23 October 2026.
+Internal group: Salini Internal attached.
+External/public group: Ready to Submit; not added to Salini Public Beta.
+Build 14 remains internal only. Public build 15 supersedes it.
+The browser App Store Connect session was restored after the upload; no re-upload was needed.
 
 Validation: signed archive/codesign passed; all8 PNGs are pixel-identical to source,
 catalogue and silhouette masks are byte-identical;17 focused XCTest passed, zero failures.

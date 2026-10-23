@@ -38,7 +38,7 @@
     "status": "succeeded",
     "acceptedAt": "2026-10-23T10:43:08+07:00",
     "xcodebuildExitCode": 0,
-    "processing": "started; completion unverified"
+    "processing": "complete"
   },
-  "distribution": "Build14 internal/external groups unverified; latest verified public build remains13"
+  "distribution": "Salini Internal attached; Ready to Submit for external testing. Not added to Salini Public Beta; superseded by public build 15."
 }

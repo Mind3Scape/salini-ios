@@ -101,11 +101,14 @@
     "status": "succeeded",
     "acceptedAt": "2026-10-23T11:06:41+07:00",
     "xcodebuildExitCode": 0,
-    "processing": "started; completion unverified"
+    "processing": "complete"
   },
   "distribution": {
-    "internal": "unverified for build 15",
-    "public": "unverified for build 15",
-    "lastVerifiedPublicBuild": "13"
+    "internal": "Salini Internal attached; iOS Builds status Testing",
+    "public": "Salini Public Beta — Testing",
+    "expiresInDays": 90,
+    "verifiedAtApproximate": "2026-10-23 11:12 UTC+7",
+    "lastVerifiedPublicBuild": "15",
+    "evidence": "build-15-distribution-2026-10-23/distribution-status.json"
   }
 }
