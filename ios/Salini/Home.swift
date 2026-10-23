@@ -138,13 +138,22 @@ final class HomeController: ScrollController, UIScrollViewDelegate {
     updateMaterialPlayback()
   }
   private func buyer() {
-    gallery?.active = false
-    gallery = nil
-    let official = OfficialCollectionHero { [weak self] id in
+    let selected = gallery?.selectedIndex ?? 0
+    let covers = CollectionGallery { [weak self] id in
+      guard let self else { return }
+      if id == "ninfea" {
+        let info = UINavigationController(rootViewController: NinfeaInformationController())
+        info.modalPresentationStyle = .fullScreen
+        self.present(info, animated: true)
+        return
+      }
       guard let product = Catalog.shared.product(id) else { return }
-      self?.navigationController?.pushViewController(CatalogProductController(product), animated: true)
+      self.navigationController?.pushViewController(CatalogProductController(product), animated: true)
     }
-    section(official, top: 0, bottom: 26, inset: 16)
+    covers.accessibilityIdentifier = "home.collectionGallery"
+    gallery = covers
+    section(covers, top: 0, bottom: 16, inset: 16)
+    covers.select(selected, animated: false)
     section(officialCatalogueEntry(), top: 0, bottom: 16, inset: 20)
     materialFeature()
     let actions = stack(

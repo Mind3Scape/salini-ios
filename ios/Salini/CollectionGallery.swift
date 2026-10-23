@@ -38,7 +38,7 @@ final class CollectionGallery: UIView, UIScrollViewDelegate {
     pager.alwaysBounceHorizontal = true
     pager.isDirectionalLockEnabled = true
     pager.delegate = self
-    pager.rounded(30)
+    pager.rounded(SaliniBrand.featureRadius)
     pager.translatesAutoresizingMaskIntoConstraints = false
     addSubview(pager)
     for story in Self.stories {
@@ -118,7 +118,7 @@ final class CollectionGallery: UIView, UIScrollViewDelegate {
   private func updateSelection(_ index: Int) {
     selectedIndex = index
     for (i, button) in selectors.enumerated() {
-      button.configuration?.baseForegroundColor = i == index ? Palette.ink : Palette.muted
+      button.configuration?.baseForegroundColor = i == index ? SaliniBrand.accent : Palette.muted
       button.accessibilityTraits = i == index ? [.button, .selected] : [.button]
       button.layer.borderWidth = 0
       pages[i].accessibilityElementsHidden = i != index
@@ -134,7 +134,7 @@ final class CollectionGallery: UIView, UIScrollViewDelegate {
           mark.heightAnchor.constraint(equalToConstant: 1.5),
         ])
       }
-      mark.backgroundColor = i == index ? Palette.ink : Palette.line
+      mark.backgroundColor = i == index ? SaliniBrand.accent : Palette.line
     }
     updatePlayback()
   }
@@ -170,7 +170,7 @@ private final class CollectionPage: UIView {
           label(story.name, 44, .light, .white),
           label(story.headline.replacingOccurrences(of: "\n", with: " "), 13, .regular, .white.withAlphaComponent(0.9)),
         ], spacing: 8)
-      let details = ActionButton("О коллекции", icon: "arrow.up.right", action: open)
+      let details = ActionButton("О коллекции", icon: "arrow.up.right", prominent: true, action: open)
       details.configuration?.baseForegroundColor = .white
       details.configuration?.contentInsets = .init(top: 13, leading: 18, bottom: 13, trailing: 18)
       details.accessibilityLabel = "О коллекции \(story.name)"

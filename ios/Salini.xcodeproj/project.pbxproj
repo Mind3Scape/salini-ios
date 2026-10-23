@@ -14,6 +14,7 @@
 		0D8EE02ADDAA5E32E740D03D /* essence-sense-cap-gloss.png in Resources */ = {isa = PBXBuildFile; fileRef = B038AC0766FACBDF3D6D1F32 /* essence-sense-cap-gloss.png */; };
 		0DEB80FD58EFB617543DA71F /* essence-stone-mass.png in Resources */ = {isa = PBXBuildFile; fileRef = CEC74DCCD4725FE8C8FA6096 /* essence-stone-mass.png */; };
 		117E058D6341136DAB82EF6D /* RoomPlacementModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D219A42F0F11722004A9ED1B /* RoomPlacementModel.swift */; };
+		16CB056C6551F3B440FEAEBC /* HomeCinemaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D351C89BFF110248E03E5FCC /* HomeCinemaTests.swift */; };
 		1A25BEA4CEBD7F396CEDDA60 /* NinfeaStory.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4BD1EE31F7C199D6DAD475C /* NinfeaStory.swift */; };
 		1C50403690C3AF89F09F7A46 /* aria-loop-v2.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = E72B0B9A2065ECA016C9E530 /* aria-loop-v2.mp4 */; };
 		1E422D8F743225E5DC1C6C4B /* production.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D857B43F6F8433444EA53ADE /* production.jpg */; };
@@ -202,6 +203,7 @@
 		CEF9612034EAAC3B2E8AFDEE /* Aria-drawing.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "Aria-drawing.pdf"; sourceTree = "<group>"; };
 		D219A42F0F11722004A9ED1B /* RoomPlacementModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomPlacementModel.swift; sourceTree = "<group>"; };
 		D328B820930D881F3BDDC27B /* essence-stone-cover.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "essence-stone-cover.png"; sourceTree = "<group>"; };
+		D351C89BFF110248E03E5FCC /* HomeCinemaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCinemaTests.swift; sourceTree = "<group>"; };
 		D4BD1EE31F7C199D6DAD475C /* NinfeaStory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NinfeaStory.swift; sourceTree = "<group>"; };
 		D546A670C08A873DB3EF1008 /* InsightAssets */ = {isa = PBXFileReference; lastKnownFileType = folder; name = InsightAssets; path = Salini/InsightAssets; sourceTree = SOURCE_ROOT; };
 		D80E2E88706C9C8634614E62 /* studio_small_09_2k.hdr */ = {isa = PBXFileReference; path = studio_small_09_2k.hdr; sourceTree = "<group>"; };
@@ -261,6 +263,7 @@
 				0B441EB9417092B4E01FDB9C /* CinemaReleaseTests.swift */,
 				1378F961C27F7E433530BB7C /* DesignerPassTests.swift */,
 				1970BF45969EDD2C94464839 /* EssenceFeatureTests.swift */,
+				D351C89BFF110248E03E5FCC /* HomeCinemaTests.swift */,
 				E4FAF20A36EDC10E0096E5FE /* InsideOperationsTests.swift */,
 				CC1EBD781C5BE290AC553C42 /* RealityAtelierTests.swift */,
 				C2B3995E14D30E24FDDFB60D /* RoomPlacementTests.swift */,
@@ -520,6 +523,7 @@
 				A6F6AD4F5F554684091311E1 /* CinemaReleaseTests.swift in Sources */,
 				A81D85D526685B827BFD87FA /* DesignerPassTests.swift in Sources */,
 				23DDA568B5D2234BA4BEAD83 /* EssenceFeatureTests.swift in Sources */,
+				16CB056C6551F3B440FEAEBC /* HomeCinemaTests.swift in Sources */,
 				6A5FFEFDCD82D51ECE33C0B1 /* InsideOperationsTests.swift in Sources */,
 				3CB03EA0EBD37421E707494E /* RealityAtelierTests.swift in Sources */,
 				949A4DFF154A134C3E367315 /* RoomPlacementTests.swift in Sources */,
@@ -595,7 +599,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 14;
+				CURRENT_PROJECT_VERSION = 15;
 				DEVELOPMENT_TEAM = TQ5SCF3KQZ;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Salini/Info.plist;
@@ -778,7 +782,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 14;
+				CURRENT_PROJECT_VERSION = 15;
 				DEVELOPMENT_TEAM = TQ5SCF3KQZ;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Salini/Info.plist;
