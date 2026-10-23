@@ -134,10 +134,13 @@ final class DemoStore {
   var role: Audience { didSet { defaults.set(role.rawValue, forKey: "salini.role") } }
   /// Catalogue product ids. Prototype ids («aria», «greca»…) are mapped on load.
   var favorites: Set<String> { didSet { save() } }
+  private var favoriteConfigurations: [String: FavoriteConfiguration]
   init(defaults: UserDefaults = .standard) {
     self.defaults = defaults
     role = Audience(rawValue: defaults.string(forKey: "salini.role") ?? "home") ?? .home
     favorites = Set((defaults.stringArray(forKey: "salini.favorites") ?? []).map { Catalog.legacyIds[$0] ?? $0 })
+    favoriteConfigurations = defaults.data(forKey: "salini.favoriteConfigurations")
+      .flatMap { try? JSONDecoder().decode([String: FavoriteConfiguration].self, from: $0) } ?? [:]
   }
   private func save() {
     defaults.set(Array(favorites), forKey: "salini.favorites")
@@ -149,9 +152,34 @@ final class DemoStore {
     ProjectStore.shared.add(match.0, variantKey: match.1?.key)
   }
   func toggle(_ id: String) {
-    if favorites.contains(id) { favorites.remove(id) } else { favorites.insert(id) }
+    if favorites.contains(id) {
+      favoriteConfigurations.removeValue(forKey: id)
+      persistFavoriteConfigurations()
+      favorites.remove(id)
+    } else { favorites.insert(id) }
+  }
+  func favoriteConfiguration(for product: CatalogProduct) -> FavoriteConfiguration? {
+    guard favorites.contains(product.id), let saved = favoriteConfigurations[product.id],
+          let variant = product.variant(key: saved.variantKey) else { return nil }
+    let colour: LineColour = variant.allowsRAL && saved.colour.ral != nil ? saved.colour : .standard
+    return FavoriteConfiguration(variantKey: variant.key, colour: colour)
+  }
+  func rememberFavorite(_ product: CatalogProduct, variantKey: String?, colour: LineColour) {
+    guard favorites.contains(product.id), let variant = product.variant(key: variantKey) else { return }
+    let validColour: LineColour = variant.allowsRAL && colour.ral != nil ? colour : .standard
+    let value = FavoriteConfiguration(variantKey: variant.key, colour: validColour)
+    guard favoriteConfigurations[product.id] != value else { return }
+    favoriteConfigurations[product.id] = value
+    persistFavoriteConfigurations()
+  }
+  private func persistFavoriteConfigurations() {
+    if let bytes = try? JSONEncoder().encode(favoriteConfigurations) {
+      defaults.set(bytes, forKey: "salini.favoriteConfigurations")
+    }
   }
   func reset() {
+    favoriteConfigurations = [:]
+    persistFavoriteConfigurations()
     favorites = []
     role = .home
     ProjectStore.shared.reset()

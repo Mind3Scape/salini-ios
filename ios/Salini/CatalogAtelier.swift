@@ -1,5 +1,10 @@
 import UIKit
 
+struct FavoriteConfiguration: Codable, Equatable {
+  let variantKey: String
+  let colour: LineColour
+}
+
 /// Editorial additions never alter the canonical 305 product identities or saved executions.
 enum CatalogAtelier {
   // Official /new/ checked 23.10.2026: only these three say «Запущено».

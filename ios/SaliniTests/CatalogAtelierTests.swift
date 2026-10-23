@@ -3,6 +3,34 @@ import UIKit
 @testable import Salini
 
 final class CatalogAtelierTests: XCTestCase {
+  func testFavouriteConfigurationSurvivesReloadAndRemovalDoesNotRestoreIt() throws {
+    let suite = "salini.favourite-test.\(UUID().uuidString)"
+    let defaults = try XCTUnwrap(UserDefaults(suiteName: suite))
+    defer { defaults.removePersistentDomain(forName: suite) }
+    let product = try XCTUnwrap(Catalog.shared.product("9185"))
+    let store = DemoStore(defaults: defaults)
+    store.toggle(product.id)
+    store.rememberFavorite(product, variantKey: "sStone-matte-1", colour: .ral("6034"))
+    let reloaded = DemoStore(defaults: defaults)
+    XCTAssertEqual(reloaded.favoriteConfiguration(for: product), FavoriteConfiguration(variantKey: "sStone-matte-1", colour: .ral("6034")))
+    reloaded.rememberFavorite(product, variantKey: "not-a-variant", colour: .ral("6034"))
+    XCTAssertEqual(reloaded.favoriteConfiguration(for: product)?.variantKey, "sStone-matte-1")
+    reloaded.toggle(product.id)
+    reloaded.toggle(product.id)
+    XCTAssertNil(DemoStore(defaults: defaults).favoriteConfiguration(for: product))
+  }
+  func testOldFavouritesAndUnknownRALRemainSafe() throws {
+    let suite = "salini.favourite-test.\(UUID().uuidString)"
+    let defaults = try XCTUnwrap(UserDefaults(suiteName: suite))
+    defer { defaults.removePersistentDomain(forName: suite) }
+    defaults.set(["9185"], forKey: "salini.favorites")
+    let store = DemoStore(defaults: defaults)
+    let product = try XCTUnwrap(Catalog.shared.product("9185"))
+    XCTAssertTrue(store.favorites.contains(product.id))
+    XCTAssertNil(store.favoriteConfiguration(for: product))
+    store.rememberFavorite(product, variantKey: "sStone-matte-1", colour: .ral("9999"))
+    XCTAssertEqual(store.favoriteConfiguration(for: product)?.colour, .standard)
+  }
   func testNoveltyFilterUsesOnlyLaunchedOfficialProductsAndKeepsCatalogue() {
     var filter=CatalogFilter();filter.newOnly=true
     XCTAssertEqual(Set(Catalog.shared.search("",filter:filter).map { $0.product.id }),Set(CatalogAtelier.launchedIDs))
@@ -21,7 +49,7 @@ final class CatalogAtelierTests: XCTestCase {
   }
   @MainActor func testRoundColourControlsKeepExecutionAndCustomArticleInSync() throws {
     let product=try XCTUnwrap(Catalog.shared.product("9185"))
-    let controller=CatalogProductController(product)
+    let controller=CatalogProductController(product, variantKey: product.variants.first?.key, colour: .standard)
     controller.loadViewIfNeeded()
     let colour=try XCTUnwrap(descendants(controller.view).first { $0.accessibilityIdentifier == "product.swatch.RAL 6034" } as? UIButton)
     colour.sendActions(for:.touchUpInside)

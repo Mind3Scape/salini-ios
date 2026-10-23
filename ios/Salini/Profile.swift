@@ -34,6 +34,7 @@ final class ProfileController: ScrollController {
           },
         ], spacing: 10))
     let stories: [(String,String,String)] = [
+      ("Вода обретает форму", "drop", "experience"),
       ("О компании", "sparkles", "about"),
       ("Журнал Salini", "text.book.closed", "journal"),
       ("Галерея интерьеров", "photo.on.rectangle.angled", "projects"),

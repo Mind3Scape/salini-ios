@@ -96,6 +96,10 @@ final class CatalogController: UIViewController, UISearchResultsUpdating, UIColl
       self, selector: #selector(favoritesChanged), name: .demoChanged, object: nil)
   }
   @objc private func favoritesChanged() { if showsFavoritesOnly { reload() } }
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    if showsFavoritesOnly, collection != nil { collection.reloadData() }
+  }
 
   private func sortButton() -> UIBarButtonItem {
     let item = UIBarButtonItem(image: UIImage(systemName: "arrow.up.arrow.down"), menu: sortMenu())
@@ -152,8 +156,8 @@ final class CatalogController: UIViewController, UISearchResultsUpdating, UIColl
     let chip = UICollectionView.CellRegistration<ChipCell, CategoryChip> { [weak self] cell, _, chip in
       cell.configure(title: chip.title, selected: chip == .new ? self?.filter.newOnly == true : self?.filter.newOnly == false && self?.filter.category == chip.category)
     }
-    let product = UICollectionView.CellRegistration<CatalogCell, Catalog.Hit> { cell, _, hit in
-      cell.configure(hit)
+    let product = UICollectionView.CellRegistration<CatalogCell, Catalog.Hit> { [weak self] cell, _, hit in
+      cell.configure(hit, saved: self?.showsFavoritesOnly == true ? DemoStore.shared.favoriteConfiguration(for: hit.product) : nil)
     }
     let header = UICollectionView.SupplementaryRegistration<SummaryHeader>(
       elementKind: UICollectionView.elementKindSectionHeader
@@ -227,8 +231,9 @@ final class CatalogController: UIViewController, UISearchResultsUpdating, UIColl
       filter.subcategories = []
       reload()
     case .product(let hit):
+      let saved = showsFavoritesOnly ? DemoStore.shared.favoriteConfiguration(for: hit.product) : nil
       navigationController?.pushViewController(
-        CatalogProductController(hit.product, variantKey: hit.variantKey), animated: true)
+        CatalogProductController(hit.product, variantKey: saved?.variantKey ?? hit.variantKey, colour: saved?.colour), animated: true)
     case nil: break
     }
   }
@@ -288,6 +293,7 @@ final class CatalogCell: UICollectionViewCell {
   private let detail = UILabel()
   private let price = UILabel()
   private let badge = UILabel()
+  private let savedChoice = UILabel()
   private var productId: String?
   override init(frame: CGRect) {
     super.init(frame: frame)
@@ -309,7 +315,11 @@ final class CatalogCell: UICollectionViewCell {
     badge.rounded(11)
     badge.isHidden = true
     badge.translatesAutoresizingMaskIntoConstraints = false
-    let texts = stack([name, detail, price], spacing: 4)
+    savedChoice.font = UIFontMetrics(forTextStyle: .caption1).scaledFont(for: .systemFont(ofSize: 12))
+    savedChoice.adjustsFontForContentSizeCategory = true
+    savedChoice.textColor = SaliniBrand.accent
+    savedChoice.numberOfLines = 2
+    let texts = stack([name, detail, savedChoice, price], spacing: 4)
     texts.setCustomSpacing(8, after: detail)
     texts.translatesAutoresizingMaskIntoConstraints = false
     contentView.addSubview(picture)
@@ -333,13 +343,17 @@ final class CatalogCell: UICollectionViewCell {
     accessibilityTraits = .button
   }
   required init?(coder: NSCoder) { fatalError() }
-  func configure(_ hit: Catalog.Hit) {
+  func configure(_ hit: Catalog.Hit, saved: FavoriteConfiguration? = nil) {
     let p = hit.product
     productId = p.id
     name.text = p.name
-    let variant = hit.variantKey.flatMap { p.variant(key: $0) }
-    detail.text = [variant?.sku.map { "Арт. \($0)" } ?? p.subtitle, p.dimensions.text].compactMap { $0 }.joined(separator: " · ")
+    let variant = (saved?.variantKey ?? hit.variantKey).flatMap { p.variant(key: $0) }
+    let sku = saved?.colour.ral != nil ? variant?.customColourSku : variant?.sku
+    detail.text = [sku.map { "Арт. \($0)" } ?? p.subtitle, p.dimensions.text].compactMap { $0 }.joined(separator: " · ")
     price.text = variant.map { $0.price.map(rubles) ?? "Цена по запросу" } ?? p.priceText
+    savedChoice.text = saved.map { [variant?.title, $0.colour.title].compactMap { $0 }.joined(separator: " · ") }
+    savedChoice.isHidden = saved == nil
+    if saved?.colour.ral != nil { price.text = (price.text ?? "") + " + цвет" }
     badge.text = CatalogAtelier.launchedIDs.contains(p.id) ? "  Новинка  " : p.model != nil ? "  3D  " : nil
     badge.isHidden = badge.text == nil
     picture.image = nil
@@ -347,7 +361,7 @@ final class CatalogCell: UICollectionViewCell {
       guard self?.productId == p.id else { return }
       self?.picture.image = image
     }
-    accessibilityLabel = [p.name, detail.text, price.text].compactMap { $0 }.joined(separator: ", ")
+    accessibilityLabel = [p.name, detail.text, savedChoice.text, price.text].compactMap { $0 }.joined(separator: ", ")
     accessibilityIdentifier = "catalog.product.\(p.id)"
   }
 }
@@ -528,10 +542,11 @@ final class CatalogProductController: ScrollController {
   private let summary = UIStackView()
   private let variantsStack = UIStackView()
   private let quantityLabel = label("1 шт.", 17, .semibold)
-  init(_ product: CatalogProduct, variantKey: String? = nil, colour: LineColour = .standard) {
+  init(_ product: CatalogProduct, variantKey: String? = nil, colour: LineColour? = nil) {
     self.product = product
-    self.variantKey = variantKey ?? product.variants.first?.key
-    self.colour = colour
+    let saved = variantKey == nil && colour == nil ? DemoStore.shared.favoriteConfiguration(for: product) : nil
+    self.variantKey = variantKey ?? saved?.variantKey ?? product.variants.first?.key
+    self.colour = colour ?? saved?.colour ?? .standard
     super.init(nibName: nil, bundle: nil)
   }
   required init?(coder: NSCoder) { fatalError() }
@@ -546,6 +561,7 @@ final class CatalogProductController: ScrollController {
       primaryAction: UIAction { [weak self] _ in
         guard let self else { return }
         DemoStore.shared.toggle(self.product.id)
+        DemoStore.shared.rememberFavorite(self.product, variantKey: self.variantKey, colour: self.colour)
         self.updateHeart()
       })
     heart.accessibilityIdentifier = "product.favorite"
@@ -671,6 +687,7 @@ final class CatalogProductController: ScrollController {
   }
 
   private func render() {
+    DemoStore.shared.rememberFavorite(product, variantKey: variantKey, colour: colour)
     variantsStack.arrangedSubviews.forEach { $0.removeFromSuperview() }
     for v in product.variants {
       variantsStack.addArrangedSubview(variantRow(v))
