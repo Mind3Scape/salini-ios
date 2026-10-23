@@ -436,7 +436,7 @@ final class CatalogFilterController: ScrollController {
       var c = UIButton.Configuration.filled()
       c.title = t
       c.cornerStyle = .capsule
-      c.baseBackgroundColor = on ? Palette.ink : .white
+      c.baseBackgroundColor = on ? SaliniBrand.accent : .white
       c.baseForegroundColor = on ? .white : Palette.ink
       c.contentInsets = .init(top: 11, leading: 16, bottom: 11, trailing: 16)
       let b = UIButton(configuration: c, primaryAction: UIAction { [weak self] _ in
@@ -700,7 +700,7 @@ final class CatalogProductController: ScrollController {
   private func variantRow(_ v: CatalogVariant) -> UIView {
     let selected = v.key == variantKey
     var c = UIButton.Configuration.filled()
-    c.baseBackgroundColor = selected ? Palette.ink : .white
+    c.baseBackgroundColor = selected ? SaliniBrand.accent : .white
     c.baseForegroundColor = selected ? .white : Palette.ink
     c.cornerStyle = .large
     c.title = v.title ?? "Базовое исполнение"

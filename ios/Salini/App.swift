@@ -17,7 +17,7 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     guard let scene = scene as? UIWindowScene else { return }
     if ProcessInfo.processInfo.arguments.contains("-reset-demo") { DemoStore.shared.reset() }
     let window = UIWindow(windowScene: scene)
-    window.tintColor = Palette.ink
+    window.tintColor = SaliniBrand.accent
     window.overrideUserInterfaceStyle = .light
     self.window = window
     setRoot(MainTabs(), animated: false)
@@ -184,7 +184,7 @@ final class MainTabs: UITabBarController {
   override func viewDidLoad() {
     super.viewDidLoad()
     view.backgroundColor = Palette.paper
-    tabBar.tintColor = Palette.ink
+    tabBar.tintColor = SaliniBrand.accent
     if #available(iOS 26.0, *) { tabBarMinimizeBehavior = .onScrollDown }
     applyAudience()
   }
@@ -230,7 +230,7 @@ final class MainTabs: UITabBarController {
       nav.tabBarItem.accessibilityLabel = spoken
       nav.tabBarItem.accessibilityIdentifier = "tab.\(glyph)"
       nav.navigationBar.prefersLargeTitles = false
-      nav.navigationBar.tintColor = Palette.ink
+      nav.navigationBar.tintColor = SaliniBrand.accent
       return nav
     }
     selectedIndex = 0

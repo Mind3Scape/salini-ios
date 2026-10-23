@@ -99,7 +99,7 @@ final class HomeController: ScrollController, UIScrollViewDelegate {
       var c = UIButton.Configuration.plain()
       c.title = audience.title
       c.baseForegroundColor = role == audience ? .white : Palette.ink
-      c.background.backgroundColor = role == audience ? Palette.ink : .clear
+      c.background.backgroundColor = role == audience ? SaliniBrand.accent : .clear
       c.background.cornerRadius = 19
       c.titleTextAttributesTransformer = UIConfigurationTextAttributesTransformer {
         var a = $0
@@ -125,7 +125,7 @@ final class HomeController: ScrollController, UIScrollViewDelegate {
       modes.addArrangedSubview(b)
     }
     let modeWrap = modes.inset(4)
-    modeWrap.backgroundColor = UIColor(hex: 0xEDEEF1)
+    modeWrap.backgroundColor = SaliniBrand.soft
     modeWrap.rounded(25)
     let wrapper = UIView()
     wrapper.pin(modeWrap, inset: 0)

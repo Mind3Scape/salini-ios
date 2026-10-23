@@ -56,6 +56,30 @@ struct EssenceLabel: Codable, Equatable {
 }
 
 enum EssenceLayers {
+  /// Shared with the companion website. These are finished illustrative cutaways, not
+  /// replacements for the six independent fragments used by the interactive study.
+  static func cover(_ finish: StudioFinish) -> UIImage? {
+    image(finish == .stoneMatte ? "essence-stone-cover" : "essence-sense-cover")
+  }
+
+  /// The same normalized silhouette used by the website. Clipping removes residual pixels
+  /// outside the supplied cutaway; the source PNG and the visible material remain unchanged.
+  private static let coverMasks: [String: [[Double]]] = {
+    for directory in [nil, "EssenceAssets"] {
+      if let url = Bundle.main.url(forResource: "essence-cutaway-masks.v1", withExtension: "json", subdirectory: directory),
+         let data = try? Data(contentsOf: url), let masks = try? JSONDecoder().decode([String: [[Double]]].self, from: data) {
+        return masks
+      }
+    }
+    return [:]
+  }()
+
+  static func coverOutline(_ finish: StudioFinish) -> [CGPoint]? {
+    guard let points = coverMasks[finish == .stoneMatte ? "stone" : "sense"], points.count >= 3,
+          points.allSatisfy({ $0.count == 2 && $0.allSatisfy { $0.isFinite && (0...100).contains($0) } }) else { return nil }
+    return points.map { CGPoint(x: $0[0] / 100, y: $0[1] / 100) }
+  }
+
   /// Default art direction for the six generated fragments (ios/Salini/EssenceAssets): the chosen
   /// material is the hero in the middle of the card, its loose piece flying past the card's top
   /// edge; the other material waits smaller, higher and behind. Choosing swaps them with one
@@ -134,6 +158,9 @@ final class EssenceLayerStage: UIView {
   static let overflowSide: CGFloat = 0
   static let cardInset: CGFloat = 0
   var onSelect: ((StudioFinish) -> Void)?
+  var onExpanded: ((Bool) -> Void)?
+  private(set) var canShowCover = false
+  private(set) var isExpanded = true
 
   private struct Piece {
     let spec: EssenceLayer
@@ -146,11 +173,14 @@ final class EssenceLayerStage: UIView {
   private let gradient = CAGradientLayer()
   private let shadows = UIView()          // contact shadows, clipped to the card
   private let fragments = UIView()        // the fragments, not clipped
+  private let cover = UIImageView()
+  private let coverMask = CAShapeLayer()
   private var pieces: [Piece] = []
   private var callouts: [String: EssenceCallout] = [:]
   private var finish: StudioFinish = .stoneMatte
   private var link: CADisplayLink?
   private var running = false
+  private var hostActive = false
   private var opened = false
   // Animated state.
   private var opening: CGFloat = 0
@@ -175,7 +205,7 @@ final class EssenceLayerStage: UIView {
   init(layers: [EssenceLayer]) {
     super.init(frame: .zero)
     height(460)
-    card.layer.cornerRadius = 30
+    card.layer.cornerRadius = SaliniBrand.featureRadius
     card.layer.cornerCurve = .continuous
     card.clipsToBounds = true
     gradient.colors = [UIColor(hex: 0xEEECE7).cgColor, UIColor(hex: 0xE0DDD6).cgColor]
@@ -187,6 +217,15 @@ final class EssenceLayerStage: UIView {
     addSubview(card)
     addSubview(fragments)
     fragments.isUserInteractionEnabled = false
+    canShowCover = [StudioFinish.stoneMatte, .senseMatte].allSatisfy {
+      EssenceLayers.cover($0) != nil && EssenceLayers.coverOutline($0) != nil
+    }
+    isExpanded = !canShowCover
+    cover.contentMode = .scaleAspectFit
+    cover.isAccessibilityElement = false
+    cover.image = EssenceLayers.cover(.stoneMatte)
+    cover.layer.mask = coverMask
+    card.addSubview(cover)
     for spec in layers.sorted(by: { $0.z < $1.z }) {
       let image = EssenceLayers.image(spec.image)
       let v = UIImageView(image: image)
@@ -209,7 +248,7 @@ final class EssenceLayerStage: UIView {
     }
     isAccessibilityElement = true
     accessibilityTraits = [.image, .adjustable]
-    accessibilityHint = "Смахните вверх или вниз, чтобы сравнить S-Stone и S-Sense."
+    updatePresentation()
     addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tap(_:))))
   }
   required init?(coder: NSCoder) { fatalError() }
@@ -221,12 +260,41 @@ final class EssenceLayerStage: UIView {
     gradient.frame = card.bounds
     shadows.frame = card.bounds
     fragments.frame = bounds
+    layoutCover()
     apply()
+  }
+
+  private func layoutCover() {
+    guard let image = cover.image else { return }
+    // The source is deliberately open at its right and bottom edges. Anchor those edges to
+    // the card crop, keeping the illustrated left cutaway visible instead of floating a
+    // rectangular crop in the middle of the composition.
+    let width = max(card.bounds.width * 1.08, card.bounds.height * image.size.width / max(1, image.size.height))
+    let height = width * image.size.height / max(1, image.size.width)
+    cover.frame = CGRect(x: 0, y: card.bounds.height - height + 2, width: width, height: height)
+    if let points = EssenceLayers.coverOutline(finish), let first = points.first {
+      let path = UIBezierPath()
+      path.move(to: CGPoint(x: first.x * width, y: first.y * height))
+      for point in points.dropFirst() { path.addLine(to: CGPoint(x: point.x * width, y: point.y * height)) }
+      path.close()
+      CATransaction.begin()
+      CATransaction.setDisableActions(true)
+      coverMask.frame = cover.bounds
+      coverMask.path = path.cgPath
+      CATransaction.commit()
+    }
   }
 
   // MARK: State
 
   func setRunning(_ on: Bool) {
+    hostActive = on
+    updateRunning()
+  }
+
+  private func updateRunning() {
+    // The shared cutaway cover is still. Only the explicit layer study needs a display link.
+    let on = hostActive && isExpanded
     // Repeated calls with the same state (host visibility updates) change nothing.
     if on == running && (link != nil) == (on && !UIAccessibility.isReduceMotionEnabled) && (opened || !on) { return }
     running = on
@@ -258,6 +326,14 @@ final class EssenceLayerStage: UIView {
     if !animated || link == nil { emphasis = emphasisTarget }
     accessibilityLabel = Self.description(f)
     accessibilityValue = f.title
+    let nextCover = EssenceLayers.cover(f)
+    if animated && !isExpanded {
+      UIView.transition(with: cover, duration: UIAccessibility.isReduceMotionEnabled ? 0 : 0.25,
+                        options: [.transitionCrossDissolve, .allowUserInteraction]) { self.cover.image = nextCover }
+    } else {
+      cover.image = nextCover
+    }
+    layoutCover()
     for p in pieces {
       guard let variants = p.spec.finishImages else { continue }
       let name = variants[f.rawValue] ?? p.spec.image
@@ -272,6 +348,36 @@ final class EssenceLayerStage: UIView {
     }
     apply()
     UIView.animate(withDuration: animated ? 0.3 : 0) { self.updateCalloutAlpha() }
+  }
+
+  func setExpanded(_ expanded: Bool, animated: Bool = true) {
+    guard canShowCover, expanded != isExpanded else { return }
+    isExpanded = expanded
+    if expanded {
+      opened = false
+      opening = 0
+    }
+    updateRunning()
+    UIView.animate(withDuration: animated && !UIAccessibility.isReduceMotionEnabled ? 0.25 : 0) {
+      self.updatePresentation()
+    }
+    onExpanded?(expanded)
+  }
+
+  private func updatePresentation() {
+    cover.alpha = isExpanded ? 0 : 1
+    fragments.alpha = isExpanded ? 1 : 0
+    shadows.alpha = isExpanded ? 1 : 0
+    updateCalloutAlpha()
+    accessibilityHint = isExpanded
+      ? "Смахните вверх или вниз, чтобы сравнить S-Stone и S-Sense."
+      : "Нажмите дважды, чтобы разобрать слои. Смахните вверх или вниз, чтобы сменить материал."
+    accessibilityCustomActions = canShowCover ? [UIAccessibilityCustomAction(
+      name: isExpanded ? "Вернуться к образцу" : "Разобрать слои", actionHandler: { [weak self] _ in
+        guard let self else { return false }
+        self.setExpanded(!self.isExpanded)
+        return true
+      })] : nil
   }
 
   /// Targets reached, no float (paused, offscreen, Reduce Motion).
@@ -363,7 +469,7 @@ final class EssenceLayerStage: UIView {
     updateCalloutAlpha()
   }
   private func updateCalloutAlpha() {
-    let open = opening > 0.7
+    let open = isExpanded && opening > 0.7
     let sense = emphasisTarget > 0.5
     callouts["stone"]?.alpha = open && !sense ? 1 : 0
     callouts["core"]?.alpha = open && sense ? 1 : 0
@@ -382,6 +488,10 @@ final class EssenceLayerStage: UIView {
   // MARK: Interaction
 
   @objc private func tap(_ g: UITapGestureRecognizer) {
+    if !isExpanded {
+      setExpanded(true)
+      return
+    }
     let p = g.location(in: self)
     // The nearest fragment whose box contains the tap, front first.
     for piece in pieces.sorted(by: { $0.view.layer.zPosition > $1.view.layer.zPosition })
@@ -396,6 +506,11 @@ final class EssenceLayerStage: UIView {
   }
   override func accessibilityIncrement() { step(1) }
   override func accessibilityDecrement() { step(-1) }
+  override func accessibilityActivate() -> Bool {
+    guard canShowCover else { return false }
+    setExpanded(!isExpanded)
+    return true
+  }
   private func step(_ d: Int) {
     let all = StudioFinish.allCases
     guard let i = all.firstIndex(of: finish) else { return }

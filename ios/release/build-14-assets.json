@@ -1,0 +1,30 @@
+{
+  "date": "2026-10-23",
+  "build": "14",
+  "kind": "generated illustrative cutaways",
+  "approval": "Final v4 single-wall geometry selected for shared website and native presentation; earlier extra construction rejected.",
+  "limitations": [
+    "Not a technical drawing or measured material cross-section.",
+    "S-Sense cover is a material illustration shared by both finishes; the selected matte/gloss execution remains explicit in controls and the 3D studio.",
+    "Source PNGs remain unchanged; shared silhouette clipping removes pixels outside the visible outline."
+  ],
+  "websiteAssets": {
+    "stone": "assets/essence-stone-cutaway-v4.webp",
+    "sense": "assets/essence-sense-cutaway-v4.webp"
+  },
+  "files": {
+    "essence-cutaway-masks.v1.json": {
+      "bytes": 2148,
+      "sha256": "7dd71cba7c8718427d59aee34d2060f75b04534285f326be280733361d70546f"
+    },
+    "essence-sense-cover.png": {
+      "bytes": 1867474,
+      "sha256": "db3d587a3a883b2a2229994b31057e6a4d09d5bec6d8ff5d30d2fd06979b33bc"
+    },
+    "essence-stone-cover.png": {
+      "bytes": 2040392,
+      "sha256": "28990b5349ceb894567ca17909f7af5e5d8b093083a38fa0b5c8f8b0d363f168"
+    }
+  },
+  "existingLayers": "Six previously released fragment PNGs and their manifest geometry retained."
+}

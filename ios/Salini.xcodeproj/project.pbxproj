@@ -20,6 +20,7 @@
 		1F8FF3ED9FDF09276E732A12 /* Projects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319851BB55623979FE40C513 /* Projects.swift */; };
 		23DDA568B5D2234BA4BEAD83 /* EssenceFeatureTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1970BF45969EDD2C94464839 /* EssenceFeatureTests.swift */; };
 		23F2E2778398E4ABF93B8737 /* opera-loop-v2.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 48423E5D41CA9E73283426A6 /* opera-loop-v2.mp4 */; };
+		2E400D11FEE421FBA22E25AA /* essence-sense-cover.png in Resources */ = {isa = PBXBuildFile; fileRef = 4237D1F44B58A65FAD486FF7 /* essence-sense-cover.png */; };
 		2E61A4C6273A18A65C3B1151 /* stone.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 200C0338C7066941F0D41381 /* stone.jpg */; };
 		34D8442BABB4641EBEA5BB0C /* MaterialStudio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115177084A87D881A3F70994 /* MaterialStudio.swift */; };
 		36BD7EC1CE189D4E6B9F0938 /* greca-start-v2.png in Resources */ = {isa = PBXBuildFile; fileRef = 510C09A66229FFCE5421E897 /* greca-start-v2.png */; };
@@ -68,6 +69,7 @@
 		949A4DFF154A134C3E367315 /* RoomPlacementTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B3995E14D30E24FDDFB60D /* RoomPlacementTests.swift */; };
 		97C46CC68B9CAB2DD9496D8E /* SaliniBrand.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A24E557F849810C8791230 /* SaliniBrand.swift */; };
 		9DFECD395E16A807C5F7F7D6 /* opera-final-v2.png in Resources */ = {isa = PBXBuildFile; fileRef = F7D8C5E7B7199DC9F26EE9D0 /* opera-final-v2.png */; };
+		9EA4752CB2F7888B8CD315B1 /* essence-cutaway-masks.v1.json in Resources */ = {isa = PBXBuildFile; fileRef = FCDA4231BD7EA8542997332B /* essence-cutaway-masks.v1.json */; };
 		9F12BE1700174BE037319AFC /* DesignerHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BAC5A124656A35A461B387B /* DesignerHome.swift */; };
 		A6F6AD4F5F554684091311E1 /* CinemaReleaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B441EB9417092B4E01FDB9C /* CinemaReleaseTests.swift */; };
 		A7D8C823650DD7790B0917A3 /* InsidePanels.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD95755374BE98F79C16C503 /* InsidePanels.swift */; };
@@ -99,6 +101,7 @@
 		EB68953457CC07DFEC573A05 /* InsightAssets in Resources */ = {isa = PBXBuildFile; fileRef = D546A670C08A873DB3EF1008 /* InsightAssets */; };
 		EB6F957A6FB1E9A3C963E2B4 /* greca-loop-v2.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 4BADDF95589735F1BA47AD6F /* greca-loop-v2.mp4 */; };
 		ED57E656CAA402EE7A42A859 /* ProposalPDF.swift in Sources */ = {isa = PBXBuildFile; fileRef = 306929DD07FBFF39A6397AD6 /* ProposalPDF.swift */; };
+		EF34A33A47945F01156D9BA9 /* essence-stone-cover.png in Resources */ = {isa = PBXBuildFile; fileRef = D328B820930D881F3BDDC27B /* essence-stone-cover.png */; };
 		F0FB799DEC9C13A7C3DBAA4F /* opera-detail.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 672B74F0BCED01A47E534CD1 /* opera-detail.jpg */; };
 		F3AC1E02D92CBCC6DA9B30B5 /* studio_small_09_2k.hdr in Resources */ = {isa = PBXBuildFile; fileRef = D80E2E88706C9C8634614E62 /* studio_small_09_2k.hdr */; };
 		F54781AFF1AEF4A852826940 /* OfficialHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F4193EA9D6A10CB465B2CA1 /* OfficialHome.swift */; };
@@ -141,6 +144,7 @@
 		319851BB55623979FE40C513 /* Projects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Projects.swift; sourceTree = "<group>"; };
 		3250D2DC9188A757B21D78F4 /* ShippingAtelierTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShippingAtelierTests.swift; sourceTree = "<group>"; };
 		3776267C1F0DB827DBEBB68A /* interior.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = interior.jpg; sourceTree = "<group>"; };
+		4237D1F44B58A65FAD486FF7 /* essence-sense-cover.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "essence-sense-cover.png"; sourceTree = "<group>"; };
 		48423E5D41CA9E73283426A6 /* opera-loop-v2.mp4 */ = {isa = PBXFileReference; path = "opera-loop-v2.mp4"; sourceTree = "<group>"; };
 		4942620F24A4D8F0728613FA /* greca.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = greca.jpg; sourceTree = "<group>"; };
 		4BA8A93ECD667B0381991CBF /* greca-final-v2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "greca-final-v2.png"; sourceTree = "<group>"; };
@@ -197,6 +201,7 @@
 		CEC74DCCD4725FE8C8FA6096 /* essence-stone-mass.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "essence-stone-mass.png"; sourceTree = "<group>"; };
 		CEF9612034EAAC3B2E8AFDEE /* Aria-drawing.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "Aria-drawing.pdf"; sourceTree = "<group>"; };
 		D219A42F0F11722004A9ED1B /* RoomPlacementModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomPlacementModel.swift; sourceTree = "<group>"; };
+		D328B820930D881F3BDDC27B /* essence-stone-cover.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "essence-stone-cover.png"; sourceTree = "<group>"; };
 		D4BD1EE31F7C199D6DAD475C /* NinfeaStory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NinfeaStory.swift; sourceTree = "<group>"; };
 		D546A670C08A873DB3EF1008 /* InsightAssets */ = {isa = PBXFileReference; lastKnownFileType = folder; name = InsightAssets; path = Salini/InsightAssets; sourceTree = SOURCE_ROOT; };
 		D80E2E88706C9C8634614E62 /* studio_small_09_2k.hdr */ = {isa = PBXFileReference; path = studio_small_09_2k.hdr; sourceTree = "<group>"; };
@@ -217,6 +222,7 @@
 		F35174F3897EDA5D14359707 /* CatalogData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogData.swift; sourceTree = "<group>"; };
 		F7D8C5E7B7199DC9F26EE9D0 /* opera-final-v2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "opera-final-v2.png"; sourceTree = "<group>"; };
 		FA83A08C7BD246CAD8B10652 /* Workspaces.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Workspaces.swift; sourceTree = "<group>"; };
+		FCDA4231BD7EA8542997332B /* essence-cutaway-masks.v1.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "essence-cutaway-masks.v1.json"; sourceTree = "<group>"; };
 		FD95755374BE98F79C16C503 /* InsidePanels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsidePanels.swift; sourceTree = "<group>"; };
 		FF8CC4938E4FEB8C56D0CF20 /* aria-red.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "aria-red.jpg"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -225,10 +231,13 @@
 		2429D7332A613C2C67DE2AA2 /* EssenceAssets */ = {
 			isa = PBXGroup;
 			children = (
+				FCDA4231BD7EA8542997332B /* essence-cutaway-masks.v1.json */,
 				B038AC0766FACBDF3D6D1F32 /* essence-sense-cap-gloss.png */,
 				DC871ECC2E122440AD324512 /* essence-sense-cap-matte.png */,
 				E4869C61A2DE94731E9F4837 /* essence-sense-core-gloss.png */,
 				27A57C0D502B7282BF8FED36 /* essence-sense-core-matte.png */,
+				4237D1F44B58A65FAD486FF7 /* essence-sense-cover.png */,
+				D328B820930D881F3BDDC27B /* essence-stone-cover.png */,
 				5E10923CFF645C6DF9FE9FFF /* essence-stone-fragment.png */,
 				CEC74DCCD4725FE8C8FA6096 /* essence-stone-mass.png */,
 			);
@@ -461,10 +470,13 @@
 				7328FB5F704F0862758A8C60 /* aria-start-v2.png in Resources */,
 				56B48C7F86569A1C65D45047 /* aria.jpg in Resources */,
 				8FCBD77FB5FBC3C00B8CE17A /* catalog.json in Resources */,
+				9EA4752CB2F7888B8CD315B1 /* essence-cutaway-masks.v1.json in Resources */,
 				0D8EE02ADDAA5E32E740D03D /* essence-sense-cap-gloss.png in Resources */,
 				3A9D6D3CB422E96E73B4C0C8 /* essence-sense-cap-matte.png in Resources */,
 				D1762A7007E1EC94FF9931AC /* essence-sense-core-gloss.png in Resources */,
 				4BB844B583E88689E306315E /* essence-sense-core-matte.png in Resources */,
+				2E400D11FEE421FBA22E25AA /* essence-sense-cover.png in Resources */,
+				EF34A33A47945F01156D9BA9 /* essence-stone-cover.png in Resources */,
 				B50F726DFCEDBFB998823C6A /* essence-stone-fragment.png in Resources */,
 				0DEB80FD58EFB617543DA71F /* essence-stone-mass.png in Resources */,
 				52865D44CB6F34BBD75EA0C3 /* greca-editorial.jpg in Resources */,
@@ -583,7 +595,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 13;
+				CURRENT_PROJECT_VERSION = 14;
 				DEVELOPMENT_TEAM = TQ5SCF3KQZ;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Salini/Info.plist;
@@ -766,7 +778,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 13;
+				CURRENT_PROJECT_VERSION = 14;
 				DEVELOPMENT_TEAM = TQ5SCF3KQZ;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Salini/Info.plist;

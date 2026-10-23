@@ -117,7 +117,7 @@ final class ActionButton: UIButton {
     var c = prominent ? UIButton.Configuration.prominentGlass() : .glass()
     c.title = title
     c.baseForegroundColor = prominent ? .white : Palette.ink
-    if prominent { c.baseBackgroundColor = Palette.ink }
+    if prominent { c.baseBackgroundColor = SaliniBrand.accent }
     c.cornerStyle = .capsule
     c.contentInsets = NSDirectionalEdgeInsets(top: 17, leading: 22, bottom: 17, trailing: 22)
     c.titleTextAttributesTransformer = UIConfigurationTextAttributesTransformer { incoming in

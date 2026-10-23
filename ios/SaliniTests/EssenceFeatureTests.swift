@@ -46,6 +46,48 @@ final class EssenceFeatureTests: XCTestCase {
     XCTAssertEqual(stage.accessibilityValue, StudioFinish.senseGloss.title)
   }
 
+  func testSharedCutawayCoversShipWithTransparency() throws {
+    for finish in [StudioFinish.stoneMatte, .senseMatte] {
+      let image = try XCTUnwrap(EssenceLayers.cover(finish), "Missing shared cutaway: \(finish)")
+      let alpha = image.cgImage?.alphaInfo ?? .none
+      XCTAssertTrue([.first, .last, .premultipliedFirst, .premultipliedLast].contains(alpha))
+      XCTAssertGreaterThan(image.size.width, 500)
+      XCTAssertGreaterThan(image.size.height, 500)
+      let outline = try XCTUnwrap(EssenceLayers.coverOutline(finish), "Missing shared silhouette")
+      XCTAssertGreaterThan(outline.count, 3)
+      XCTAssertTrue(outline.allSatisfy { (0...1).contains($0.x) && (0...1).contains($0.y) })
+    }
+  }
+
+  func testLayerInspectionPreservesTheChosenFinishAndStudioHandoff() throws {
+    var opened: StudioFinish?
+    let view = EssenceFeatureView { _, finish in opened = finish }
+    let stage = try XCTUnwrap(find(view, "essence.stage") as? EssenceLayerStage)
+    let inspect = try XCTUnwrap(find(view, "essence.inspect") as? UIButton)
+    let cta = try XCTUnwrap(find(view, "essence.explore") as? UIButton)
+    XCTAssertTrue(stage.canShowCover)
+    XCTAssertFalse(stage.isExpanded)
+    try captureMaterialFixture(view, name: "stone-cover")
+    view.select(.senseGloss, animated: false)
+    try captureMaterialFixture(view, name: "sense-cover")
+    inspect.sendActions(for: .touchUpInside)
+    XCTAssertTrue(stage.isExpanded)
+    XCTAssertEqual(view.finish, .senseGloss)
+    XCTAssertEqual(stage.accessibilityValue, StudioFinish.senseGloss.title)
+    // Settle the illustration for the native layout fixture; the host normally controls this
+    // through viewport visibility. No fixture animation is left running after the test.
+    stage.setRunning(true)
+    stage.setRunning(false)
+    try captureMaterialFixture(view, name: "sense-layers")
+    cta.sendActions(for: .touchUpInside)
+    XCTAssertEqual(opened, .senseGloss)
+    inspect.sendActions(for: .touchUpInside)
+    XCTAssertFalse(stage.isExpanded)
+    XCTAssertEqual(view.finish, .senseGloss)
+    XCTAssertTrue(stage.accessibilityActivate())
+    XCTAssertTrue(stage.isExpanded)
+  }
+
   /// The six generated fragments ship in the bundle with transparency, matte / gloss pairs have
   /// the same canvas, and the feature shows the illustrated stage.
   func testAllSixFragmentsShipAndTheStageIsShown() throws {
@@ -105,5 +147,27 @@ final class EssenceFeatureTests: XCTestCase {
     if root.accessibilityIdentifier == id { return root }
     for v in root.subviews { if let f = find(v, id) { return f } }
     return nil
+  }
+
+  /// Native UIKit layer renders for visual review of the supplied art and text layout.
+  /// Like the existing designer fixture, this does not capture system glass compositing.
+  private func captureMaterialFixture(_ view: UIView, name: String) throws {
+    let width: CGFloat = 342
+    let size = view.systemLayoutSizeFitting(CGSize(width: width, height: UIView.layoutFittingCompressedSize.height),
+      withHorizontalFittingPriority: .required, verticalFittingPriority: .fittingSizeLevel)
+    view.frame = CGRect(origin: .zero, size: size)
+    view.layoutIfNeeded()
+    let image = UIGraphicsImageRenderer(size: size).image { context in
+      SaliniBrand.paper.setFill()
+      context.fill(CGRect(origin: .zero, size: size))
+      view.layer.render(in: context.cgContext)
+    }
+    let folder = FileManager.default.temporaryDirectory.appendingPathComponent("Salini-Essence-QA")
+    try FileManager.default.createDirectory(at: folder, withIntermediateDirectories: true)
+    try XCTUnwrap(image.pngData()).write(to: folder.appendingPathComponent(name + ".png"))
+    let attachment = XCTAttachment(image: image)
+    attachment.name = "Essence native layout — " + name
+    attachment.lifetime = .keepAlways
+    add(attachment)
   }
 }

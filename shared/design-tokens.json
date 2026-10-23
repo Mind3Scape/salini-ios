@@ -1,14 +1,14 @@
 {
-  "version": 1,
+  "version": 2,
   "brand": "Salini",
   "colors": {
-    "paper": "#F7F7F8",
+    "paper": "#F8F7F3",
     "surface": "#FFFFFF",
-    "ink": "#17191D",
-    "muted": "#626975",
-    "line": "#E2E3E7",
-    "soft": "#ECEEF0",
-    "accent": "#596653"
+    "ink": "#243230",
+    "muted": "#67736F",
+    "line": "#DEE2DC",
+    "soft": "#ECEEE8",
+    "accent": "#02343B"
   },
   "radius": {
     "control": 16,
