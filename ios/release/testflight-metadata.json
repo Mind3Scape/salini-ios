@@ -11,13 +11,13 @@
   "signInRequired": false,
   "collectsData": false,
   "tracking": false,
-  "submissionStatus": "Build 1.0 (17) uploaded successfully at 2026-10-23T13:25:26+07:00. Processing and public tester availability are not verified: Mac locked, awaiting user unlock for Safari. Last verified public build is 16. Do not re-upload 17.",
+  "submissionStatus": "Build 1.0 (17) uploaded successfully at 2026-10-23T13:25:26+07:00. Processing complete; Salini Internal attached. Salini Public Beta 1.0 (17) Testing verified in Safari around 13:40 UTC+7. Automatically notify testers enabled.",
   "build": "17",
   "betaReviewNotes": "Build 17 persists the selected material and RAL for locally saved favourites, displays their custom article and adds a Profile link to the companion website water-and-form story. Existing project data, water films, USDZ models, camera/AR permissions and account requirements are unchanged. Fourteen focused tests passed. Physical-device AR was not tested.",
   "metadataPublication": {
-    "whatToTest": "Prepared for build17; not yet saved in App Store Connect",
+    "whatToTest": "Saved for build17 during public-group submission, matching build-17-what-to-test.txt with trailing whitespace trimmed",
     "betaDescription": "prepared replacement; not saved to app-wide metadata",
     "betaReviewNotes": "Prepared for build17; not saved to app-wide metadata",
-    "evidence": "build-17-upload-receipt.txt"
+    "evidence": "build-17-distribution-2026-10-23/distribution-status.json"
   }
 }

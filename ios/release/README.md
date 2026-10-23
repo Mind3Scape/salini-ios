@@ -1,6 +1,6 @@
 # Current release status
 
-Build 17 was uploaded successfully on 23 October 2026 at 13:25:26 UTC+7. Processing and Salini Public Beta availability still need verification in Safari after the user unlocks the Mac. Last verified public build:16. Do not re-upload17. See [current release log](../../docs/RELEASES.md), [upload receipt](build-17-upload-receipt.txt), [validation](build-17-validation.json), [What to Test](build-17-what-to-test.txt).
+Build 17 was uploaded successfully on 23 October 2026 at 13:25:26 UTC+7. Processing is complete; Salini Internal is attached and Salini Public Beta shows **1.0 (17) — Testing**, verified around 13:40 UTC+7. What to Test is saved and automatic tester notification enabled. [Distribution proof](build-17-distribution-2026-10-23/distribution-status.json). Do not re-upload17. See [current release log](../../docs/RELEASES.md), [upload receipt](build-17-upload-receipt.txt), [validation](build-17-validation.json), [What to Test](build-17-what-to-test.txt).
 
 # TestFlight releases
 

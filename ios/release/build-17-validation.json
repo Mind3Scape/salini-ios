@@ -97,6 +97,11 @@
     "status": "succeeded",
     "acceptedAt": "2026-10-23T13:25:26+07:00",
     "exitCode": 0,
-    "processing": "pending verification"
+    "processing": "complete"
+  },
+  "distribution": {
+    "publicGroup": "Salini Public Beta",
+    "status": "Testing",
+    "evidence": "build-17-distribution-2026-10-23/distribution-status.json"
   }
 }

@@ -1,0 +1,50 @@
+{
+  "appId": "6819688748",
+  "bundleId": "design.salini.experience",
+  "version": "1.0",
+  "build": "17",
+  "sourceCommit": "c7d3be88ba6353446d0731ab851e59959cd1b7b8",
+  "website": "https://mind3scape.github.io/salini/",
+  "testFlightInvitation": "https://testflight.apple.com/join/mUb5H7bZ",
+  "archive": "succeeded",
+  "codesignVerification": "passed",
+  "canonicalCatalogueSHA256": "7f74c9db73467daaea02c6c5c4063fcb44e91066fc724021463b622dc19b49be",
+  "upload": {
+    "status": "succeeded",
+    "completedAt": "2026-10-23T13:25:26+07:00",
+    "exportExitCode": 0,
+    "attempts": 1
+  },
+  "processing": "complete",
+  "internalTesting": {
+    "group": "Salini Internal",
+    "verification": "Build17 membership observed in iOS Builds table before external submission"
+  },
+  "externalTesting": {
+    "group": "Salini Public Beta",
+    "groupId": "07b546aa-e790-426c-a158-1425ed2a808f",
+    "status": "Testing",
+    "expiresInDays": 90,
+    "groupBuildCount": 9,
+    "testerCount": 3,
+    "submission": "Submit for Review completed; Testing observed after reloading public-group builds table",
+    "automaticallyNotifyTesters": true
+  },
+  "verifiedAtApproximate": "2026-10-23 13:40 UTC+7",
+  "verificationTimePrecision": "approximate minute; no exact UI event timestamp recorded",
+  "buildId": null,
+  "buildIdNote": "UUID not retrieved; version and build number verified in public-group table",
+  "metadata": {
+    "whatToTest": "build-17-what-to-test.txt saved verbatim during external-group submission (trailing whitespace trimmed)",
+    "appWideMetadataChanged": false
+  },
+  "evidenceScreenshot": "public-beta-testing.png",
+  "evidenceScreenshotSHA256": "7ae7b083a923ae302f86bce29022bfa396088a318eb91b06bfef4dff5be13cda",
+  "limitations": [
+    "No physical-device installation or camera AR verification.",
+    "Reduce Motion code path preserved; system setting not toggled in this runtime pass."
+  ],
+  "story": "https://mind3scape.github.io/salini/experience/",
+  "recordedAt": "2026-10-23T13:41:20+07:00",
+  "eightAcceptedMoviesAndThirteenModelsUnchangedFromBuild16": true
+}
