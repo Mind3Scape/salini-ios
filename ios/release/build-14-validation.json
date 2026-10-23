@@ -1,0 +1,44 @@
+{
+  "version": "1.0",
+  "build": "14",
+  "bundleId": "design.salini.experience",
+  "catalogueSHA256": "7f74c9db73467daaea02c6c5c4063fcb44e91066fc724021463b622dc19b49be",
+  "catalogueByteIdentical": true,
+  "maskByteIdentical": true,
+  "sourceCommit": "304a6ee7eb7ffea4769e093012c24f4d27231f59",
+  "date": "2026-10-23",
+  "codesignVerification": "passed --deep --strict",
+  "archive": "ios/build/testflight/Salini-1.0-14.xcarchive",
+  "tests": {
+    "linkAndHero": 8,
+    "essence": 9,
+    "failures": 0,
+    "xcodebuildExitCodes": [
+      0,
+      0
+    ]
+  },
+  "nativeRuntimeQA": {
+    "simulator": "1917B285-7063-4C68-8096-8EB4F7318E2D",
+    "verified": [
+      "Warm brand palette and prominent glass CTA",
+      "Warm product link to Paola172",
+      "Cold product link to Ninfea02",
+      "Standard system heart keeps its native proportions"
+    ],
+    "componentFixtures": [
+      "S-Stone cover",
+      "S-Sense cover",
+      "Layer inspection and readable callouts"
+    ],
+    "fixtureLimitation": "UIKit layer renders omit system glass compositing; actual Simulator screenshots were checked separately."
+  },
+  "physicalDeviceAR": "not tested, unchanged",
+  "upload": {
+    "status": "succeeded",
+    "acceptedAt": "2026-10-23T10:43:08+07:00",
+    "xcodebuildExitCode": 0,
+    "processing": "started; completion unverified"
+  },
+  "distribution": "Build14 internal/external groups unverified; latest verified public build remains13"
+}

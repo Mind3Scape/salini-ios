@@ -1,4 +1,16 @@
-# TestFlight release — build 12
+# TestFlight releases
+
+## Build 14 — 23 October 2026
+
+Source `304a6ee7eb7ffea4769e093012c24f4d27231f59`, branch `codex/unified-salini-experience`, committed and pushed. Signed archive succeeded; codesign, catalogue/mask identity and all eight PNG pixel comparisons passed. All 17 focused tests passed. **Upload succeeded at 10:43:08 UTC+7 on 23 October 2026**, `EXPORT SUCCEEDED`, exit0. Apple processing started; completion and TestFlight groups remain unverified. Build 13 remains the latest verified public build. [Upload receipt](build-14-upload-receipt.txt).
+
+Changes: shared warm brand palette, single-wall material cover illustrations, explicit access to the existing animated layer study, readable callouts and material controls. No catalogue identity, project storage or link-contract changes. [Validation](build-14-validation.json), [asset provenance](build-14-assets.json), [What to Test](build-14-what-to-test.txt).
+
+## Build 13 — 22 October 2026
+
+Upload and processing completed; both internal and public groups show Testing. The [public invitation](https://testflight.apple.com/join/mUb5H7bZ) is unchanged. [Distribution evidence](build-13-distribution-2026-10-22/distribution-status.json). Build 13 added the public companion website and explicit product/selection handoff.
+
+## Build 12 — historical release
 
 Salini **1.0 (12)**, bundle `design.salini.experience`, App Store Connect app `6819688748`.
 Source: `def568a65e8246093a6093ff9f07c2fdcd312bf7`, branch `codex/salini-room-ar`, pushed to GitHub.
