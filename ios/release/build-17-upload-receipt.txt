@@ -1,0 +1,8 @@
+Salini 1.0 (17)
+Source: c7d3be8
+2026-10-23 13:25:26 UTC+7 — Progress 100%: Upload succeeded.
+Uploaded Salini
+** EXPORT SUCCEEDED **
+Process exit: 0
+
+Processing and public-group distribution are separate and must be verified in App Store Connect.

@@ -1,0 +1,102 @@
+{
+  "build": "17",
+  "bundleId": "design.salini.experience",
+  "sourceCommit": "c7d3be88ba6353446d0731ab851e59959cd1b7b8",
+  "signedArchive": "codesign --verify --deep --strict passed",
+  "unchangedFromBuild16": [
+    {
+      "path": "aria-film-v2.mp4",
+      "sha256": "9d3be17ce54e28750da21b9f9939a7df8745352f665881ae428381ba6ee30655"
+    },
+    {
+      "path": "greca-film-v2.mp4",
+      "sha256": "c44242c1c735872fc826bd14408ec9fd7b4a0c60a96084ce5e79a620207d5ba8"
+    },
+    {
+      "path": "ninfea-film-v4.mp4",
+      "sha256": "e3dc368179806bda4ef173172f0b0a86d594b642c51ec137af3552fb642477dc"
+    },
+    {
+      "path": "opera-loop-v2.mp4",
+      "sha256": "954e1d2d64ecefca441df1786b201586aca643f63549af20f678f6446b67e32c"
+    },
+    {
+      "path": "catalog-descriptions.json",
+      "sha256": "c1970d3135ee6c93c231f147c12801e79e13ec235187f033e9736b76138603a3"
+    },
+    {
+      "path": "ninfea-loop-v4.mp4",
+      "sha256": "ce9a40586337cb058bd9268de78839ce65d64c29ee0e773d5832c6d7d935b8ea"
+    },
+    {
+      "path": "aria-loop-v2.mp4",
+      "sha256": "9310ceab1675f0919c4d93c6c3672b5c54cc3fcba318c6f6047d33b4248aa62e"
+    },
+    {
+      "path": "Greca.usdz",
+      "sha256": "e7ecd1fa035b868401211752616188f6f63cdf5c73a80c96dfd820a5467e8837"
+    },
+    {
+      "path": "greca-loop-v2.mp4",
+      "sha256": "499909f49366e4fdd874d16855c86a653367ef8f8a86f46e259a4a34d6c49cf9"
+    },
+    {
+      "path": "opera-film-v2.mp4",
+      "sha256": "805e432c063dc2b8f8053cd37dab7f68e47f35db1da91ffe7af7e8b0263fdda5"
+    },
+    {
+      "path": "CatalogMedia/models/Cascata-180x80.usdz",
+      "sha256": "0589bd1557ed73b43d0fc7fed5c6e4a910375c2e71f2646babab13c39991f1b6"
+    },
+    {
+      "path": "CatalogMedia/models/Sofia-170_Corona-fbx.usdz",
+      "sha256": "db17e3ec4864e977d661e8e97e838dc65c647325bf94200fccf815ba8b9423da"
+    },
+    {
+      "path": "CatalogMedia/models/Mona-170.usdz",
+      "sha256": "1429f9fcadcd455aeec09428c8451d41b630f9a496ad475de4dce6cc9f417ce7"
+    },
+    {
+      "path": "CatalogMedia/models/Alda-160-70.usdz",
+      "sha256": "e6f0f01368ffef7f9b61a37f979112dc302fe30dd0995a1fc381b70e7507df69"
+    },
+    {
+      "path": "CatalogMedia/models/Ninfea.usdz",
+      "sha256": "b095a0510a36210c94671208516d8a95c4391efe26e7db144d1984a25865137c"
+    },
+    {
+      "path": "CatalogMedia/models/Sofia-185_Corona-fbx.usdz",
+      "sha256": "62fd8d7f24282e5e3bb3b748d9b3892922ea320ec5dfa6b5e658d87f9c9945fa"
+    },
+    {
+      "path": "CatalogMedia/models/Orlanda-160x70.usdz",
+      "sha256": "cb421ef043698f7e2897a33b1b62107b9403513fbeddd394b6a63c1c66ceda83"
+    },
+    {
+      "path": "CatalogMedia/models/Sofia-165_Corona-fbx.usdz",
+      "sha256": "f3d40897f7577e857fe09913101216b96b4e7e150571bf9b0fecbb14f18fec1a"
+    },
+    {
+      "path": "CatalogMedia/models/Sofia-150-2015-Corona-fbx.usdz",
+      "sha256": "d3d6ed6d4c00628da5705885d994fa50d42f54b570ffe2b828a7ff3a0118f04e"
+    },
+    {
+      "path": "CatalogMedia/models/Luce.usdz",
+      "sha256": "78cc4633d3c42383b4d5e0d36b126c53d7129358a2fb6638db2de7d284f6c82a"
+    },
+    {
+      "path": "CatalogMedia/models/Noemi-170.usdz",
+      "sha256": "8196ca4d9ed24b402537d212e5552860ed0c8760ec560196a8bc19cdcf2d9e77"
+    },
+    {
+      "path": "CatalogMedia/models/Ornella-170x75.usdz",
+      "sha256": "d32c4874cd14e44e53536a60c4703cd8af58ea74665a51b6417a7a769948e7f9"
+    }
+  ],
+  "upload": {
+    "status": "succeeded",
+    "acceptedAt": "2026-10-23T13:25:26+07:00",
+    "exitCode": 0,
+    "processing": "pending verification"
+  }
+}
