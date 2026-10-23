@@ -1,5 +1,13 @@
 # TestFlight releases
 
+## Build 15 — 23 October 2026
+
+**Upload succeeded at 11:06:41 UTC+7**, `EXPORT SUCCEEDED`, exit 0. Apple processing started; completion and group distribution remain unverified. The last verified public build is 13. [Upload receipt](build-15-upload-receipt.txt).
+
+Restores the accepted native collection films on buyer Home: Ninfea v4 and Aria/Opera/Greca v2, followed by the canonical catalogue and updated material section. Shared warm colors, dark green actions and material illustrations remain. Existing intro/loop playback, one active film, offscreen release and Reduce Motion still-poster fallback are preserved.
+
+Source `a267e75b1d88b65b9e2cb0f14665eca6f6af3b1e`, committed and pushed before archive/upload. Signed archive and codesign passed; 8 movie files, catalogue and masks match source bytes; 8 material PNGs match decoded pixels. All **21 focused tests passed**. Actual buyer Home ran each film for three ambient cycles with no sampled pauses/stalls; final native frames of all four were visually reviewed. [Validation](build-15-validation.json), [motion report](build-15-home-water-report.json), [What to Test](build-15-what-to-test.txt).
+
 ## Build 14 — 23 October 2026
 
 Source `304a6ee7eb7ffea4769e093012c24f4d27231f59`, branch `codex/unified-salini-experience`, committed and pushed. Signed archive succeeded; codesign, catalogue/mask identity and all eight PNG pixel comparisons passed. All 17 focused tests passed. **Upload succeeded at 10:43:08 UTC+7 on 23 October 2026**, `EXPORT SUCCEEDED`, exit0. Apple processing started; completion and TestFlight groups remain unverified. Build 13 remains the latest verified public build. [Upload receipt](build-14-upload-receipt.txt).

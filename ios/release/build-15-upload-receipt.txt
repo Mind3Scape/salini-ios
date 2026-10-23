@@ -1,0 +1,33 @@
+Salini 1.0 (15) — successful upload
+Date: 2026-10-23, Asia/Bangkok (UTC+7)
+App Store Connect app: 6819688748
+Bundle: design.salini.experience
+Source: a267e75b1d88b65b9e2cb0f14665eca6f6af3b1e
+Branch: codex/unified-salini-experience; committed and pushed before archive/upload.
+Archive: ios/build/testflight/Salini-1.0-15.xcarchive
+
+Command:
+xcodebuild -exportArchive -archivePath ios/build/testflight/Salini-1.0-15.xcarchive -exportOptionsPlist ios/release/UploadOptions.plist -exportPath ios/build/testflight/export-15 -allowProvisioningUpdates
+
+Confirmed final output:
+2026-10-23 11:06:41.179 +0700 Uploaded package is processing.
+2026-10-23 11:06:41.183 +0700 Upload succeeded.
+** EXPORT SUCCEEDED **
+Exit code: 0.
+
+Upload accepted. No retry/re-upload was performed.
+Processing completion: not yet verified.
+Internal group: not yet verified for build 15.
+External/public group: not yet verified for build 15.
+Latest verified public build remains 1.0 (13).
+The release coordinator is handling App Store Connect group verification separately.
+Build 14 was seen processed with Salini Internal and Ready to Submit; it was not added to Public Beta.
+
+Validation: signed archive/codesign passed; all 8 accepted collection MP4 files are
+byte-identical to source, all 8 material PNGs are pixel-identical, catalogue and
+silhouette masks are byte-identical. All 21 focused XCTest passed with zero failures.
+Actual buyer Home ran all 4 collections for 3 ambient cycles each: no sampled pause
+or playhead stall; viewport and product navigation stopped playback. Final native
+screenshots of all 4 collections were reviewed. Reduce Motion's existing still-poster
+code path is unchanged; the accessibility setting was not toggled in this runtime pass.
+Physical-device performance and camera AR were not retested.

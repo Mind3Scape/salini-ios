@@ -1,0 +1,111 @@
+{
+  "build": "15",
+  "version": "1.0",
+  "bundleId": "design.salini.experience",
+  "movies": [
+    {
+      "file": "ninfea-film-v4.mp4",
+      "bytes": 2562378,
+      "sha256": "e3dc368179806bda4ef173172f0b0a86d594b642c51ec137af3552fb642477dc",
+      "byteIdentical": true
+    },
+    {
+      "file": "ninfea-loop-v4.mp4",
+      "bytes": 6899746,
+      "sha256": "ce9a40586337cb058bd9268de78839ce65d64c29ee0e773d5832c6d7d935b8ea",
+      "byteIdentical": true
+    },
+    {
+      "file": "aria-film-v2.mp4",
+      "bytes": 1552318,
+      "sha256": "9d3be17ce54e28750da21b9f9939a7df8745352f665881ae428381ba6ee30655",
+      "byteIdentical": true
+    },
+    {
+      "file": "aria-loop-v2.mp4",
+      "bytes": 3690034,
+      "sha256": "9310ceab1675f0919c4d93c6c3672b5c54cc3fcba318c6f6047d33b4248aa62e",
+      "byteIdentical": true
+    },
+    {
+      "file": "opera-film-v2.mp4",
+      "bytes": 1265801,
+      "sha256": "805e432c063dc2b8f8053cd37dab7f68e47f35db1da91ffe7af7e8b0263fdda5",
+      "byteIdentical": true
+    },
+    {
+      "file": "opera-loop-v2.mp4",
+      "bytes": 6305688,
+      "sha256": "954e1d2d64ecefca441df1786b201586aca643f63549af20f678f6446b67e32c",
+      "byteIdentical": true
+    },
+    {
+      "file": "greca-film-v2.mp4",
+      "bytes": 1721008,
+      "sha256": "c44242c1c735872fc826bd14408ec9fd7b4a0c60a96084ce5e79a620207d5ba8",
+      "byteIdentical": true
+    },
+    {
+      "file": "greca-loop-v2.mp4",
+      "bytes": 7293700,
+      "sha256": "499909f49366e4fdd874d16855c86a653367ef8f8a86f46e259a4a34d6c49cf9",
+      "byteIdentical": true
+    }
+  ],
+  "catalogueByteIdentical": true,
+  "catalogueSHA256": "7f74c9db73467daaea02c6c5c4063fcb44e91066fc724021463b622dc19b49be",
+  "maskByteIdentical": true,
+  "sourceCommit": "a267e75b1d88b65b9e2cb0f14665eca6f6af3b1e",
+  "date": "2026-10-23",
+  "archive": "ios/build/testflight/Salini-1.0-15.xcarchive",
+  "codesignVerification": "passed --deep --strict",
+  "tests": {
+    "total": 21,
+    "failed": 0,
+    "cinemaRelease": 2,
+    "buyerHomeCinemaIntegration": 1,
+    "essence": 9,
+    "linksAndHero": 8,
+    "cinemaLifecycle": 1,
+    "xcodebuildExitCode": 0,
+    "finishedAt": "2026-10-23T11:02:43+07:00"
+  },
+  "nativeRuntimeQA": {
+    "simulator": "1917B285-7063-4C68-8096-8EB4F7318E2D",
+    "verified": [
+      "Actual buyer Home presents all four accepted collection films before the canonical catalogue and material section",
+      "One selected film plays; other collection players stay inactive",
+      "Each introduction reaches three ambient cycles without sampled pauses or playhead stalls",
+      "Scrolling out of the viewport and navigating to the product screen stop playback",
+      "Returning to the viewport preserves the selected collection",
+      "Final Ninfea, Aria, Opera and Greca native screenshots reviewed; prominent green CTA stays legible"
+    ],
+    "motionReport": "build-15-home-water-report.json",
+    "reduceMotion": "Existing system Reduce Motion still-poster behavior preserved and source-reviewed; accessibility setting was not toggled in this runtime pass",
+    "recordings": [
+      {
+        "localPath": "/tmp/salini-build15-final-water-runtime.mp4",
+        "bytes": 358251826,
+        "sha256": "3e6d0a7955a7256a799ce7dbc6a61d037e63be2d5ebfbb8dbc21faf30d9e5a1f"
+      },
+      {
+        "localPath": "/tmp/salini-build15-final-ninfea-10s.mp4",
+        "bytes": 3178569,
+        "sha256": "9117ba4b177fe3a8c57297a8bb1dcfedf5626b6a5d2cccd0ff1aa04b4f58b9a2"
+      }
+    ]
+  },
+  "physicalDeviceAR": "Not tested, unchanged",
+  "physicalDevicePerformance": "Not measured; Simulator playback checks only",
+  "upload": {
+    "status": "succeeded",
+    "acceptedAt": "2026-10-23T11:06:41+07:00",
+    "xcodebuildExitCode": 0,
+    "processing": "started; completion unverified"
+  },
+  "distribution": {
+    "internal": "unverified for build 15",
+    "public": "unverified for build 15",
+    "lastVerifiedPublicBuild": "13"
+  }
+}

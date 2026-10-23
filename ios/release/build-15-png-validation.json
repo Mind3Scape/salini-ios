@@ -1,0 +1,62 @@
+{
+  "count" : 8,
+  "images" : [
+    {
+      "file" : "essence-sense-cap-gloss.png",
+      "height" : 1254,
+      "pixelsIdentical" : true,
+      "rgbaSHA256" : "5d3ac4e0906fc78d7f62d3adba7dc29402a0188cd740219cddad1d9d2b2ff9e5",
+      "width" : 1254
+    },
+    {
+      "file" : "essence-sense-cap-matte.png",
+      "height" : 1254,
+      "pixelsIdentical" : true,
+      "rgbaSHA256" : "b9bbb38ea88cba3bcdc7773f70755265a887b46d6fc958a755d909c74bd0449d",
+      "width" : 1254
+    },
+    {
+      "file" : "essence-sense-core-gloss.png",
+      "height" : 1254,
+      "pixelsIdentical" : true,
+      "rgbaSHA256" : "5fbe6ea06ea63f4669a3fb41a18cc5394cb4793cc545e0f862921a982d7bc400",
+      "width" : 1254
+    },
+    {
+      "file" : "essence-sense-core-matte.png",
+      "height" : 1254,
+      "pixelsIdentical" : true,
+      "rgbaSHA256" : "bdff65418f707fb94ae047b82c9f1a11797675d1531e12aea1ff93fb0dfb8561",
+      "width" : 1254
+    },
+    {
+      "file" : "essence-sense-cover.png",
+      "height" : 921,
+      "pixelsIdentical" : true,
+      "rgbaSHA256" : "06dcbf9631d9c18a4f65120b035187c15e384ffda3917448ce5d65d1bcb2c4d4",
+      "width" : 1708
+    },
+    {
+      "file" : "essence-stone-cover.png",
+      "height" : 920,
+      "pixelsIdentical" : true,
+      "rgbaSHA256" : "d7ed4b5e61f701595a8ab508130d440e1171bdba1150c244584d6d81793c6f73",
+      "width" : 1710
+    },
+    {
+      "file" : "essence-stone-fragment.png",
+      "height" : 1254,
+      "pixelsIdentical" : true,
+      "rgbaSHA256" : "ef7bf295726b4c113a869b178560c61e21859fa14adecdb7fc8c28a0cc75928d",
+      "width" : 1254
+    },
+    {
+      "file" : "essence-stone-mass.png",
+      "height" : 1254,
+      "pixelsIdentical" : true,
+      "rgbaSHA256" : "f5574dae052e59d04033f41f930c45adc2cb28c6ff87daca884afbf590445270",
+      "width" : 1254
+    }
+  ],
+  "passed" : true
+}

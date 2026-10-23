@@ -1,0 +1,35 @@
+{
+  "canonicalCTA" : true,
+  "collections" : [
+    {
+      "ambientCycles" : 3,
+      "collection" : "ninfea",
+      "longestStallSeconds" : 0,
+      "loopSamples" : 265,
+      "pausedSamples" : 0
+    },
+    {
+      "ambientCycles" : 3,
+      "collection" : "aria",
+      "longestStallSeconds" : 0,
+      "loopSamples" : 261,
+      "pausedSamples" : 0
+    },
+    {
+      "ambientCycles" : 3,
+      "collection" : "opera",
+      "longestStallSeconds" : 0,
+      "loopSamples" : 291,
+      "pausedSamples" : 0
+    },
+    {
+      "ambientCycles" : 3,
+      "collection" : "greca",
+      "longestStallSeconds" : 0,
+      "loopSamples" : 233,
+      "pausedSamples" : 0
+    }
+  ],
+  "offscreenPlayersReleased" : true,
+  "phase" : "complete"
+}
