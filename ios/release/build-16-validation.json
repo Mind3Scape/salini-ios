@@ -1,0 +1,15 @@
+{
+  "build": "16",
+  "bundleId": "design.salini.experience",
+  "sourceCommit": "1abb842fdd3cfc6c67062ddc9e999673052ea1f0",
+  "signedArchive": "passed codesign --verify --deep --strict",
+  "catalogueSHA256": "7f74c9db73467daaea02c6c5c4063fcb44e91066fc724021463b622dc19b49be",
+  "eightAcceptedMoviesUnchangedFromBuild15": true,
+  "descriptionSupplementByteIdentical": true,
+  "upload": {
+    "status": "succeeded",
+    "acceptedAt": "2026-10-23T12:07:21+07:00",
+    "exitCode": 0,
+    "processing": "seen Processing in Safari; completion pending"
+  }
+}
