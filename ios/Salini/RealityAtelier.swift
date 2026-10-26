@@ -13,6 +13,17 @@ import UIKit
 final class RealityAtelierController: UIViewController, UIGestureRecognizerDelegate {
   private var arView: ARView!
   private var atelier: RealityAtelierScene?
+  private var sceneAnchor: AnchorEntity?
+  /// Trial branch: which models the scene uses (original kit / NVIDIA SimReady), switchable in
+  /// the header; `-insight-assets` sets the start.
+  private var variant: InsightVariant = InsightVariant.launch
+  private var modelsButton: UIButton?
+  /// What survives a model switch (the same scene reloaded with the other assets).
+  private struct Restore {
+    var azimuth: Float, focus: SIMD3<Float>, scale: Float
+    var selected: AtelierSubject?, following: AtelierSubject?
+    var night: Bool
+  }
   private var update: Cancellable?
   private let header = GlassView()
   private let card = GlassView()
@@ -169,24 +180,43 @@ final class RealityAtelierController: UIViewController, UIGestureRecognizerDeleg
     }
   }
 
-  private func load() async {
+  private func load(restore: Restore? = nil) async {
     let loadStart = CACurrentMediaTime()
     guard let folder = Bundle.main.url(forResource: "InsightAssets", withExtension: nil) else {
       cardTitle.text = "Ресурсы участка не найдены"
       return
     }
     let models = Bundle.main.url(forResource: "CatalogMedia", withExtension: nil)?.appendingPathComponent("models")
-    let scene = RealityAtelierScene(folder: folder, models: models)
+    let scene = RealityAtelierScene(folder: folder, models: models, variant: variant)
     do {
       try await scene.load()
       if args.contains("-reality-probe-test") { scene.addProbeTestObjects() }
+      if Task.isCancelled { return }
       let anchor = AnchorEntity(world: .zero)
       anchor.addChild(scene.root)
       arView.scene.addAnchor(anchor)
-      if Task.isCancelled { return }
+      sceneAnchor = anchor
       atelier = scene
       scene.apply(scene.timeline.pose(at: demoTime))
       view.layoutIfNeeded()
+      if let r = restore {
+        // A model switch: the same moment, camera, selection and light as before.
+        scene.azimuth = r.azimuth
+        scene.focus = r.focus
+        scene.scale = r.scale
+        if let f = r.following {
+          follow(f, animated: false)
+          scene.scale = r.scale
+        } else {
+          selected = r.selected
+          scene.select(r.selected)
+        }
+        if r.night { setLighting(.night) }
+        if view.window != nil { resume() }
+        updateCard()
+        updateModelsMenu()
+        return
+      }
       follow(.batch, animated: false)
       if args.contains("-shipping-atelier-night") { setLighting(.night) }
       // QA: a reproducible camera — a zone (manual view) or a selected, followed subject.
@@ -263,7 +293,12 @@ final class RealityAtelierController: UIViewController, UIGestureRecognizerDeleg
     pauseButton.accessibilityIdentifier = "reality.pause"
     lightButton = iconButton("moon", "Ночь") { [weak self] in self?.toggleLight() }
     lightButton.accessibilityIdentifier = "reality.light"
-    let row = stack([back, title, UIView(), lightButton, pauseButton], axis: .horizontal, spacing: 0)
+    let models = iconButton("cube", "Модели") {}
+    models.showsMenuAsPrimaryAction = true
+    models.accessibilityIdentifier = "reality.models"
+    modelsButton = models
+    updateModelsMenu()
+    let row = stack([back, title, UIView(), models, lightButton, pauseButton], axis: .horizontal, spacing: 0)
     row.alignment = .center
     let chips = stack(RealityAtelierScene.Zone.allCases.map { zone in
       let b = UIButton(type: .system)
@@ -293,6 +328,35 @@ final class RealityAtelierController: UIViewController, UIGestureRecognizerDeleg
       header.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -12),
     ])
   }
+  /// «Модели: исходные / NVIDIA» — trial comparison; NVIDIA is offered only when the converted
+  /// models and their contract are bundled.
+  private func updateModelsMenu() {
+    let available = Bundle.main.url(forResource: "InsightAssets", withExtension: nil).flatMap { SimReadyManifest.load(folder: $0) } != nil
+    let items: [(InsightVariant, String)] = [(.original, "Исходные модели"), (.simready, "NVIDIA SimReady")]
+    modelsButton?.menu = UIMenu(title: "Модели", children: items.map { v, title in
+      UIAction(title: title, attributes: v == .simready && !available ? [.disabled] : [], state: v == variant ? .on : .off) {
+        [weak self] _ in self?.switchModels(to: v)
+      }
+    })
+    modelsButton?.accessibilityValue = variant == .original ? "Исходные модели" : "NVIDIA SimReady"
+  }
+  /// Reloads the scene with the other models, keeping time, pause, camera, selection and light.
+  private func switchModels(to v: InsightVariant) {
+    guard v != variant, let scene = atelier else { return }
+    variant = v
+    let restore = Restore(azimuth: scene.azimuth, focus: scene.focus, scale: scene.scale, selected: selected,
+                          following: following, night: lighting == .night)
+    suspend()
+    loadTask?.cancel()
+    if let a = sceneAnchor { arView.scene.removeAnchor(a) }
+    sceneAnchor = nil
+    atelier = nil
+    lighting = .day
+    cardTitle.text = "Загрузка моделей…"
+    updateModelsMenu()
+    loadTask = Task { [weak self] in await self?.load(restore: restore) }
+  }
+
   private func updatePauseButton() {
     pauseButton?.configuration?.image = UIImage(systemName: paused ? "play" : "pause")
     pauseButton?.accessibilityLabel = paused ? "Продолжить демонстрацию" : "Приостановить демонстрацию"

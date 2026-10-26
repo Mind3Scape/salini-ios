@@ -35,6 +35,7 @@
 		3DD172FD85B806AB5B550533 /* EssenceFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88E720C71BBF59B8C11B1184 /* EssenceFeature.swift */; };
 		3E32DB8956BECA97C7E26844 /* aria-final-v2.png in Resources */ = {isa = PBXBuildFile; fileRef = 556DF6C62E8A3AFA814A6C4A /* aria-final-v2.png */; };
 		43297445D9CFC33B635AA854 /* greca-film-v2.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 771E47E08A7C1F8871AA3C03 /* greca-film-v2.mp4 */; };
+		49A8395FEDFD44AEE51A9962 /* SimReadyTrialTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBB03FB279F223DCE3A0B82 /* SimReadyTrialTests.swift */; };
 		4BB844B583E88689E306315E /* essence-sense-core-matte.png in Resources */ = {isa = PBXBuildFile; fileRef = 27A57C0D502B7282BF8FED36 /* essence-sense-core-matte.png */; };
 		50A02DC7410C6D6D3381B045 /* interior.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3776267C1F0DB827DBEBB68A /* interior.jpg */; };
 		52865D44CB6F34BBD75EA0C3 /* greca-editorial.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 91874D6C11CB47206527617E /* greca-editorial.jpg */; };
@@ -71,6 +72,7 @@
 		9331D02F97215CADCBFC3871 /* RALPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293C35086983E07FB5BECC98 /* RALPalette.swift */; };
 		949A4DFF154A134C3E367315 /* RoomPlacementTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B3995E14D30E24FDDFB60D /* RoomPlacementTests.swift */; };
 		97C46CC68B9CAB2DD9496D8E /* SaliniBrand.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A24E557F849810C8791230 /* SaliniBrand.swift */; };
+		9CE717477EB4F3F463CB8CCA /* SimReadyTrial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E4FD057341C860C21025C97 /* SimReadyTrial.swift */; };
 		9DFECD395E16A807C5F7F7D6 /* opera-final-v2.png in Resources */ = {isa = PBXBuildFile; fileRef = F7D8C5E7B7199DC9F26EE9D0 /* opera-final-v2.png */; };
 		9EA4752CB2F7888B8CD315B1 /* essence-cutaway-masks.v1.json in Resources */ = {isa = PBXBuildFile; fileRef = FCDA4231BD7EA8542997332B /* essence-cutaway-masks.v1.json */; };
 		9F12BE1700174BE037319AFC /* DesignerHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BAC5A124656A35A461B387B /* DesignerHome.swift */; };
@@ -139,12 +141,14 @@
 		1BAC5A124656A35A461B387B /* DesignerHome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignerHome.swift; sourceTree = "<group>"; };
 		1BC98A5F99D057EA8E7B64E9 /* StudioLighting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudioLighting.swift; sourceTree = "<group>"; };
 		1C21E6FCCD97876F706ADB2E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		1E4FD057341C860C21025C97 /* SimReadyTrial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimReadyTrial.swift; sourceTree = "<group>"; };
 		200C0338C7066941F0D41381 /* stone.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = stone.jpg; sourceTree = "<group>"; };
 		205C91FAD53CEC3928277F81 /* NinfeaCinema.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NinfeaCinema.swift; sourceTree = "<group>"; };
 		227902BDF40ADF52F72D7B54 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		26759E25474F0086F9C19CDA /* catalog-descriptions.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "catalog-descriptions.json"; sourceTree = "<group>"; };
 		27A57C0D502B7282BF8FED36 /* essence-sense-core-matte.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "essence-sense-core-matte.png"; sourceTree = "<group>"; };
 		293C35086983E07FB5BECC98 /* RALPalette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RALPalette.swift; sourceTree = "<group>"; };
+		2DBB03FB279F223DCE3A0B82 /* SimReadyTrialTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimReadyTrialTests.swift; sourceTree = "<group>"; };
 		306929DD07FBFF39A6397AD6 /* ProposalPDF.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProposalPDF.swift; sourceTree = "<group>"; };
 		319851BB55623979FE40C513 /* Projects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Projects.swift; sourceTree = "<group>"; };
 		3250D2DC9188A757B21D78F4 /* ShippingAtelierTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShippingAtelierTests.swift; sourceTree = "<group>"; };
@@ -277,6 +281,7 @@
 				CA34A1393A57F3751D38106D /* SaliniLinkTests.swift */,
 				0151CE5C734FB58E9B195E9D /* SaliniTests.swift */,
 				3250D2DC9188A757B21D78F4 /* ShippingAtelierTests.swift */,
+				2DBB03FB279F223DCE3A0B82 /* SimReadyTrialTests.swift */,
 			);
 			path = SaliniTests;
 			sourceTree = "<group>";
@@ -381,6 +386,7 @@
 				A98A77E8C97B285267EB05E3 /* SaliniLinks.swift */,
 				055566B28CC5912E72E0A949 /* ShippingAtelier.swift */,
 				80A7C41726D2086E623F4A8A /* ShippingAtelierScene.swift */,
+				1E4FD057341C860C21025C97 /* SimReadyTrial.swift */,
 				1BC98A5F99D057EA8E7B64E9 /* StudioLighting.swift */,
 				4F92CDB3890A5C91EF0EAC1E /* Support.swift */,
 				FA83A08C7BD246CAD8B10652 /* Workspaces.swift */,
@@ -541,6 +547,7 @@
 				6F510EA8ADC8EFCA0FF9398A /* SaliniLinkTests.swift in Sources */,
 				F8C623113C63A0FB6739DD71 /* SaliniTests.swift in Sources */,
 				E52C6B57271B598998C369C3 /* ShippingAtelierTests.swift in Sources */,
+				49A8395FEDFD44AEE51A9962 /* SimReadyTrialTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -588,6 +595,7 @@
 				A8D3DA7E0B00F5B24BB2FE90 /* SaliniLinks.swift in Sources */,
 				DDE9235998F60E78C7E81591 /* ShippingAtelier.swift in Sources */,
 				3A923864B299F30FCCB37D58 /* ShippingAtelierScene.swift in Sources */,
+				9CE717477EB4F3F463CB8CCA /* SimReadyTrial.swift in Sources */,
 				6BC074B032EB288957F741A9 /* StudioLighting.swift in Sources */,
 				D4F081D4382A5BE5549A09CF /* Support.swift in Sources */,
 				6EC6836266FA7B8BAFDD4FF2 /* Workspaces.swift in Sources */,

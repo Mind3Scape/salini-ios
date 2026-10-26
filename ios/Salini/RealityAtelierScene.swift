@@ -63,6 +63,8 @@ final class RealityAtelierScene {
   private(set) var diagnostics = Diagnostics()
   private let folder: URL
   private let models: URL?
+  /// Which assets the scene uses (QA trial of NVIDIA SimReady models, see SimReadyTrial.swift).
+  let variant: InsightVariant
 
   // Movers (posed by `apply`).
   let forklift = Entity()
@@ -78,6 +80,8 @@ final class RealityAtelierScene {
   private var contact: (batch: Entity?, loaded: [Entity]) = (nil, [])
   /// Mast tilt pivot in the forklift's frame (= MAST_PIVOT in the kit script).
   static let mastPivot = SIMD3<Float>(-0.17, 0.30, 0)
+  /// The pivot in use (a replacement forklift may name its own).
+  private var mastPivotPoint = RealityAtelierScene.mastPivot
   let batch = Entity()
   private(set) var loaded: [Entity] = []
   private(set) var truck: Entity?
@@ -113,9 +117,10 @@ final class RealityAtelierScene {
   /// Diagnostics: a constant irradiance instead of the baked lightmap (calibration).
   static var lightmapConstant: Float?
 
-  init(folder: URL, models: URL?) {
+  init(folder: URL, models: URL?, variant: InsightVariant = .original) {
     self.folder = folder
     self.models = models
+    self.variant = variant
     pose = AtelierTimeline(layout: AtelierLayout()).pose(at: 0)
   }
 
@@ -161,6 +166,14 @@ final class RealityAtelierScene {
     }
     setupMovers(kit)
     lap("movers")
+    if variant == .simready {
+      if let manifest = SimReadyManifest.load(folder: folder) {
+        await applySimReady(manifest)
+      } else {
+        report.append("simready: no SimReady/simready.json — original scene")
+      }
+      lap("simready")
+    }
     try await loadProducts(anchors: anchors)
     lap("products")
     try await setupLight()
@@ -650,7 +663,7 @@ final class RealityAtelierScene {
     forklift.position = SIMD3(p.forklift.x, floor, p.forklift.y)
     forklift.orientation = simd_quatf(angle: p.heading, axis: [0, 1, 0])
     // Mast tilt about its pivot; the carriage (and a carried load) lift along the tilted mast.
-    let tilt = Self.about(Self.mastPivot, simd_quatf(angle: p.tilt, axis: [0, 0, 1]))
+    let tilt = Self.about(mastPivotPoint, simd_quatf(angle: p.tilt, axis: [0, 0, 1]))
     let lift = Self.translation([0, p.fork, 0])
     mast?.setTransformMatrix(tilt * mastRest, relativeTo: forklift)
     carriage?.setTransformMatrix(tilt * lift * carriageRest, relativeTo: forklift)
@@ -931,5 +944,120 @@ extension Entity {
   func visit(_ body: (Entity) -> Void) {
     body(self)
     for child in children { child.visit(body) }
+  }
+}
+
+// MARK: - SimReady trial (replacement of our forklift, batch pallet and static props)
+
+extension RealityAtelierScene {
+  /// The replacement forklift's whole extent in the forklift frame (body, carriage, mast and
+  /// wheel groups), nil if no replacement is loaded.
+  func simReadyForkliftBounds() -> BoundingBox? {
+    let parts = forklift.children.filter { $0.name.hasPrefix("SimReady") }
+    guard !parts.isEmpty else { return nil }
+    return parts.map { $0.visualBounds(relativeTo: forklift) }.reduce(parts[0].visualBounds(relativeTo: forklift)) { $0.union($1) }
+  }
+
+  /// Swaps in the converted SimReady models named by the manifest. Each role is replaced only
+  /// when its model loads; our geometry for that role is then hidden (forklift) or cut out of
+  /// the meshes (pallet, static props) — never left underneath as a duplicate. Runs before the
+  /// light setup, so the new models get the same light ownership (hall IBL inside) and the cut
+  /// static meshes get the lightmap. Measurements go to `report` («simready …»).
+  fileprivate func applySimReady(_ m: SimReadyManifest) async {
+    let dir = folder.appendingPathComponent("SimReady")
+    func model(_ file: String) async -> Entity? {
+      do {
+        return try await Entity(contentsOf: dir.appendingPathComponent(file))
+      } catch {
+        report.append("simready: \(file) FAILED to load: \(error.localizedDescription)")
+        return nil
+      }
+    }
+    // Forklift: our body, mast, carriage and wheels are disabled; the posed frame is kept.
+    if let v = m.forklift, let body = await model(v.file) {
+      for child in forklift.children where child.name != "ContactShadow" { child.isEnabled = false }
+      let holder = Entity()
+      holder.name = "SimReadyForklift"
+      forklift.addChild(holder)
+      holder.setTransformMatrix(v.transform.matrix, relativeTo: forklift)
+      holder.addChild(body)
+      func group(_ names: [String], _ title: String) -> Entity? {
+        guard !names.isEmpty else { return nil }
+        let g = Entity()
+        g.name = title
+        forklift.addChild(g)
+        for n in names {
+          guard let e = body.findEntity(named: n) else {
+            report.append("simready: forklift part \(n) not found")
+            continue
+          }
+          g.addChild(e, preservingWorldTransform: true)
+        }
+        return g
+      }
+      // The groups start at identity in the forklift frame: `apply` moves them (tilt · lift).
+      carriage = group(v.carriage, "SimReadyCarriage")
+      carriageRest = matrix_identity_float4x4
+      mast = group(v.mast, "SimReadyMast")
+      mastRest = matrix_identity_float4x4
+      if let p = v.mastPivot, p.count == 3 { mastPivotPoint = SIMD3(p[0], p[1], p[2]) }
+      forkWheels = v.wheels.compactMap { w -> (entity: Entity, rest: simd_float4x4, radius: Float, steers: Bool)? in
+        guard let e = body.findEntity(named: w.name) else {
+          report.append("simready: wheel \(w.name) not found")
+          return nil
+        }
+        // A pivot at the wheel's centre: it spins about the forklift's z (the axles).
+        let b = e.visualBounds(relativeTo: forklift)
+        let pivot = Entity()
+        pivot.name = "SimReadyWheel"
+        forklift.addChild(pivot)
+        pivot.setPosition(b.center, relativeTo: forklift)
+        pivot.addChild(e, preservingWorldTransform: true)
+        return (pivot, pivot.transformMatrix(relativeTo: forklift), b.extents.y / 2, w.steers)
+      }
+      forklift.generateCollisionShapes(recursive: true)
+      let b = simReadyForkliftBounds() ?? holder.visualBounds(relativeTo: forklift)
+      report.append(String(format: "simready forklift bounds x %.2f…%.2f y %.2f…%.2f z %.2f…%.2f (envelope x −%.2f…%.2f, |z| ≤ %.2f, y ≤ %.2f)",
+                           b.min.x, b.max.x, b.min.y, b.max.y, b.min.z, b.max.z, AtelierTimeline.bodyBack, AtelierTimeline.forkLength,
+                           AtelierTimeline.halfWidth, AtelierTimeline.height))
+    }
+    // Batch pallet: cut our pallet out of every batch, put the model in its place.
+    if let p = m.batchPallet, let pallet = await model(p.file) {
+      var cut = 0
+      for holder in [batch] + loaded {
+        holder.visit { e in
+          guard e.components.has(ModelComponent.self) else { return }
+          cut += (try? MeshCut.cut(e, toFrame: e.transformMatrix(relativeTo: holder)) { $0.y < p.removeBelowY }) ?? 0
+        }
+        let c = pallet.clone(recursive: true)
+        c.name = "SimReadyPallet"
+        holder.addChild(c)
+        c.setTransformMatrix(p.transform.matrix, relativeTo: holder)
+        holder.generateCollisionShapes(recursive: true)
+      }
+      let b = pallet.visualBounds(relativeTo: nil)
+      report.append(String(format: "simready pallet: %d triangles cut, model extents %.2f × %.2f × %.2f (unscaled)", cut, b.extents.x, b.extents.y, b.extents.z))
+    }
+    // Static props: cut the regions out of the static meshes, place the models.
+    for prop in m.props {
+      guard let proto = await model(prop.file) else { continue }
+      var cut = 0
+      var statics: [Entity] = staticModels
+      for name in ["StaticProps", "StaticPropsOutside"] {
+        root.findEntity(named: name)?.visit { e in if e.components.has(ModelComponent.self) { statics.append(e) } }
+      }
+      for e in statics where !prop.removeRegions.isEmpty {
+        cut += (try? MeshCut.cut(e, toFrame: e.transformMatrix(relativeTo: nil)) { p in prop.removeRegions.contains { $0.contains(p) } }) ?? 0
+      }
+      for (k, t) in prop.placements.enumerated() {
+        let c = proto.clone(recursive: true)
+        c.name = "SimReady_\(prop.id)_\(k)"
+        root.addChild(c)
+        c.setTransformMatrix(t.matrix, relativeTo: root)
+        insideModels.append(c)
+        insideUnbaked.append(c)
+      }
+      report.append("simready \(prop.id): \(cut) static triangles cut, \(prop.placements.count) placed")
+    }
   }
 }

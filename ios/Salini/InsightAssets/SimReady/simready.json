@@ -1,0 +1,227 @@
+{
+  "forklift": {
+    "file": "forklift.usdc",
+    "transform": {
+      "translation": [
+        0,
+        0,
+        0
+      ],
+      "rotationDegrees": [
+        0,
+        0,
+        0
+      ],
+      "scale": 1
+    },
+    "carriage": [
+      "sm_fork1_c01_mesh_00",
+      "sm_fork2_c01_mesh_00",
+      "sm_mast_stage3_c01_mesh_00",
+      "sm_mast_stage4_c01_mesh_00"
+    ],
+    "mast": [
+      "sm_mast_stage1_c01_mesh_00",
+      "sm_mast_stage2_c01_mesh_00"
+    ],
+    "wheels": [
+      {
+        "name": "sm_wheel1_c01_mesh_00",
+        "steers": true
+      },
+      {
+        "name": "sm_wheel2_c01_mesh_00",
+        "steers": true
+      },
+      {
+        "name": "sm_wheel3_c01_mesh_00",
+        "steers": false
+      },
+      {
+        "name": "sm_wheel4_c01_mesh_00",
+        "steers": false
+      }
+    ],
+    "mastPivot": [
+      -0.16,
+      0.15,
+      0
+    ]
+  },
+  "batchPallet": {
+    "file": "pallet.usdc",
+    "transform": {
+      "translation": [
+        0,
+        0,
+        0
+      ],
+      "rotationDegrees": [
+        0,
+        0,
+        0
+      ],
+      "scale": 1
+    },
+    "removeBelowY": 0.14001
+  },
+  "props": [
+    {
+      "id": "racks",
+      "file": "rack.usdc",
+      "placements": [
+        {
+          "translation": [
+            3.95,
+            1.2,
+            12.25
+          ],
+          "rotationDegrees": [
+            0,
+            90,
+            0
+          ],
+          "scale": 1
+        },
+        {
+          "translation": [
+            3.95,
+            1.2,
+            14.95
+          ],
+          "rotationDegrees": [
+            0,
+            90,
+            0
+          ],
+          "scale": 1
+        },
+        {
+          "translation": [
+            3.95,
+            1.2,
+            17.65
+          ],
+          "rotationDegrees": [
+            0,
+            90,
+            0
+          ],
+          "scale": 1
+        }
+      ],
+      "removeRegions": [
+        {
+          "min": [
+            3.3,
+            1.205,
+            10.8
+          ],
+          "max": [
+            4.6,
+            7.4,
+            19.1
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pallet_stack",
+      "file": "pallet.usdc",
+      "placements": [
+        {
+          "translation": [
+            7,
+            1.2,
+            17.8
+          ],
+          "rotationDegrees": [
+            0,
+            0,
+            0
+          ],
+          "scale": 1
+        },
+        {
+          "translation": [
+            7,
+            1.345,
+            17.8
+          ],
+          "rotationDegrees": [
+            0,
+            0,
+            0
+          ],
+          "scale": 1
+        },
+        {
+          "translation": [
+            7,
+            1.49,
+            17.8
+          ],
+          "rotationDegrees": [
+            0,
+            0,
+            0
+          ],
+          "scale": 1
+        },
+        {
+          "translation": [
+            7,
+            1.6349999999999998,
+            17.8
+          ],
+          "rotationDegrees": [
+            0,
+            0,
+            0
+          ],
+          "scale": 1
+        },
+        {
+          "translation": [
+            7,
+            1.7799999999999998,
+            17.8
+          ],
+          "rotationDegrees": [
+            0,
+            0,
+            0
+          ],
+          "scale": 1
+        },
+        {
+          "translation": [
+            7,
+            1.9249999999999998,
+            17.8
+          ],
+          "rotationDegrees": [
+            0,
+            0,
+            0
+          ],
+          "scale": 1
+        }
+      ],
+      "removeRegions": [
+        {
+          "min": [
+            6.49,
+            1.205,
+            17.19
+          ],
+          "max": [
+            7.51,
+            2.08,
+            18.41
+          ]
+        }
+      ]
+    }
+  ]
+}

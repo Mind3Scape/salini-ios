@@ -1,0 +1,76 @@
+{
+  "author": "NVIDIA",
+  "revision": "524747d9b5e1f21b5b18b56041788c01d745f1a1",
+  "assets": [
+    {
+      "asset": "vehicle_forklift_red_c01",
+      "role": "forklift",
+      "source_points": 528487,
+      "source_polygons": 622891,
+      "parts": [
+        "sm_gearstick1_c01_mesh_00",
+        "sm_mast_stage1_c01_mesh_00",
+        "sm_seat_c01_mesh_00",
+        "sm_mast_stage4_c01_mesh_00",
+        "sm_wheel1_c01_mesh_00",
+        "sm_pedal3_c01_mesh_00",
+        "sm_fork2_c01_mesh_00",
+        "sm_handle1_c01_mesh_00",
+        "sm_brake_c01_mesh_00",
+        "sm_fork1_c01_mesh_00",
+        "sm_seatbelt_holder_c01_mesh_00",
+        "sm_brake_button_c01_mesh_00",
+        "sm_handle2_c01_mesh_00",
+        "sm_controlstick1_c01_mesh_00",
+        "sm_mast_stage3_c01_mesh_00",
+        "sm_wheel4_c01_mesh_00",
+        "sm_controlstick2_c01_mesh_00",
+        "sm_pedal2_c01_mesh_00",
+        "sm_seatbelt_lock_c01_mesh_00",
+        "sm_steering_wheel_c01_mesh_00",
+        "sm_mast_stage2_c01_mesh_00",
+        "sm_seatbelt_lock_button_c01_mesh_00",
+        "sm_seat_head_top_c01_mesh_00",
+        "sm_body_c01_mesh_00",
+        "sm_lightglass_c01_mesh_00",
+        "sm_wheel2_c01_mesh_00",
+        "sm_seat_head_c01_mesh_00",
+        "sm_gearstick3_c01_mesh_00",
+        "sm_wheel3_c01_mesh_00",
+        "sm_pedal1_c01_mesh_00",
+        "sm_gearstick2_c01_mesh_00",
+        "sm_steering_wheel_handle_c01_mesh_00"
+      ],
+      "license": "CC-BY-4.0",
+      "license_file": "vehicle_forklift_red_c01-LICENSE.txt",
+      "changes": "Expanded instances; converted axes and materials to UsdPreviewSurface; atlas/resized textures; mobile geometry simplification. Forklift scaled 0.88 with chassis shortened behind front axle to fit the existing 2 m route envelope; this adapted model is not an equipment specification. Pallet resized to existing transport cradle.",
+      "source": "https://huggingface.co/datasets/nvidia/simready-assets/tree/524747d9b5e1f21b5b18b56041788c01d745f1a1/vehicle_forklift_red_c01"
+    },
+    {
+      "asset": "rack_bulk_storage_a03",
+      "role": "rack",
+      "source_points": 160118,
+      "source_polygons": 188264,
+      "parts": [
+        "sm_rack_a03_mesh_00"
+      ],
+      "license": "CC-BY-4.0",
+      "license_file": "rack_bulk_storage_a03-LICENSE.txt",
+      "changes": "Expanded instances; converted axes and materials to UsdPreviewSurface; atlas/resized textures; mobile geometry simplification. Forklift scaled 0.88 with chassis shortened behind front axle to fit the existing 2 m route envelope; this adapted model is not an equipment specification. Pallet resized to existing transport cradle.",
+      "source": "https://huggingface.co/datasets/nvidia/simready-assets/tree/524747d9b5e1f21b5b18b56041788c01d745f1a1/rack_bulk_storage_a03"
+    },
+    {
+      "asset": "pallet_a01",
+      "role": "pallet",
+      "source_points": 1064,
+      "source_polygons": 1026,
+      "parts": [
+        "sm_pallet_a01_mesh_00"
+      ],
+      "license": "CC-BY-4.0",
+      "license_file": "pallet_a01-LICENSE.txt",
+      "changes": "Expanded instances; converted axes and materials to UsdPreviewSurface; atlas/resized textures; mobile geometry simplification. Forklift scaled 0.88 with chassis shortened behind front axle to fit the existing 2 m route envelope; this adapted model is not an equipment specification. Pallet resized to existing transport cradle.",
+      "source": "https://huggingface.co/datasets/nvidia/simready-assets/tree/524747d9b5e1f21b5b18b56041788c01d745f1a1/pallet_a01"
+    }
+  ]
+}

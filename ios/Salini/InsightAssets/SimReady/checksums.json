@@ -1,0 +1,152 @@
+[
+  {
+    "path": "ASSETS.json",
+    "bytes": 3539,
+    "sha256": "8f627a803507ce71c77c0fb6f8f798cd5f99d5493b0b10b58b795374047c13ca"
+  },
+  {
+    "path": "forklift.usdc",
+    "bytes": 10858782,
+    "sha256": "fbaa8f71279c0cf475504bbb5ebf0a2231799cac0a2cf4999e848d434e7f30aa"
+  },
+  {
+    "path": "geometry-stats.json",
+    "bytes": 241,
+    "sha256": "3aaabfe90a26b6f7a00e2f3b86c2e84362ca725a1e920cc3834f200c639fb172"
+  },
+  {
+    "path": "pallet.usdc",
+    "bytes": 96190,
+    "sha256": "7deeae25787f4b1835b0d4da8be5445efa88ac3eb3f8c2cba5ee432e0a4a6571"
+  },
+  {
+    "path": "pallet_a01-LICENSE.txt",
+    "bytes": 18657,
+    "sha256": "9ba9550ad48438d0836ddab3da480b3b69ffa0aac7b7878b5a0039e7ab429411"
+  },
+  {
+    "path": "rack.usdc",
+    "bytes": 2904905,
+    "sha256": "232f80425034e0111dba77b6a4d8cb0fea92f52a76518877053c11bf45dc58ad"
+  },
+  {
+    "path": "rack_bulk_storage_a03-LICENSE.txt",
+    "bytes": 18657,
+    "sha256": "9ba9550ad48438d0836ddab3da480b3b69ffa0aac7b7878b5a0039e7ab429411"
+  },
+  {
+    "path": "simready.json",
+    "bytes": 3823,
+    "sha256": "335a5efd09bf296bede7120615226d0fe82bca47f5f7444b6ca12ff982c5c3f9"
+  },
+  {
+    "path": "textures/T_Forklift_C01_Albedo.jpg",
+    "bytes": 351465,
+    "sha256": "1fe52bc448ff6bed28b8b36cf0ae4cc9517de7711e85ac289568f7d58a5b7e43"
+  },
+  {
+    "path": "textures/T_Forklift_C01_Decals_Albedo.1001.jpg",
+    "bytes": 89512,
+    "sha256": "7e2c42a1974ee540f65e870142d2a6e1f0a2139b826ddb5b2131ca816b0fd824"
+  },
+  {
+    "path": "textures/T_Forklift_C01_Decals_Normal.1001.jpg",
+    "bytes": 40160,
+    "sha256": "6e6ec982bd791c05cb8fddd7c14a348fbb0009535d8dd9e71b41cd1bc38b421d"
+  },
+  {
+    "path": "textures/T_Forklift_C01_Decals_ORM.1001_B.jpg",
+    "bytes": 29299,
+    "sha256": "98738bbc8cba5fcf5fca093a3d9f4f85b34cb5195ff9421f67c79c32de663551"
+  },
+  {
+    "path": "textures/T_Forklift_C01_Decals_ORM.1001_G.jpg",
+    "bytes": 157017,
+    "sha256": "beff26a25c5f44f6a7c5c372c024708899fa534f374d8221e0571cff124eba59"
+  },
+  {
+    "path": "textures/T_Forklift_C01_Normal.jpg",
+    "bytes": 82443,
+    "sha256": "863f541e052b8aca1ee683d71ffa60ea1cda3be5b3bd3eb4aaa6b0fbf257592b"
+  },
+  {
+    "path": "textures/T_Forklift_C01_ORM_B.jpg",
+    "bytes": 157926,
+    "sha256": "681b77385d692041d388533b74a3ea482f95a37416c2a22cf3ff6194d49517ab"
+  },
+  {
+    "path": "textures/T_Forklift_C01_ORM_G.jpg",
+    "bytes": 440651,
+    "sha256": "9e605bd762dfd170ffa7df4319fbfb786fa098399a2fc2f79c644965e4a46f2a"
+  },
+  {
+    "path": "textures/T_Forklift_C01_Rough_B.jpg",
+    "bytes": 440651,
+    "sha256": "9e605bd762dfd170ffa7df4319fbfb786fa098399a2fc2f79c644965e4a46f2a"
+  },
+  {
+    "path": "textures/T_Forklift_C01_Rough_G.jpg",
+    "bytes": 440651,
+    "sha256": "9e605bd762dfd170ffa7df4319fbfb786fa098399a2fc2f79c644965e4a46f2a"
+  },
+  {
+    "path": "textures/T_Metal_Painted_White_Rough_A_Normal.jpg",
+    "bytes": 30476,
+    "sha256": "282f3942874112b45557c6c65c65b75209141747c387b4a4a845972eb69c2a0c"
+  },
+  {
+    "path": "textures/T_Metal_Painted_White_Rough_A_ORM_B.jpg",
+    "bytes": 29299,
+    "sha256": "98738bbc8cba5fcf5fca093a3d9f4f85b34cb5195ff9421f67c79c32de663551"
+  },
+  {
+    "path": "textures/T_Metal_Painted_White_Rough_A_ORM_G.jpg",
+    "bytes": 140473,
+    "sha256": "99aa45ff179f1feab82ae6817f20cae109d264dc8117a36e4a957d7902f59abc"
+  },
+  {
+    "path": "textures/T_Pallet_A1_Albedo.jpg",
+    "bytes": 338549,
+    "sha256": "fd0311d0814496a2df69958126f6d6cb0e24eb5b7a27e0d451c570ce17fdba45"
+  },
+  {
+    "path": "textures/T_Pallet_A1_Normal.jpg",
+    "bytes": 195317,
+    "sha256": "3340ea610ba4c4124c80abbcb2a088908d32fb00c2b73594cc497e15425d5da5"
+  },
+  {
+    "path": "textures/T_Pallet_A1_ORM_B.jpg",
+    "bytes": 32078,
+    "sha256": "49f0fb3aba871f5765f9d85a5bfc09a761c5136ff757512a9c4daba1095c197e"
+  },
+  {
+    "path": "textures/T_Pallet_A1_ORM_G.jpg",
+    "bytes": 279985,
+    "sha256": "288005e02bd99c05d6d788482d5a37a16f69ac6c1baf45cab30c934539836f6a"
+  },
+  {
+    "path": "textures/T_Wood_Pressed_A1_Albedo.jpg",
+    "bytes": 694740,
+    "sha256": "051faf38f00c265309a08c777042587c6b3217c214d0d0e84ab605a746edff8c"
+  },
+  {
+    "path": "textures/T_Wood_Pressed_A1_Normal.jpg",
+    "bytes": 1563819,
+    "sha256": "6124f007e64c0cb7728ec70fa3b60fc200b795ca0f137ea23a294354a2286306"
+  },
+  {
+    "path": "textures/T_Wood_Pressed_A1_ORM_B.jpg",
+    "bytes": 29299,
+    "sha256": "98738bbc8cba5fcf5fca093a3d9f4f85b34cb5195ff9421f67c79c32de663551"
+  },
+  {
+    "path": "textures/T_Wood_Pressed_A1_ORM_G.jpg",
+    "bytes": 29299,
+    "sha256": "c051b5cb6c9aacf31e2a723193aaf045245f26dfc532350dd8b4e49b9ec65d09"
+  },
+  {
+    "path": "vehicle_forklift_red_c01-LICENSE.txt",
+    "bytes": 18657,
+    "sha256": "9ba9550ad48438d0836ddab3da480b3b69ffa0aac7b7878b5a0039e7ab429411"
+  }
+]

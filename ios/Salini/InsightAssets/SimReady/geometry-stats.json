@@ -1,0 +1,14 @@
+{
+  "forklift": {
+    "triangles_before": 997893,
+    "triangles_after": 192926
+  },
+  "rack": {
+    "triangles_before": 324572,
+    "triangles_after": 49236
+  },
+  "pallet": {
+    "triangles_before": 2052,
+    "triangles_after": 1640
+  }
+}
